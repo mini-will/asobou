@@ -8,6 +8,10 @@
                     <div class="card-body">
                         I'm an example component.
                     </div>
+
+                    <v-btn color="accent">
+                        <router-link to="/playindex">PlayIndex</router-link>
+                    </v-btn>
                 </div>
             </div>
         </div>
