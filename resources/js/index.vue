@@ -7,7 +7,7 @@
                 <router-link to="/">Home</router-link>
             </v-btn>
             <v-btn color="accent">
-                <router-link to="/second">Second</router-link>
+                <router-link to="/playindex">PlayIndex</router-link>
             </v-btn>
         </v-app-bar>
 

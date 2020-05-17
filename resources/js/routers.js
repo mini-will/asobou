@@ -1,16 +1,16 @@
 import VueRouter from 'vue-router';
-import ExampleComponent from './components/ExampleComponent'
-import Example2Component from './components/Example2Component'
+import TopPage from './components/TopPage'
+import PlayIndex from './components/PlayIndex'
 
 const routes = [{
         path: "/",
-        component: ExampleComponent,
+        component: TopPage,
         name: "home"
     },
     {
-        path: "/second",
-        component: Example2Component,
-        name: "second"
+        path: "/playindex",
+        component: PlayIndex,
+        name: "playindex"
     }
 ];
 
