@@ -37476,8 +37476,15 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
+    "v-app",
     [
+      _c(
+        "v-app-bar",
+        { attrs: { color: "primary", dark: "", app: "" } },
+        [_c("v-toolbar-title", [_vm._v("Vuetify")])],
+        1
+      ),
+      _vm._v(" "),
       _c("router-link", { attrs: { to: "/" } }, [_vm._v("Home")]),
       _vm._v(" "),
       _c("router-link", { attrs: { to: "/second" } }, [_vm._v("Second")]),
