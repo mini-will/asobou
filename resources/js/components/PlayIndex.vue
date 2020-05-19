@@ -3,7 +3,6 @@
     <v-container>
       <br />
       <h2>あそびをえらんでね</h2>
-
       <div v-if="!loading">
         <v-row>
           <v-col
@@ -67,12 +66,6 @@ export default {
       //         src: "http://img.youtube.com/vi/YO-wTijsPcs/hqdefault.jpg",
       //         flex: 6
       //     },
-      //     {
-      //         id: 2,
-      //         title: "おやつ",
-      //         src: "http://img.youtube.com/vi/izjA7bqmH3k/hqdefault.jpg",
-      //         flex: 6
-      //     }
       // ]
     };
   },
@@ -84,6 +77,7 @@ export default {
 
       console.log(this.playcards);
     });
-  }
+  },
+  method: {}
 };
 </script>
