@@ -78,7 +78,7 @@ export default {
   },
   created() {
     this.loading = true;
-    axios.get(`/api/playindex`).then(response => {
+    axios.get(`/api/playindex?play_category=oyatsu`).then(response => {
       this.playcards = response.data;
       this.loading = false;
 

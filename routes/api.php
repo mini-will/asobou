@@ -19,4 +19,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('playindex', 'Api\PlayIndexController@index');
+Route::get('playindex', 'Api\PlayIndexController@show');
