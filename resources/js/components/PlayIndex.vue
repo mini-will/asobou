@@ -5,8 +5,68 @@
       <h2>あそびをえらんでね</h2>
       <div v-if="!loading">
         <v-row>
-          <v-col
-            v-for="playcard in playcards"
+          <v-col cols="12" sm="6" class="d-flex justify-center">
+            <v-card>
+              <v-responsive :aspect-ratio="16 / 9">
+                <v-img
+                  :src="playcards.key1[0].src"
+                  class="white--text align-end"
+                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                  height="200px"
+                >
+                  <v-card-title v-text="playcards.key1[0].title" class="headline font-weight-bold"></v-card-title>
+                </v-img>
+              </v-responsive>
+            </v-card>
+          </v-col>
+
+          <v-col cols="12" sm="6" class="d-flex justify-center">
+            <v-card>
+              <v-responsive :aspect-ratio="16 / 9">
+                <v-img
+                  :src="playcards.key2[0].src"
+                  class="white--text align-end"
+                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                  height="200px"
+                >
+                  <v-card-title v-text="playcards.key2[0].title" class="headline font-weight-bold"></v-card-title>
+                </v-img>
+              </v-responsive>
+            </v-card>
+          </v-col>
+
+          <v-col cols="12" sm="6" class="d-flex justify-center">
+            <v-card>
+              <v-responsive :aspect-ratio="16 / 9">
+                <v-img
+                  :src="playcards.key3[0].src"
+                  class="white--text align-end"
+                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                  height="200px"
+                >
+                  <v-card-title v-text="playcards.key3[0].title" class="headline font-weight-bold"></v-card-title>
+                </v-img>
+              </v-responsive>
+            </v-card>
+          </v-col>
+
+          <v-col cols="12" sm="6" class="d-flex justify-center">
+            <v-card>
+              <v-responsive :aspect-ratio="16 / 9">
+                <v-img
+                  :src="playcards.key4[0].src"
+                  class="white--text align-end"
+                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                  height="200px"
+                >
+                  <v-card-title v-text="playcards.key4[0].title" class="headline font-weight-bold"></v-card-title>
+                </v-img>
+              </v-responsive>
+            </v-card>
+          </v-col>
+
+          <!-- <v-col
+            v-for="playcard in playcards.key1"
             :key="playcard.id"
             cols="12"
             sm="6"
@@ -29,22 +89,13 @@
 
                 <v-card-actions>
                   <v-spacer></v-spacer>
-
                   <v-btn icon>
                     <v-icon>mdi-heart</v-icon>
-                  </v-btn>
-
-                  <v-btn icon>
-                    <v-icon>mdi-bookmark</v-icon>
-                  </v-btn>
-
-                  <v-btn icon>
-                    <v-icon>mdi-share-variant</v-icon>
                   </v-btn>
                 </v-card-actions>
               </v-responsive>
             </v-card>
-          </v-col>
+          </v-col>-->
         </v-row>
       </div>
 
@@ -57,7 +108,7 @@
 export default {
   data() {
     return {
-      playcards: null,
+      playcards: [],
       loading: false
       // cards: [
       //     {
@@ -70,14 +121,18 @@ export default {
     };
   },
   created() {
-    this.getPlayCard("oyatsu");
+    this.getPlayCard("oyatsu", "key1");
+    this.getPlayCard("exercise", "key2");
+    this.getPlayCard("making", "key3");
+    this.getPlayCard("game", "key4");
   },
   mounted() {},
   methods: {
-    getPlayCard: function(category) {
+    getPlayCard: function(category, key) {
       this.loading = true;
       axios.get(`/api/playindex?play_category=${category}`).then(response => {
-        this.playcards = response.data;
+        // this.playcards = response.data;
+        this.$set(this.playcards, key, response.data);
         this.loading = false;
       });
     }
