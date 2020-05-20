@@ -70,14 +70,17 @@ export default {
     };
   },
   created() {
-    this.loading = true;
-    axios.get(`/api/playindex?play_category=oyatsu`).then(response => {
-      this.playcards = response.data;
-      this.loading = false;
-
-      console.log(this.playcards);
-    });
+    this.getPlayCard("oyatsu");
   },
-  method: {}
+  mounted() {},
+  methods: {
+    getPlayCard: function(category) {
+      this.loading = true;
+      axios.get(`/api/playindex?play_category=${category}`).then(response => {
+        this.playcards = response.data;
+        this.loading = false;
+      });
+    }
+  }
 };
 </script>
