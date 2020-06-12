@@ -4,6 +4,36 @@
       <br />
       <h2>あそびをえらんでね</h2>
       <div v-if="!loading">
+        <v-col cols="12" sm="6" class="d-flex justify-center">
+          <v-card>
+            <v-responsive :aspect-ratio="16 / 9">
+              <v-img
+                :src="playcards.key2[0].src"
+                class="white--text align-end"
+                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                height="200px"
+              >
+                <v-card-title v-text="playcards.key2[0].title" class="headline font-weight-bold"></v-card-title>
+              </v-img>
+            </v-responsive>
+          </v-card>
+        </v-col>
+
+        <v-col cols="12" sm="6" class="d-flex justify-center">
+          <v-card>
+            <v-responsive :aspect-ratio="16 / 9">
+              <v-img
+                :src="playcards.key3[0].src"
+                class="white--text align-end"
+                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                height="200px"
+              >
+                <v-card-title v-text="playcards.key3[0].title" class="headline font-weight-bold"></v-card-title>
+              </v-img>
+            </v-responsive>
+          </v-card>
+        </v-col>
+
         <v-row>
           <v-col cols="12" sm="6" class="d-flex justify-center">
             <v-card>
@@ -15,36 +45,6 @@
                   height="200px"
                 >
                   <v-card-title v-text="playcards.key1[0].title" class="headline font-weight-bold"></v-card-title>
-                </v-img>
-              </v-responsive>
-            </v-card>
-          </v-col>
-
-          <v-col cols="12" sm="6" class="d-flex justify-center">
-            <v-card>
-              <v-responsive :aspect-ratio="16 / 9">
-                <v-img
-                  :src="playcards.key2[0].src"
-                  class="white--text align-end"
-                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                  height="200px"
-                >
-                  <v-card-title v-text="playcards.key2[0].title" class="headline font-weight-bold"></v-card-title>
-                </v-img>
-              </v-responsive>
-            </v-card>
-          </v-col>
-
-          <v-col cols="12" sm="6" class="d-flex justify-center">
-            <v-card>
-              <v-responsive :aspect-ratio="16 / 9">
-                <v-img
-                  :src="playcards.key3[0].src"
-                  class="white--text align-end"
-                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                  height="200px"
-                >
-                  <v-card-title v-text="playcards.key3[0].title" class="headline font-weight-bold"></v-card-title>
                 </v-img>
               </v-responsive>
             </v-card>
