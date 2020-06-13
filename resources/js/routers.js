@@ -1,17 +1,31 @@
 import VueRouter from 'vue-router';
-import TopPage from './components/TopPage'
-import PlayIndex from './components/PlayIndex'
+import TopPage from './Pages/TopPage'
+import PlayIndex from './Pages/PlayIndex'
+import PlayInfo from './Pages/PlayInfo.vue'
+import PlayAllItem from './Pages/PlayAllItem.vue'
+
 
 const routes = [{
         path: "/",
+        name: "home",
         component: TopPage,
-        name: "home"
     },
     {
         path: "/playindex",
+        name: "playindex",
         component: PlayIndex,
-        name: "playindex"
-    }
+    },
+    {
+        path: '/playinfo/:id',
+        name: 'PlayInfo',
+        component: PlayInfo
+    },
+    {
+        path: '/playallitem',
+        name: 'PlayAllItem',
+        component: PlayAllItem
+    },
+
 ];
 
 const router = new VueRouter({
