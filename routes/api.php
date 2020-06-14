@@ -20,3 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('playindex', 'Api\PlayIndexController@show');
+
+Route::get('playproduct', 'Api\PlayProductController@index');
+Route::get('playproduct/{id}', 'Api\PlayProductController@show');
+Route::get('search', 'Api\PlayProductSearchController@show');
