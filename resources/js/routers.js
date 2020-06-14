@@ -1,6 +1,6 @@
 import VueRouter from 'vue-router';
 import TopPage from './Pages/TopPage'
-import PlayIndex from './Pages/PlayIndex'
+// import PlayIndex from './Pages/PlayIndex'
 import PlayInfo from './Pages/PlayInfo.vue'
 import PlayAllItem from './Pages/PlayAllItem.vue'
 
@@ -9,11 +9,6 @@ const routes = [{
         path: "/",
         name: "home",
         component: TopPage,
-    },
-    {
-        path: "/playindex",
-        name: "playindex",
-        component: PlayIndex,
     },
     {
         path: '/playinfo/:id',
