@@ -1,57 +1,27 @@
-,id,timestamps,inout,category,kanji_name,display_name,image_url,refe_link,youtube_video_Id,tool_tags,recommend_min_age,recommend_max_age,time_minutes,description
-,,,in,うんどう,筋肉ラジオ体操,きんにく らじおたいそう,http://img.youtube.com/vi/jPeHKtiFXIg/hqdefault.jpg,https://www.youtube.com/watch?v=jPeHKtiFXIg,jPeHKtiFXIg,2,,2,10,description text
-,,,out,うんどう,縄跳び,なわとび,http://img.youtube.com/vi/2NNFyE3AtVg/hqdefault.jpg,https://www.youtube.com/watch?v=2NNFyE3AtVg&t=2s,2NNFyE3AtVg,1,縄跳び,3,15,description text
-,,,in,うんどう,【ポケモン公式】「ラジオ体操第一」ピカチュウ＆イシツブテver. -ポケモン Kids TV,ポケモンらじおたいそう,http://img.youtube.com/vi/f1T5rUipf2M/mqdefault.jpg,https://www.youtube.com/watch?v=f1T5rUipf2M,f1T5rUipf2M,1,,2,10,description text
-,,,in,おえかき,"
-簡単！ミッキーマウス描き方 | How to draw Mickey Mouse ｜ディズニー",おえかき みっきー,http://img.youtube.com/vi/zaoo8zWT8ek/hqdefault.jpg,https://www.youtube.com/watch?v=zaoo8zWT8ek&t=8s,zaoo8zWT8ek,1,,2,10,description text
-,,,out,うんどう,カーズ三輪車でお散歩！生後10ヶ月赤ちゃん。Emma Channel. Cars-tricycle for baby.,さんりんしゃ,http://img.youtube.com/vi/TWE8cjkNNj0/hqdefault.jpg,https://www.youtube.com/watch?v=TWE8cjkNNj0&t=1s,TWE8cjkNNj0,1,三輪車,1,15,description text
-,,,out,うんどう,ストライダー,すとらいだー,http://img.youtube.com/vi/lfQpg0a06XE/hqdefault.jpg,https://www.youtube.com/watch?v=lfQpg0a06XE,lfQpg0a06XE,1,ストライダー,3,30,description text
-,,,in,おりがみ,"
-折り紙『手裏剣』の折り方をどこよりもわかりやすく解説",おりがみ しゅりけん,http://img.youtube.com/vi/0_Ex9uXFI_A/hqdefault.jpg,https://www.youtube.com/watch?v=0_Ex9uXFI_A&t=57s,0_Ex9uXFI_A,1,折り紙,3,15,description text
-,,,in,おやつ,お店のふわふわパンケーキ【ホットケーキミックスで簡単♪】Fluffy thick pancake,おやつ ほっとけーき,http://img.youtube.com/vi/cmAEu9gZQE0/hqdefault.jpg,https://www.youtube.com/watch?v=cmAEu9gZQE0,cmAEu9gZQE0,1,ホットケーキ粉,3,30,description text
-,,,out,うんどう,ハウステンボスの巨大プール！わいわいビーチで遊んだよ♪,ぷーる,http://img.youtube.com/vi/wX-SLZ25Dy8/hqdefault.jpg,https://www.youtube.com/watch?v=wX-SLZ25Dy8,wX-SLZ25Dy8,2,プール,3,60,description text
-,,,out,うんどう,新宿御苑,こうえん,http://img.youtube.com/vi/23gqL41YZdg/hqdefault.jpg,https://www.youtube.com/watch?v=23gqL41YZdg,23gqL41YZdg,1,,2,60,description text
-,,,in,おやつ,バナナケーキ,ばななけーき,http://img.youtube.com/vi/pktkAKsTsyU/hqdefault.jpg,https://www.youtube.com/watch?v=pktkAKsTsyU,pktkAKsTsyU,1,,3,15,description text
-,,,in,おもちゃ,はじめてのレゴ,れご,http://img.youtube.com/vi/pjBhEj5DCeI/hqdefault.jpg,https://www.youtube.com/watch?v=pjBhEj5DCeI,pjBhEj5DCeI,1,レゴ,3,30,description text
-,,,in,げーむ,【人生初】あつまれどうぶつの森遊んでみた！ハート池の島厳選したら地獄でしたw【あつ森】【ヒカキンゲームズ】,どうぶつのもり,http://img.youtube.com/vi/tM1eKXldWdk/hqdefault.jpg,https://www.youtube.com/watch?v=tM1eKXldWdk&t=16s,tM1eKXldWdk,1,switch,5,30,【人生初】あつまれどうぶつの森遊んでみた！ハート池の島厳選したら地獄でしたw【あつ森】【ヒカキンゲームズ】
-,,,in,おりがみ,ギネス認定[折り紙origami]世界一飛行時間が長い紙飛行機の折り方 The best in the world paper airplane,おりがみ ひこうき,http://img.youtube.com/vi/A6g5cKAwSRA/hqdefault.jpg,https://www.youtube.com/watch?v=A6g5cKAwSRA,A6g5cKAwSRA,1,折り紙,3,15,この紙飛行機は飛行時間がギネスに認定されてる物です！是非みなさんも飛ばしてみたらいかがでしょうか？
-,,,in,うんどう,【赤ちゃん大喜び】ふれあい遊びうた👶🏻🍼💞【保育園】,あそびうた,http://img.youtube.com/vi/sLw_W4vnYdw/hqdefault.jpg,https://www.youtube.com/watch?v=sLw_W4vnYdw,sLw_W4vnYdw,1,,1,10,"★赤ちゃんの首がすわってから
-行ってください！強く握りすぎたり
-無理に関節を曲げたりせずに優しく
-ふれあい体操を楽しんでください☺️💓
-赤ちゃんの機嫌が良い時に行いましょう！
-★目と目を合わせたり微笑みかけたり
-語りかけたりしながらスキンシップを
-とることで安心感を与えることができます🐣
-★適度な身体刺激により､こどもの成長に関わる
-手足や指の機能、運動能力などを向上させます💡"
-,,,in,うんどう,赤ちゃんのリトミック体操/ミッキーマウスマーチ①,ミッキーマウスマーチ,http://img.youtube.com/vi/86hIgLVOAkM/hqdefault.jpg,https://www.youtube.com/watch?v=86hIgLVOAkM,86hIgLVOAkM,1,,1,10,"0歳からできるリトミックのご紹介です。
-慣れてきたら、音楽に合わせずお母さんのかけ声で触る部位を変えていきましょう。
-タイミングやテンポなどを変え応用していくことによりリトミックの要素が増えていきます！"
-,,,in,うんどう,＜NHK＞2020応援ソング「パプリカ」ダンス ミュージックビデオ,ぱぷりか,http://img.youtube.com/vi/T0valuAksuo/hqdefault.jpg,https://www.youtube.com/watch?v=T0valuAksuo,T0valuAksuo,1,,1,10,"「＜NHK＞2020応援ソング プロジェクト」https://sports.nhk.or.jp/dream/song/?...
-「NHK for School＜NHK＞2020応援ソング『パプリカ』」http://www.nhk.or.jp/school/paprika/?...
-
-米津玄師プロデュース！＜NHK＞2020応援ソング「パプリカ」
-この曲を歌う子どもユニットFoorin（フーリン）によるダンスミュージックビデオ！
-詞・曲・編 ： 米津玄師　　振付 ： 辻本知彦＋菅原小春
-うた ： Foorin
-
-2020年とその先の未来に向かって頑張っているすべての人に贈る応援ソング！
-このプロジェクトは「東京オリンピック・パラリンピック競技大会組織委員会」によって認証された「東京2020公認プログラム」です。"
-,,,in,おえかき,【0~2歳】汚れない！超簡単！フィンガーペイントとは？【保育園でのやり方・ねらい】,ふぃんがーぺいんと,http://img.youtube.com/vi/F34N1E2yeE8/hqdefault.jpg,https://www.youtube.com/watch?v=F34N1E2yeE8,F34N1E2yeE8,1,,1,30,【0~2歳】汚れない！超簡単！フィンガーペイントとは？【保育園でのやり方・ねらい】
-,,,in,おえかき,【にじみ絵】超簡単！可愛い！ひなまつり製作【2~3歳児向け】,ひなまつり,http://img.youtube.com/vi/wKx1L-v16Mw/hqdefault.jpg,https://www.youtube.com/watch?v=wKx1L-v16Mw,wKx1L-v16Mw,1,,2,30,【にじみ絵】超簡単！可愛い！ひなまつり製作【2~3歳児向け】
-,,,in,うた,星野源 - ドラえもん（Live at Tokyo Dome 2019）,うた どらえもん,http://img.youtube.com/vi/I_Na3ZUUooM/hqdefault.jpg,https://www.youtube.com/watch?v=I_Na3ZUUooM,I_Na3ZUUooM,1,,1,10,"Netflixにて全世界配信中。星野源『DOME TOUR ""POP VIRUS"" at TOKYO DOME』
-http://www.netflix.com/title/81171871
-（LIVE本編のみ配信）
-
-星野源 Blu-ray & DVD 『DOME TOUR “POP VIRUS” at TOKYO DOME』
- https://jvcmusic.lnk.to/dometourpopvi..."
-,,,in,おりがみ,折り紙 ぱくぱく,おりがみ ぱくぱく,http://img.youtube.com/vi/Do8FX9D2Sac/hqdefault.jpg,https://www.youtube.com/watch?v=Do8FX9D2Sac,Do8FX9D2Sac,1,折り紙,1,10,"折り紙で「パクパク（ぱくぱく）」を折ってみました。日本伝統の折り紙で、とても簡単に折る事が出来るので、お子様にもオススメです。顔を描くともっとかわいくなるパクパクの折り紙です。ここで使っている折り紙は15cm×15cmの片面折り紙となります。
-
-☆よろしければ動画の評価とコメントをお願いします！"
-,,,in,おやつ,フルーチェ,ふるーちぇ,http://img.youtube.com/vi/kIqPkaRj90o/hqdefault.jpg,https://www.youtube.com/watch?v=kIqPkaRj90o,kIqPkaRj90o,1,フルーチェ,1,15,description text
-,,,in,おえかき,アンパンマン♬ 天才脳おしゃべりらくがき教室DXでおえかきしたよ！おとがなるペン！？ばいきんまんもお絵描き♬,あんぱんまん おえかき,http://img.youtube.com/vi/lAtuSxjQn2c/hqdefault.jpg,https://www.youtube.com/watch?v=lAtuSxjQn2c,lAtuSxjQn2c,1,,3,15,description text
-,,,in,おりがみ,超簡単！可愛い♡折り紙1枚で牛乳パック風紙袋の作り方,おりがみ かみぶくろ,http://img.youtube.com/vi/6ZBMe5ZLogI/hqdefault.jpg,https://www.youtube.com/watch?v=6ZBMe5ZLogI,6ZBMe5ZLogI,1,折り紙,3,15,description text
-,,,out,うんどう,自転車,じてんしゃ,http://img.youtube.com/vi/GKtlw3w3YHE/hqdefault.jpg,https://www.youtube.com/watch?v=GKtlw3w3YHE,GKtlw3w3YHE,1,自転車,3,30,description text
-,,,out,うんどう,公園 ブランコ,ぶらんこ,http://img.youtube.com/vi/47RafczeJ8k/hqdefault.jpg,https://www.youtube.com/watch?v=47RafczeJ8k,47RafczeJ8k,1,公園,2,30,description text
-,,,out,うんどう,公園 滑り台,すべりだい,http://img.youtube.com/vi/p37xK5xjL98/hqdefault.jpg,https://www.youtube.com/watch?v=p37xK5xjL98,p37xK5xjL98,1,応援,2,30,description text
+1,2020/06/14,in,うんどう,筋肉ラジオ体操,きんにく らじおたいそう,http://img.youtube.com/vi/jPeHKtiFXIg/hqdefault.jpg,https://www.youtube.com/watch?v=jPeHKtiFXIg,jPeHKtiFXIg,,2,2,10,description text
+2,2020/06/14,out,うんどう,縄跳び,なわとび,http://img.youtube.com/vi/2NNFyE3AtVg/hqdefault.jpg,https://www.youtube.com/watch?v=2NNFyE3AtVg&t=2s,2NNFyE3AtVg,縄跳び,3,3,15,description text
+3,2020/06/14,in,うんどう,【ポケモン公式】「ラジオ体操第一」ピカチュウ＆イシツブテver. -ポケモン Kids TV,ポケモンらじおたいそう,http://img.youtube.com/vi/f1T5rUipf2M/mqdefault.jpg,https://www.youtube.com/watch?v=f1T5rUipf2M,f1T5rUipf2M,,2,2,10,description text
+4,2020/06/14,in,おえかき,簡単！ミッキーマウス描き方 | How to draw Mickey Mouse ｜ディズニー,おえかき みっきー,http://img.youtube.com/vi/zaoo8zWT8ek/hqdefault.jpg,https://www.youtube.com/watch?v=zaoo8zWT8ek&t=8s,zaoo8zWT8ek,,2,2,10,description text
+5,2020/06/14,out,うんどう,カーズ三輪車でお散歩！生後10ヶ月赤ちゃん。Emma Channel. Cars-tricycle for baby.,さんりんしゃ,http://img.youtube.com/vi/TWE8cjkNNj0/hqdefault.jpg,https://www.youtube.com/watch?v=TWE8cjkNNj0&t=1s,TWE8cjkNNj0,三輪車,1,1,15,description text
+6,2020/06/14,out,うんどう,ストライダー,すとらいだー,http://img.youtube.com/vi/lfQpg0a06XE/hqdefault.jpg,https://www.youtube.com/watch?v=lfQpg0a06XE,lfQpg0a06XE,ストライダー,3,3,30,description text
+7,2020/06/14,in,おりがみ,折り紙『手裏剣』の折り方をどこよりもわかりやすく解説,おりがみ しゅりけん,http://img.youtube.com/vi/0_Ex9uXFI_A/hqdefault.jpg,https://www.youtube.com/watch?v=0_Ex9uXFI_A&t=57s,0_Ex9uXFI_A,折り紙,3,3,15,description text
+8,2020/06/14,in,おやつ,お店のふわふわパンケーキ【ホットケーキミックスで簡単♪】Fluffy thick pancake,おやつ ほっとけーき,http://img.youtube.com/vi/cmAEu9gZQE0/hqdefault.jpg,https://www.youtube.com/watch?v=cmAEu9gZQE0,cmAEu9gZQE0,ホットケーキ粉,3,3,30,description text
+9,2020/06/14,out,うんどう,ハウステンボスの巨大プール！わいわいビーチで遊んだよ♪,ぷーる,http://img.youtube.com/vi/wX-SLZ25Dy8/hqdefault.jpg,https://www.youtube.com/watch?v=wX-SLZ25Dy8,wX-SLZ25Dy8,プール,3,3,60,description text
+10,2020/06/14,out,うんどう,新宿御苑,こうえん,http://img.youtube.com/vi/23gqL41YZdg/hqdefault.jpg,https://www.youtube.com/watch?v=23gqL41YZdg,23gqL41YZdg,,2,2,60,description text
+11,2020/06/14,in,おやつ,バナナケーキ,ばななけーき,http://img.youtube.com/vi/pktkAKsTsyU/hqdefault.jpg,https://www.youtube.com/watch?v=pktkAKsTsyU,pktkAKsTsyU,,3,3,15,description text
+12,2020/06/14,in,おもちゃ,はじめてのレゴ,れご,http://img.youtube.com/vi/pjBhEj5DCeI/hqdefault.jpg,https://www.youtube.com/watch?v=pjBhEj5DCeI,pjBhEj5DCeI,レゴ,3,3,30,description text
+13,2020/06/14,in,げーむ,【人生初】あつまれどうぶつの森遊んでみた！ハート池の島厳選したら地獄でしたw【あつ森】【ヒカキンゲームズ】,どうぶつのもり,http://img.youtube.com/vi/tM1eKXldWdk/hqdefault.jpg,https://www.youtube.com/watch?v=tM1eKXldWdk&t=16s,tM1eKXldWdk,switch,5,5,30,【人生初】あつまれどうぶつの森遊んでみた！ハート池の島厳選したら地獄でしたw【あつ森】【ヒカキンゲームズ】
+14,2020/06/14,in,おりがみ,ギネス認定[折り紙origami]世界一飛行時間が長い紙飛行機の折り方 The best in the world paper airplane,おりがみ ひこうき,http://img.youtube.com/vi/A6g5cKAwSRA/hqdefault.jpg,https://www.youtube.com/watch?v=A6g5cKAwSRA,A6g5cKAwSRA,折り紙,3,3,15,この紙飛行機は飛行時間がギネスに認定されてる物です！是非みなさんも飛ばしてみたらいかがでしょうか？
+15,2020/06/14,in,うんどう,【赤ちゃん大喜び】ふれあい遊びうた👶🏻🍼💞【保育園】,あそびうた,http://img.youtube.com/vi/sLw_W4vnYdw/hqdefault.jpg,https://www.youtube.com/watch?v=sLw_W4vnYdw,sLw_W4vnYdw,,1,1,10,description text
+16,2020/06/14,in,うんどう,赤ちゃんのリトミック体操/ミッキーマウスマーチ①,ミッキーマウスマーチ,http://img.youtube.com/vi/86hIgLVOAkM/hqdefault.jpg,https://www.youtube.com/watch?v=86hIgLVOAkM,86hIgLVOAkM,,1,1,10,0歳からできるリトミックのご紹介です。慣れてきたら、音楽に合わせずお母さんのかけ声で触る部位を変えていきましょう。タイミングやテンポなどを変え応用していくことによりリトミックの要素が増えていきます！
+17,2020/06/14,in,うんどう,＜NHK＞2020応援ソング「パプリカ」ダンス ミュージックビデオ,ぱぷりか,http://img.youtube.com/vi/T0valuAksuo/hqdefault.jpg,https://www.youtube.com/watch?v=T0valuAksuo,T0valuAksuo,,1,1,10,「＜NHK＞2020応援ソング プロジェクト」
+18,2020/06/14,in,おえかき,【0~2歳】汚れない！超簡単！フィンガーペイントとは？【保育園でのやり方・ねらい】,ふぃんがーぺいんと,http://img.youtube.com/vi/F34N1E2yeE8/hqdefault.jpg,https://www.youtube.com/watch?v=F34N1E2yeE8,F34N1E2yeE8,,1,1,30,【0~2歳】汚れない！超簡単！フィンガーペイントとは？【保育園でのやり方・ねらい】
+19,2020/06/14,in,おえかき,【にじみ絵】超簡単！可愛い！ひなまつり製作【2~3歳児向け】,ひなまつり,http://img.youtube.com/vi/wKx1L-v16Mw/hqdefault.jpg,https://www.youtube.com/watch?v=wKx1L-v16Mw,wKx1L-v16Mw,,2,2,30,【にじみ絵】超簡単！可愛い！ひなまつり製作【2~3歳児向け】
+20,2020/06/14,in,うた,星野源 - ドラえもん（Live at Tokyo Dome 2019）,うた どらえもん,http://img.youtube.com/vi/I_Na3ZUUooM/hqdefault.jpg,https://www.youtube.com/watch?v=I_Na3ZUUooM,I_Na3ZUUooM,,1,1,10,"Netflixにて全世界配信中。星野源『DOME TOUR ""POP VIRUS"" at TOKYO DOME』"
+21,2020/06/14,in,おりがみ,折り紙 ぱくぱく,おりがみ ぱくぱく,http://img.youtube.com/vi/Do8FX9D2Sac/hqdefault.jpg,https://www.youtube.com/watch?v=Do8FX9D2Sac,Do8FX9D2Sac,折り紙,1,1,10,折り紙で「パクパク（ぱくぱく）」を折ってみました。日本伝統の折り紙で、とても簡単に折る事が出来るので、お子様にもオススメです。顔を描くともっとかわいくなるパクパクの折り紙です。ここで使っている折り紙は15cm×15cmの片面折り紙となります。☆よろしければ動画の評価とコメントをお願いします！
+22,2020/06/14,in,おやつ,フルーチェ,ふるーちぇ,http://img.youtube.com/vi/kIqPkaRj90o/hqdefault.jpg,https://www.youtube.com/watch?v=kIqPkaRj90o,kIqPkaRj90o,フルーチェ,1,1,15,description text
+23,2020/06/14,in,おえかき,アンパンマン♬ 天才脳おしゃべりらくがき教室DXでおえかきしたよ！おとがなるペン！？ばいきんまんもお絵描き♬,あんぱんまん おえかき,http://img.youtube.com/vi/lAtuSxjQn2c/hqdefault.jpg,https://www.youtube.com/watch?v=lAtuSxjQn2c,lAtuSxjQn2c,,3,3,15,description text
+24,2020/06/14,in,おりがみ,超簡単！可愛い♡折り紙1枚で牛乳パック風紙袋の作り方,おりがみ かみぶくろ,http://img.youtube.com/vi/6ZBMe5ZLogI/hqdefault.jpg,https://www.youtube.com/watch?v=6ZBMe5ZLogI,6ZBMe5ZLogI,折り紙,3,3,15,description text
+25,2020/06/14,out,うんどう,自転車,じてんしゃ,http://img.youtube.com/vi/GKtlw3w3YHE/hqdefault.jpg,https://www.youtube.com/watch?v=GKtlw3w3YHE,GKtlw3w3YHE,自転車,3,3,30,description text
+26,2020/06/14,out,うんどう,公園 ブランコ,ぶらんこ,http://img.youtube.com/vi/47RafczeJ8k/hqdefault.jpg,https://www.youtube.com/watch?v=47RafczeJ8k,47RafczeJ8k,公園,2,2,30,description text
+27,2020/06/14,out,うんどう,公園 滑り台,すべりだい,http://img.youtube.com/vi/p37xK5xjL98/hqdefault.jpg,https://www.youtube.com/watch?v=p37xK5xjL98,p37xK5xjL98,応援,2,2,30,description text
