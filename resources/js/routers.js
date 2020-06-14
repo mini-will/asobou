@@ -7,7 +7,7 @@ import PlayAllItem from './Pages/PlayAllItem.vue'
 
 const routes = [{
         path: "/",
-        name: "home",
+        name: "toppage",
         component: TopPage,
     },
     {

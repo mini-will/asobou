@@ -93,15 +93,17 @@
 
 <script>
 export default {
-  data: () => ({
-    older: ["0", "1", "2", "3", "4", "5", "6"],
-    teppan: false,
-    playcards: [],
-    loading: false,
-    isActiveIn: false,
-    playLiked: [],
-    dialog: false
-  }),
+  data() {
+    return {
+      older: ["0", "1", "2", "3", "4", "5", "6"],
+      teppan: false,
+      playcards: [],
+      loading: false,
+      isActiveIn: false,
+      playLiked: [],
+      dialog: false
+    };
+  },
   created() {
     this.getPlayCard("snack");
   },
