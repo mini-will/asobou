@@ -10,7 +10,7 @@
         sm="3"
         class="d-flex justify-center"
       >
-        <!-- <v-card>
+        <v-card>
           <router-link :to="{ name: 'PlayInfo', params: { id:playcard.id } }">
             <v-img
               :src="playcard.image_url"
@@ -21,7 +21,7 @@
               <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
             </v-img>
           </router-link>
-        </v-card>-->
+        </v-card>
       </v-col>
     </v-row>
   </div>
@@ -33,7 +33,7 @@ import { mapState, mapGetters } from "vuex";
 export default {
   data() {
     return {
-      playcards: []
+      playCards: []
     };
   },
   created() {
@@ -43,9 +43,11 @@ export default {
   methods: {
     getPlayProductALL: function() {
       this.loading = true;
-      axios.get(`/api/search`).then(response => {
-        this.playcards.push(response.data);
+      axios.get(`/api/playproduct`).then(response => {
+        // this.playCards.push(response.data);
+        this.playCards = response.data;
         this.loading = false;
+        console.log(response.data);
       });
     }
   }
