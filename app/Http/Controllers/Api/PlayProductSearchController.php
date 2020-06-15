@@ -12,12 +12,16 @@ class PlayProductSearchController extends Controller
     {
         $data = $request->validate(
             [
-                'category' => 'required',
+                'category' => '',
             ]
         );
 
-        return PlayProduct::all()
-            ->where('category', $data['category'])
-            ->random(1);
+        if ($data['category'] == '') {
+            return PlayProduct::all();
+        } else {
+            return PlayProduct::all()
+                ->where('category', $data['category'])
+                ->random(1);
+        }
     }
 }

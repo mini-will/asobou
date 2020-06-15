@@ -33,10 +33,21 @@ import { mapState, mapGetters } from "vuex";
 export default {
   data() {
     return {
-      playAllData: null
+      playcards: []
     };
   },
-  created: function() {},
-  computed: {}
+  created() {
+    this.getPlayProductALL();
+  },
+  computed: {},
+  methods: {
+    getPlayProductALL: function() {
+      this.loading = true;
+      axios.get(`/api/search`).then(response => {
+        this.playcards.push(response.data);
+        this.loading = false;
+      });
+    }
+  }
 };
 </script>
