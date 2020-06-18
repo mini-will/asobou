@@ -3,7 +3,15 @@
     <!-- 検索設定UI -->
     <v-row justify="center" no-gutters class="mt-4">
       <v-col class="d-flex" cols="12" sm="9">
-        <v-select :items="older" filled label="なんさい" dense></v-select>
+        <!-- <v-select :items="playOld" filled label="なんさい" dense></v-select> -->
+        <v-select
+          label="なんさい"
+          @input="updateValue($event, 'activePlayOld')"
+          :items="playOld"
+          :value="$store.state.form.activePlayOld"
+          dense
+        ></v-select>
+        <!-- <p>{{ $store.state.form.activePlayOld }}</p> -->
       </v-col>
       <v-col class="d-flex" cols="6" sm="6">
         <v-switch v-model="teppan" :label="`鉄板の遊び`"></v-switch>
@@ -92,6 +100,8 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from "vuex";
+
 export default {
   data() {
     return {
@@ -107,8 +117,14 @@ export default {
   created() {
     this.getPlayCard("snack");
   },
-
   mounted() {},
+  computed: {
+    store() {
+      return this.$store.state;
+    },
+    ...mapState(["playOld"]),
+    ...mapState(["form.activePlayOld"])
+  },
   methods: {
     getPlayCard: function(category) {
       this.loading = true;
@@ -128,6 +144,9 @@ export default {
         liked: this.isActiveIn,
         display: "show"
       });
+    },
+    updateValue(vals, key_name) {
+      this.$store.commit("updateValue", { vals, key_name });
     }
   }
 };

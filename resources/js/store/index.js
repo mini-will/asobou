@@ -5,25 +5,25 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        message: ["一人", "二人以上", "test"],
-        todos: [{
-                id: 1,
-                text: '...',
-                done: true
-            },
-            {
-                id: 2,
-                text: '...',
-                done: false
-            }
-        ],
-
+        playOld: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        form: {
+            activePlayOld: null
+        },
+        teppan: false,
+        displayPlay: [],
     },
     getters: {
-        message(state) {
-            return state.message
+        playOld(state) {
+            return state.playOld
         }
     },
-    mutators: {},
+    mutations: {
+        updateValue(state, {
+            vals,
+            key_name
+        }) {
+            state.form[key_name] = vals;
+        },
+    },
     actions: {}
 });
