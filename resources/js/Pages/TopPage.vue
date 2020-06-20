@@ -12,6 +12,7 @@
           :value="$store.state.form.activePlayOld"
           dense
         ></v-select>
+        <!-- <p>{{ $store.state.form.activePlayOld }}</p> -->
       </v-col>
 
       <!-- TODO:トグルボタンとvuex -->
@@ -141,7 +142,6 @@ export default {
         this.playcards.push(response.data[0]);
         this.loading = false;
       });
-      // console.log(response.data[0]);
     },
     color_switch(playId) {
       this.isActiveIn = !this.isActiveIn;
