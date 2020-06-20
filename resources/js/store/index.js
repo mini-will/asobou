@@ -6,15 +6,19 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         playOld: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-        form: {
-            activePlayOld: null
-        },
         teppan: false,
+        form: {
+            activePlayOld: null,
+            activeTeppan: false,
+        },
         displayPlay: [],
     },
     getters: {
         playOld(state) {
             return state.playOld
+        },
+        teppan(state) {
+            return state.teppan
         }
     },
     mutations: {

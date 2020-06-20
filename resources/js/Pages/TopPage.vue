@@ -3,7 +3,8 @@
     <!-- 検索設定UI -->
     <v-row justify="center" no-gutters class="mt-4">
       <v-col class="d-flex" cols="12" sm="9">
-        <!-- <v-select :items="playOld" filled label="なんさい" dense></v-select> -->
+        <!-- このページを参考にv-selectを実装
+        https://codepen.io/fromarm4/pen/xzMyKv?__cf_chl_jschl_tk__=56a2537eb510bd440f1403551a576f416318bc3a-1592632997-0-AdjKfvk3_y3U-R4SenemIpCy7Gv9es0L45AMuMEf0PzYxftlNUoilG4_QiNgVuJSWk_OJUR-ejfv801nn1nnwI67QNA0c61hWNG3QjcI5Civ6TosA-8UlBmgLshOO2zaalokEqPAQh0Os1LsLiBrmr0aBXc-9mXmbJUO83hIEUGDF_3CGkDmNMF3tUtu8HL1Edl7bXoDIekyxD63nJYhM8GkWEp1MYr6xwt4nrAw2c5JL52LDciDob-W20FTQb57SXYOrLycpjFe08PMMdfvGtjd8PvOS_KNoZxHEFlarAsRP3L2jeZkB3guHlUAA0yU-zzEbGsPpkEFkwI9PTZ5gKo37DwGVNWJCkN98YIZNrTs-->
         <v-select
           label="なんさい"
           @input="updateValue($event, 'activePlayOld')"
@@ -11,10 +12,19 @@
           :value="$store.state.form.activePlayOld"
           dense
         ></v-select>
-        <!-- <p>{{ $store.state.form.activePlayOld }}</p> -->
       </v-col>
+
+      <!-- TODO:トグルボタンとvuex -->
       <v-col class="d-flex" cols="6" sm="6">
-        <v-switch v-model="teppan" :label="`鉄板の遊び`"></v-switch>
+        <v-switch
+          label="鉄板の遊び"
+          @input="updateValue($event, 'activeTeppan')"
+          :items="teppan"
+          :value="$store.state.form.activeTeppan"
+          dense
+        ></v-switch>
+
+        <!-- <v-switch v-model="teppan" :label="`鉄板の遊び`"></v-switch> -->
       </v-col>
       <v-col class="d-flex mt-2" cols="6" sm="6">
         <v-btn color="secondary">遊びを選ぶ</v-btn>
@@ -60,37 +70,34 @@
       <!-- ■ダイアログ -->
       <v-dialog v-model="dialog" overlay-opacity="0.7">
         <!-- <div style="background-color: lightgray">
-            <v-row>
-              <v-col
-                v-for="(playcard,index) in temp4"
-                :key="index + playcard.id"
-                cols="6"
-                sm="6"
-                class="d-flex justify-center"
-              >
-                <v-card>
-                  <v-responsive :aspect-ratio="16 / 9">
-                    <v-img
-                      :src="playcard.image_url"
-                      class="white--text align-end"
-                      gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                      height="200px"
-                      @click="switchMainPlayOut(playcard.id)"
-                    >
-                      <v-card-title
-                        v-text="playcard.display_name"
-                        class="headline font-weight-bold"
-                      ></v-card-title>
-                    </v-img>
-                  </v-responsive>
-                </v-card>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col cols="12" sm="12" class="d-flex justify-center">
-                <v-btn @click="setPlaydata4" justify="center">ほかの</v-btn>
-              </v-col>
-            </v-row>
+          <v-row>
+            <v-col
+              v-for="(playcard,index) in temp4"
+              :key="index + playcard.id"
+              cols="6"
+              sm="6"
+              class="d-flex justify-center"
+            >
+              <v-card>
+                <v-responsive :aspect-ratio="16 / 9">
+                  <v-img
+                    :src="playcard.image_url"
+                    class="white--text align-end"
+                    gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                    height="200px"
+                    @click="switchMainPlayOut(playcard.id)"
+                  >
+                    <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
+                  </v-img>
+                </v-responsive>
+              </v-card>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="12" sm="12" class="d-flex justify-center">
+              <v-btn @click="setPlaydata4" justify="center">ほかの</v-btn>
+            </v-col>
+          </v-row>
         </div>-->
       </v-dialog>
     </div>
@@ -105,10 +112,9 @@ import { mapState, mapGetters } from "vuex";
 export default {
   data() {
     return {
-      older: ["0", "1", "2", "3", "4", "5", "6"],
-      teppan: false,
-      playcards: [],
       loading: false,
+      playcards: [],
+      dialogPlayCards: [],
       isActiveIn: false,
       playLiked: [],
       dialog: false
@@ -123,7 +129,9 @@ export default {
       return this.$store.state;
     },
     ...mapState(["playOld"]),
-    ...mapState(["form.activePlayOld"])
+    ...mapState(["form.activePlayOld"]),
+    ...mapState(["teppan"]),
+    ...mapState(["form.activeTeppan"])
   },
   methods: {
     getPlayCard: function(category) {
