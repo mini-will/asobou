@@ -61,7 +61,7 @@
                   <v-icon v-if="isActiveIn === false">mdi-heart</v-icon>
                   <v-icon v-else color="pink">mdi-heart</v-icon>
                 </v-btn>
-                <v-btn @click.stop="dialogIn = true">ほかの</v-btn>
+                <v-btn @click.stop="dialog1 = true">ほかの</v-btn>
               </v-card-actions>
             </v-responsive>
           </v-card>
@@ -69,11 +69,11 @@
       </v-row>
 
       <!-- ■ダイアログ -->
-      <v-dialog v-model="dialog" overlay-opacity="0.7">
-        <!-- <div style="background-color: lightgray">
+      <v-dialog v-model="dialog1" overlay-opacity="0.7">
+        <div style="background-color: lightgray">
           <v-row>
             <v-col
-              v-for="(playcard,index) in temp4"
+              v-for="(playcard,index) in dialogPlayCards"
               :key="index + playcard.id"
               cols="6"
               sm="6"
@@ -86,7 +86,7 @@
                     class="white--text align-end"
                     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                     height="200px"
-                    @click="switchMainPlayOut(playcard.id)"
+                    @click="switchMainPlay(playcard.id)"
                   >
                     <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
                   </v-img>
@@ -96,10 +96,10 @@
           </v-row>
           <v-row>
             <v-col cols="12" sm="12" class="d-flex justify-center">
-              <v-btn @click="setPlaydata4" justify="center">ほかの</v-btn>
+              <v-btn @click="this.getPlayCardItem(2,'snack','')" justify="center">ほかの</v-btn>
             </v-col>
           </v-row>
-        </div>-->
+        </div>
       </v-dialog>
     </div>
 
@@ -114,15 +114,19 @@ export default {
   data() {
     return {
       loading: false,
-      playcards: [],
-      dialogPlayCards: [],
       isActiveIn: false,
       playLiked: [],
-      dialog: false
+
+      playcards: [],
+
+      dialog1: false,
+      dialogPlayCards: [],
+      query: ""
     };
   },
   created() {
     this.getPlayCard("snack");
+    this.getPlayCardItem(2, "snack", "");
   },
   mounted() {},
   computed: {
@@ -137,12 +141,46 @@ export default {
   methods: {
     getPlayCard: function(category) {
       this.loading = true;
-      axios.get(`/api/playproduct?category=${category}`).then(response => {
-        // this.$set(this.playcards, "test", "response.data");
-        this.playcards.push(response.data[0]);
+      axios
+        .get(`/api/playproduct?category=${category}&random=1`)
+        .then(response => {
+          // this.$set(this.playcards, "test", "response.data");
+          this.playcards.push(response.data[0]);
+          this.loading = false;
+        });
+    },
+    getPlayCardItem: function(random, category, old) {
+      this.loading = true;
+
+      if (random != "") {
+        this.query += "random=" + random;
+      }
+      if (category != "") {
+        this.query += "&category=" + category;
+      }
+      if (old != "") {
+        this.query += "&old=" + old;
+      }
+      // console.log(this.query);
+
+      axios.get(`/api/playproduct?` + this.query).then(response => {
         this.loading = false;
+        this.dialogPlayCards = response.data;
+        return response.data;
       });
     },
+
+    getPlayProductById: function(playId) {
+      axios.get(`/api/playproduct/${playId}`).then(response => {
+        return response.data;
+      });
+    },
+
+    switchMainPlay: function(playId) {
+      this.playcards.splice(0, 1, this.getPlayProductById(playId));
+      this.dialog1 = false;
+    },
+
     color_switch(playId) {
       this.isActiveIn = !this.isActiveIn;
       this.playLiked.splice(0, 1, {

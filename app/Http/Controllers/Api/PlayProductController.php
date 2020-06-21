@@ -46,10 +46,6 @@ class PlayProductController extends Controller
             } else {
                 return response()->json($query->get());
             }
-
-            // return PlayProduct::where('category', $data['category'])
-            //     ->get()
-            //     ->random(1);
         }
 
         // 検索条件が指定されていないときは全件を返却する

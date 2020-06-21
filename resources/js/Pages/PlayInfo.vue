@@ -43,12 +43,12 @@ export default {
     };
   },
   created() {
-    this.getPlayProduct(Number(this.$route.params.id));
+    this.getPlayProductById(Number(this.$route.params.id));
   },
   mounted: function() {},
   computed: {},
   methods: {
-    getPlayProduct: function(id) {
+    getPlayProductById: function(id) {
       this.loading = true;
       axios.get(`/api/playproduct/${id}`).then(response => {
         // this.$set(this.playcards, "test", "response.data");
