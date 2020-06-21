@@ -1,6 +1,6 @@
 <template>
   <v-footer dark absolute color="deep-orange lighten-2">
-    <div class="footer">Copyright test 2020. All right reserved</div>
+    <div class="footer">Copyright Asobou 2020. All right reserved</div>
   </v-footer>
 </template>
 

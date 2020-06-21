@@ -42,9 +42,9 @@ class PlayProductController extends Controller
 
             // ランダム取得数が検索条件にあればランダム数分を返却する
             if ($randomNumber != null) {
-                return $query->get()->random($data['random']);
+                return response()->json($query->get()->random($data['random']));
             } else {
-                return $query->get();
+                return response()->json($query->get());
             }
 
             // return PlayProduct::where('category', $data['category'])
@@ -53,11 +53,13 @@ class PlayProductController extends Controller
         }
 
         // 検索条件が指定されていないときは全件を返却する
-        return PlayProduct::all();
+        return response()
+            ->json(PlayProduct::all());
     }
 
     public function show($id, Request $request)
     {
-        return PlayProduct::findOrFail($id);
+        return response()
+            ->json(PlayProduct::findOrFail($id));
     }
 }

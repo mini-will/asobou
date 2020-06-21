@@ -1,8 +1,8 @@
 import VueRouter from 'vue-router';
 import TopPage from './Pages/TopPage'
-// import PlayIndex from './Pages/PlayIndex'
 import PlayInfo from './Pages/PlayInfo.vue'
 import PlayAllItem from './Pages/PlayAllItem.vue'
+import About from './Pages/About.vue'
 
 
 const routes = [{
@@ -19,6 +19,11 @@ const routes = [{
         path: '/playallitem',
         name: 'PlayAllItem',
         component: PlayAllItem
+    },
+    {
+        path: '/about',
+        name: 'about',
+        component: About
     },
 
 ];
