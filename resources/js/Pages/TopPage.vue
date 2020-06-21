@@ -137,7 +137,7 @@ export default {
   methods: {
     getPlayCard: function(category) {
       this.loading = true;
-      axios.get(`/api/search?category=${category}`).then(response => {
+      axios.get(`/api/playproduct?category=${category}`).then(response => {
         // this.$set(this.playcards, "test", "response.data");
         this.playcards.push(response.data[0]);
         this.loading = false;
