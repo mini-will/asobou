@@ -15,6 +15,11 @@
           :to="menuItem.link"
         >{{ menuItem.name }}</v-tab>
       </v-tabs>
+
+      <v-spacer></v-spacer>
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" absolute temporary>
