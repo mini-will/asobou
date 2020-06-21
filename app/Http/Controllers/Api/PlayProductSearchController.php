@@ -16,8 +16,8 @@ class PlayProductSearchController extends Controller
             ]
         );
 
-        return PlayProduct::all()
-            ->where('category', $data['category'])
+        return PlayProduct::where('category', $data['category'])
+            ->get()
             ->random(1);
     }
 }
