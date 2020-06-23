@@ -61,7 +61,7 @@
                   <v-icon v-if="isActiveIn === false">mdi-heart</v-icon>
                   <v-icon v-else color="pink">mdi-heart</v-icon>
                 </v-btn>
-                <v-btn @click.stop="dialog1 = true">ほかの</v-btn>
+                <v-btn @click.stop="switchDialog(dialog1)">ほかの</v-btn>
               </v-card-actions>
             </v-responsive>
           </v-card>
@@ -69,48 +69,23 @@
       </v-row>
 
       <!-- ■ダイアログ -->
-      <v-dialog v-model="dialog1" overlay-opacity="0.7">
-        <div style="background-color: lightgray">
-          <v-row>
-            <v-col
-              v-for="(playcard,index) in dialogPlayCards"
-              :key="index + playcard.id"
-              cols="6"
-              sm="6"
-              class="d-flex justify-center"
-            >
-              <v-card>
-                <v-responsive :aspect-ratio="16 / 9">
-                  <v-img
-                    :src="playcard.image_url"
-                    class="white--text align-end"
-                    gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                    height="200px"
-                    @click="switchMainPlay(playcard.id)"
-                  >
-                    <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
-                  </v-img>
-                </v-responsive>
-              </v-card>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col cols="12" sm="12" class="d-flex justify-center">
-              <v-btn @click="this.getPlayCardItem(2,'snack','')" justify="center">ほかの</v-btn>
-            </v-col>
-          </v-row>
-        </div>
-      </v-dialog>
+      <DialogRandom :dialogOn="dialog1" />
     </div>
 
     <div v-else>Loading...</div>
   </v-container>
 </template>
 
+
 <script>
 import { mapState, mapGetters } from "vuex";
+import DialogRandom from "../components/DialogRandom.vue";
 
 export default {
+  components: {
+    DialogRandom
+  },
+
   data() {
     return {
       loading: false,
@@ -149,36 +124,11 @@ export default {
           this.loading = false;
         });
     },
-    getPlayCardItem: function(random, category, old) {
-      this.loading = true;
-
-      if (random != "") {
-        this.query += "random=" + random;
-      }
-      if (category != "") {
-        this.query += "&category=" + category;
-      }
-      if (old != "") {
-        this.query += "&old=" + old;
-      }
-      // console.log(this.query);
-
-      axios.get(`/api/playproduct?` + this.query).then(response => {
-        this.loading = false;
-        this.dialogPlayCards = response.data;
-        return response.data;
-      });
-    },
 
     getPlayProductById: function(playId) {
       axios.get(`/api/playproduct/${playId}`).then(response => {
         return response.data;
       });
-    },
-
-    switchMainPlay: function(playId) {
-      this.playcards.splice(0, 1, this.getPlayProductById(playId));
-      this.dialog1 = false;
     },
 
     color_switch(playId) {
@@ -193,6 +143,9 @@ export default {
     },
     updateValue(vals, key_name) {
       this.$store.commit("updateValue", { vals, key_name });
+    },
+    switchDialog: function(dialog1) {
+      this.dialog1 = !this.dialog1;
     }
   }
 };
