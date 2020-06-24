@@ -42,10 +42,15 @@ export default {
   data() {
     return {
       loading: false,
-      dialogPlayCards: []
+      dialogPlayCards: [],
+      query: ""
     };
   },
-  computed: {},
+  created() {
+  },
+  mounted() {
+    this.getPlayCardItem(2,'snack',3);
+  },
   methods: {
     getPlayCardItem: function(random, category, old) {
       this.loading = true;
@@ -64,7 +69,7 @@ export default {
       axios.get(`/api/playproduct?` + this.query).then(response => {
         this.loading = false;
         this.dialogPlayCards = response.data;
-        return response.data;
+        // return response.data;
       });
     },
     switchMainPlay: function(playId) {

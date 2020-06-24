@@ -96,12 +96,11 @@ export default {
 
       dialog1: false,
       dialogPlayCards: [],
-      query: ""
     };
   },
   created() {
     this.getPlayCard("snack");
-    this.getPlayCardItem(2, "snack", "");
+    // this.getPlayCardItem(2, "snack", "");
   },
   mounted() {},
   computed: {
