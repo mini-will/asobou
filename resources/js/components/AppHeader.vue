@@ -13,6 +13,7 @@
           v-for="(menuItem, index) in menuItems"
           :key="index"
           :to="menuItem.link"
+          class="white--text"
         >{{ menuItem.name }}</v-tab>
       </v-tabs>
 
