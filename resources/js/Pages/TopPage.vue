@@ -2,7 +2,7 @@
   <v-container>
     <!-- 検索設定UI -->
     <v-row justify="center" no-gutters class="mt-4">
-      <v-col class="d-flex" cols="12" sm="9">
+      <v-col class="d-flex py-4" cols="12" sm="3">
         <!-- このページを参考にv-selectを実装
         https://codepen.io/fromarm4/pen/xzMyKv?__cf_chl_jschl_tk__=56a2537eb510bd440f1403551a576f416318bc3a-1592632997-0-AdjKfvk3_y3U-R4SenemIpCy7Gv9es0L45AMuMEf0PzYxftlNUoilG4_QiNgVuJSWk_OJUR-ejfv801nn1nnwI67QNA0c61hWNG3QjcI5Civ6TosA-8UlBmgLshOO2zaalokEqPAQh0Os1LsLiBrmr0aBXc-9mXmbJUO83hIEUGDF_3CGkDmNMF3tUtu8HL1Edl7bXoDIekyxD63nJYhM8GkWEp1MYr6xwt4nrAw2c5JL52LDciDob-W20FTQb57SXYOrLycpjFe08PMMdfvGtjd8PvOS_KNoZxHEFlarAsRP3L2jeZkB3guHlUAA0yU-zzEbGsPpkEFkwI9PTZ5gKo37DwGVNWJCkN98YIZNrTs-->
         <v-select
@@ -12,11 +12,11 @@
           :value="$store.state.form.activePlayOld"
           dense
         ></v-select>
-        <!-- <p>{{ $store.state.form.activePlayOld }}</p> -->
       </v-col>
+        <!-- <p>{{ $store.state.form.activePlayOld }}</p> -->
 
       <!-- TODO:トグルボタンとvuex -->
-      <v-col class="d-flex" cols="6" sm="6">
+      <v-col class="d-flex" cols="12" sm="6">
         <v-switch
           label="鉄板の遊び"
           @input="updateValue($event, 'activeTeppan')"
@@ -24,15 +24,16 @@
           :value="$store.state.form.activeTeppan"
           dense
         ></v-switch>
+      </v-col>
 
         <!-- <v-switch v-model="teppan" :label="`鉄板の遊び`"></v-switch> -->
-      </v-col>
-      <v-col class="d-flex mt-2" cols="6" sm="6">
+    </v-row>
+
+    <v-row justify="center" no-gutters>
+      <v-col class="d-flex mt-2" cols="12" sm="6">
         <v-btn color="secondary">遊びを選ぶ</v-btn>
       </v-col>
     </v-row>
-
-    <v-row justify="center" no-gutters></v-row>
 
     <!-- 遊びを表示 -->
     <h2 class="mt-10">あそびをえらんでね</h2>
