@@ -13,7 +13,7 @@
           dense
         ></v-select>
       </v-col>
-        <!-- <p>{{ $store.state.form.activePlayOld }}</p> -->
+      <!-- <p>{{ $store.state.form.activePlayOld }}</p> -->
 
       <!-- TODO:トグルボタンとvuex -->
       <v-col class="d-flex" cols="12" sm="6">
@@ -26,7 +26,7 @@
         ></v-switch>
       </v-col>
 
-        <!-- <v-switch v-model="teppan" :label="`鉄板の遊び`"></v-switch> -->
+      <!-- <v-switch v-model="teppan" :label="`鉄板の遊び`"></v-switch> -->
     </v-row>
 
     <v-row justify="center" no-gutters>
@@ -70,7 +70,10 @@
       </v-row>
 
       <!-- ■ダイアログ -->
-      <DialogRandom :dialogOn="dialog1" />
+      <!-- 子コンポーネントを読み込んだ時点で、created, mountedは呼び出されるため、v-ifでcomponet表示を出し分ける -->
+      <div v-if="dialog1">
+        <DialogRandom :dialogOn="dialog1" />
+      </div>
     </div>
 
     <div v-else>Loading...</div>
@@ -96,11 +99,12 @@ export default {
       playcards: [],
 
       dialog1: false,
-      dialogPlayCards: [],
+      dialogPlayCards: []
     };
   },
   created() {
     this.getPlayCard("snack");
+    this.getPlayCard("exercise");
     // this.getPlayCardItem(2, "snack", "");
   },
   mounted() {},
@@ -119,7 +123,10 @@ export default {
       axios
         .get(`/api/playproduct?category=${category}&random=1`)
         .then(response => {
-          // this.$set(this.playcards, "test", "response.data");
+          // this.$set(this.playcards, "snack2", {
+          //   key: "snack2",
+          //   value: "test data"
+          // });
           //this.playcards.push(response.data[0]);
           this.playcards.push(...response.data);
           this.loading = false;
