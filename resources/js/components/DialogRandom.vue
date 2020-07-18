@@ -51,6 +51,8 @@ export default {
   mounted() {
     this.getPlayCardItem(2,'snack',3);
   },
+  beforeUpdate() {  
+  },
   methods: {
     getPlayCardItem: function(random, category, old) {
       this.loading = true;
