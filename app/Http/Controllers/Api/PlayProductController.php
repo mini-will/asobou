@@ -41,7 +41,7 @@ class PlayProductController extends Controller
             }
 
             // ランダム取得数が検索条件にあればランダム数分を返却する
-            if ($randomNumber != null) {
+            if ($randomNumber !== null) {
                 return response()->json($query->get()->random($data['random']));
             } else {
                 return response()->json($query->get());

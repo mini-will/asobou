@@ -71,23 +71,20 @@
 
       <!-- ■ダイアログ -->
       <!-- 子コンポーネントを読み込んだ時点で、created, mountedは呼び出されるため、v-ifでcomponet表示を出し分ける -->
-      <div v-if="dialog1">
-        <DialogRandom :dialogOn="dialog1" />
-      </div>
+      <DialogRandom :dialogOn="dialog1" />
     </div>
 
     <div v-else>Loading...</div>
   </v-container>
 </template>
 
-
 <script>
-import { mapState, mapGetters } from "vuex";
-import DialogRandom from "../components/DialogRandom.vue";
+import { mapState, mapGetters } from 'vuex';
+import DialogRandom from '../components/DialogRandom.vue';
 
 export default {
   components: {
-    DialogRandom
+    DialogRandom,
   },
 
   data() {
@@ -99,12 +96,12 @@ export default {
       playcards: [],
 
       dialog1: false,
-      dialogPlayCards: []
+      dialogPlayCards: [],
     };
   },
   created() {
-    this.getPlayCard("snack");
-    this.getPlayCard("exercise");
+    this.getPlayCard('snack');
+    this.getPlayCard('exercise');
     // this.getPlayCardItem(2, "snack", "");
   },
   mounted() {},
@@ -112,29 +109,31 @@ export default {
     store() {
       return this.$store.state;
     },
-    ...mapState(["playOld"]),
-    ...mapState(["form.activePlayOld"]),
-    ...mapState(["teppan"]),
-    ...mapState(["form.activeTeppan"])
+    ...mapState(['playOld']),
+    ...mapState(['form.activePlayOld']),
+    ...mapState(['teppan']),
+    ...mapState(['form.activeTeppan']),
   },
   methods: {
-    getPlayCard: function(category) {
+    getPlayCard: function (category) {
       this.loading = true;
+      // eslint-disable-next-line no-undef
       axios
         .get(`/api/playproduct?category=${category}&random=1`)
-        .then(response => {
+        .then((response) => {
           // this.$set(this.playcards, "snack2", {
           //   key: "snack2",
           //   value: "test data"
           // });
           //this.playcards.push(response.data[0]);
-          this.playcards.push(...response.data);
+          // this.playcards.push(...response.data);
+          this.playcards = response.data;
           this.loading = false;
         });
     },
 
-    getPlayProductById: function(playId) {
-      axios.get(`/api/playproduct/${playId}`).then(response => {
+    getPlayProductById: function (playId) {
+      axios.get(`/api/playproduct/${playId}`).then((response) => {
         return response.data;
       });
     },
@@ -143,18 +142,18 @@ export default {
       this.isActiveIn = !this.isActiveIn;
       this.playLiked.splice(0, 1, {
         id: 1,
-        user: "testUser",
+        user: 'testUser',
         playId: playId,
         liked: this.isActiveIn,
-        display: "show"
+        display: 'show',
       });
     },
     updateValue(vals, key_name) {
-      this.$store.commit("updateValue", { vals, key_name });
+      this.$store.commit('updateValue', { vals, key_name });
     },
-    switchDialog: function(dialog1) {
+    switchDialog: function (dialog1) {
       this.dialog1 = !this.dialog1;
-    }
-  }
+    },
+  },
 };
 </script>

@@ -46,13 +46,11 @@ export default {
       query: ""
     };
   },
-  created() {
-  },
+  created() {},
   mounted() {
-    this.getPlayCardItem(2,'snack',3);
+    this.getPlayCardItem(2, "snack", 3);
   },
-  beforeUpdate() {  
-  },
+  beforeUpdate() {},
   methods: {
     getPlayCardItem: function(random, category, old) {
       this.loading = true;
