@@ -38,49 +38,49 @@
 
 <script>
 export default {
-  props: ["dialogOn"],
+  props: ['dialogOn'],
   data() {
     return {
       loading: false,
       dialogPlayCards: [],
-      query: ""
+      query: '',
     };
   },
   created() {},
   mounted() {
-    this.getPlayCardItem(2, "snack", 3);
+    this.getPlayCardItem(2, 'snack', 3);
   },
   beforeUpdate() {},
   methods: {
-    getPlayCardItem: function(random, category, old) {
+    getPlayCardItem: function (random, category, old) {
       this.loading = true;
 
-      if (random != "") {
-        this.query += "random=" + random;
+      if (random != '') {
+        this.query += 'random=' + random;
       }
-      if (category != "") {
-        this.query += "&category=" + category;
+      if (category != '') {
+        this.query += '&category=' + category;
       }
-      if (old != "") {
-        this.query += "&old=" + old;
+      if (old != '') {
+        this.query += '&old=' + old;
       }
       // console.log(this.query);
 
-      axios.get(`/api/playproduct?` + this.query).then(response => {
+      axios.get(`/api/playproduct?` + this.query).then((response) => {
         this.loading = false;
         this.dialogPlayCards = response.data;
         // return response.data;
       });
     },
-    switchMainPlay: function(playId) {
+    switchMainPlay: function (playId) {
       //   this.playcards.splice(0, 1, this.getPlayProductById(playId));
       this.dialogOn = false;
     },
-    getPlayProductById: function(playId) {
-      axios.get(`/api/playproduct/${playId}`).then(response => {
+    getPlayProductById: function (playId) {
+      axios.get(`/api/playproduct/${playId}`).then((response) => {
         return response.data;
       });
-    }
-  }
+    },
+  },
 };
 </script>

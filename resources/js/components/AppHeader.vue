@@ -3,7 +3,7 @@
     <v-app-bar color="deep-orange lighten-2" app>
       <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
       <v-toolbar-title
-        style="cursor: pointer"
+        style="cursor: pointer;"
         @click="$router.push('/', () => {})"
         class="white--text"
       >Asobou</v-toolbar-title>
@@ -34,24 +34,24 @@
     </v-navigation-drawer>
   </header>
 </template>
- 
+
 <script>
-import constants from "../common/constants";
+import constants from '../common/constants';
 
 export default {
-  name: "AppHeader",
+  name: 'AppHeader',
   data() {
     return {
       drawer: false,
-      menuItems: constants.menuItems
+      menuItems: constants.menuItems,
     };
-  }
+  },
 };
 </script>
- 
+
 <style lang="scss" scoped>
 // TODO:スタイル読み込みをグローバルにしたい
-@import "../../sass/common/common.scss";
+@import '../../sass/common/common.scss';
 
 .v-toolbar__title {
   overflow: visible !important;

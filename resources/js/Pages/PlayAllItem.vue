@@ -4,14 +4,14 @@
 
     <v-row>
       <v-col
-        v-for="(playcard,index) in playCards"
+        v-for="(playcard, index) in playCards"
         :key="index + playcard.id"
         cols="6"
         sm="3"
         class="d-flex justify-center"
       >
         <v-card>
-          <router-link :to="{ name: 'PlayInfo', params: { id:playcard.id } }">
+          <router-link :to="{ name: 'PlayInfo', params: { id: playcard.id } }">
             <v-img
               :src="playcard.image_url"
               class="white--text align-end"
@@ -28,12 +28,10 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
-
 export default {
   data() {
     return {
-      playCards: []
+      playCards: [],
     };
   },
   created() {
@@ -41,15 +39,16 @@ export default {
   },
   computed: {},
   methods: {
-    getPlayProductALL: function() {
+    getPlayProductALL: function () {
       this.loading = true;
-      axios.get(`/api/playproduct`).then(response => {
+      // eslint-disable-next-line no-undef
+      axios.get(`/api/playproduct`).then((response) => {
         // this.playCards.push(response.data);
         this.playCards = response.data;
         this.loading = false;
         console.log(response.data);
       });
-    }
-  }
+    },
+  },
 };
 </script>

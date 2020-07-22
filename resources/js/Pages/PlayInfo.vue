@@ -30,8 +30,8 @@
 </template>
 
 <script>
-import Vue from "vue";
-import VueYoutube from "vue-youtube";
+import Vue from 'vue';
+import VueYoutube from 'vue-youtube';
 
 Vue.use(VueYoutube);
 
@@ -39,24 +39,25 @@ export default {
   data() {
     return {
       loading: false,
-      playProduct: []
+      playProduct: [],
     };
   },
   created() {
     this.getPlayProductById(Number(this.$route.params.id));
   },
-  mounted: function() {},
+  mounted: function () {},
   computed: {},
   methods: {
-    getPlayProductById: function(id) {
+    getPlayProductById: function (id) {
       this.loading = true;
-      axios.get(`/api/playproduct/${id}`).then(response => {
+      // eslint-disable-next-line no-undef
+      axios.get(`/api/playproduct/${id}`).then((response) => {
         // this.$set(this.playcards, "test", "response.data");
         this.playProduct.push(response.data);
         this.loading = false;
         console.log(response.data);
       });
-    }
-  }
+    },
+  },
 };
 </script>

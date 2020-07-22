@@ -42,7 +42,7 @@
         <v-col>
           <v-card class="mb-4">
             <v-responsive :aspect-ratio="16 / 9">
-              <router-link :to="{name: 'PlayInfo',params: { id: playcards[0].id }}">
+              <router-link :to="{ name: 'PlayInfo', params: { id: playcards[0].id } }">
                 <v-img
                   :src="playcards[0].image_url"
                   class="white--text align-end"
@@ -102,7 +102,6 @@ export default {
   created() {
     this.getPlayCard('snack');
     this.getPlayCard('exercise');
-    // this.getPlayCardItem(2, "snack", "");
   },
   mounted() {},
   computed: {
@@ -121,18 +120,13 @@ export default {
       axios
         .get(`/api/playproduct?category=${category}&random=1`)
         .then((response) => {
-          // this.$set(this.playcards, "snack2", {
-          //   key: "snack2",
-          //   value: "test data"
-          // });
-          //this.playcards.push(response.data[0]);
-          // this.playcards.push(...response.data);
           this.playcards = response.data;
           this.loading = false;
         });
     },
 
     getPlayProductById: function (playId) {
+      // eslint-disable-next-line no-undef
       axios.get(`/api/playproduct/${playId}`).then((response) => {
         return response.data;
       });

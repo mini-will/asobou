@@ -2,13 +2,13 @@ require('./bootstrap');
 
 import VueRouter from 'vue-router';
 import router from './routers';
-import store from './store'
+import store from './store';
 import Index from './Index';
 
 import vuetify from '../../src/plugins/vuetify';
-import Vuetify from 'vuetify'
+import Vuetify from 'vuetify';
 import "vuetify/dist/vuetify.min.css";
-import colors from 'vuetify/es5/util/colors'
+import colors from 'vuetify/es5/util/colors';
 
 window.Vue = require('vue');
 
@@ -27,6 +27,7 @@ Vue.use(Vuetify, {
     },
 });
 
+// eslint-disable-next-line no-unused-vars
 const app = new Vue({
     el: '#app',
     router,
