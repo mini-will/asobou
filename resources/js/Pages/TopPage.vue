@@ -62,7 +62,7 @@
                   <v-icon v-if="isActiveIn === false">mdi-heart</v-icon>
                   <v-icon v-else color="pink">mdi-heart</v-icon>
                 </v-btn>
-                <v-btn @click.stop="switchDialog(dialog1)">ほかの</v-btn>
+                <v-btn @click.stop="switchDialog()">ほかの</v-btn>
               </v-card-actions>
             </v-responsive>
           </v-card>
@@ -71,7 +71,7 @@
 
       <!-- ■ダイアログ -->
       <!-- 子コンポーネントを読み込んだ時点で、created, mountedは呼び出されるため、v-ifでcomponet表示を出し分ける -->
-      <DialogRandom :dialogOn="dialog1" />
+      <DialogRandom :dialogOn="dialogOnOff" v-on:dialog-change="switchDialog()" />
     </div>
 
     <div v-else>Loading...</div>
@@ -79,7 +79,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex';
+import { mapState } from 'vuex';
 import DialogRandom from '../components/DialogRandom.vue';
 
 export default {
@@ -95,7 +95,7 @@ export default {
 
       playcards: [],
 
-      dialog1: false,
+      dialogOnOff: false,
       dialogPlayCards: [],
     };
   },
@@ -145,8 +145,8 @@ export default {
     updateValue(vals, key_name) {
       this.$store.commit('updateValue', { vals, key_name });
     },
-    switchDialog: function (dialog1) {
-      this.dialog1 = !this.dialog1;
+    switchDialog: function () {
+      this.dialogOnOff = !this.dialogOnOff;
     },
   },
 };

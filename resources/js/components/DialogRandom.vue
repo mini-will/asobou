@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-dialog v-model="dialogOn" overlay-opacity="0.7">
+    <v-dialog :value="this.$props.dialogOn" @input="chagenDialogOnOff" overlay-opacity="0.7">
       <div style="background-color: lightgray">
         <v-row>
           <v-col
@@ -35,7 +35,6 @@
   </div>
 </template>
 
-
 <script>
 export default {
   props: ['dialogOn'],
@@ -51,6 +50,7 @@ export default {
     this.getPlayCardItem(2, 'snack', 3);
   },
   beforeUpdate() {},
+  computed: {},
   methods: {
     getPlayCardItem: function (random, category, old) {
       this.loading = true;
@@ -66,20 +66,26 @@ export default {
       }
       // console.log(this.query);
 
+      // eslint-disable-next-line no-undef
       axios.get(`/api/playproduct?` + this.query).then((response) => {
         this.loading = false;
         this.dialogPlayCards = response.data;
         // return response.data;
       });
     },
-    switchMainPlay: function (playId) {
+    switchMainPlay: function () {
       //   this.playcards.splice(0, 1, this.getPlayProductById(playId));
-      this.dialogOn = false;
+      this.dialogOnOff = false;
     },
     getPlayProductById: function (playId) {
+      // eslint-disable-next-line no-undef
       axios.get(`/api/playproduct/${playId}`).then((response) => {
         return response.data;
       });
+    },
+    chagenDialogOnOff() {
+      // this.$emit('value');
+      this.$emit('dialog-change');
     },
   },
 };
