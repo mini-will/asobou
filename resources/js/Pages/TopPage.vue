@@ -70,8 +70,8 @@
       </v-row>
 
       <!-- ■ダイアログ -->
-      <!-- 子コンポーネントを読み込んだ時点で、created, mountedは呼び出されるため、v-ifでcomponet表示を出し分ける -->
-      <DialogRandom :dialogOn="dialogOnOff" v-on:dialog-change="switchDialog()" />
+      <!-- 子コンポーネントを読み込んだ時点で、created, mountedは呼び出される -->
+      <DialogRandom :dialogOn="dialogOnOff" v-on:dialog-change="switchDialog" />
     </div>
 
     <div v-else>Loading...</div>
@@ -101,7 +101,7 @@ export default {
   },
   created() {
     this.getPlayCard('snack');
-    this.getPlayCard('exercise');
+    // this.getPlayCard('exercise');
   },
   mounted() {},
   computed: {
@@ -145,8 +145,19 @@ export default {
     updateValue(vals, key_name) {
       this.$store.commit('updateValue', { vals, key_name });
     },
-    switchDialog: function () {
+    switchDialog: function (playId) {
       this.dialogOnOff = !this.dialogOnOff;
+
+      // ダイアログで遊びカードを選択したときはplayIDが取得できる
+      if (typeof playId == 'number') {
+        console.log(playId);
+
+        //ダイアログで選択した遊びをトップページに表示させる
+        // eslint-disable-next-line no-undef
+        axios.get(`/api/playproduct/${playId}`).then((response) => {
+          this.playcards.splice(0, 1, response.data);
+        });
+      }
     },
   },
 };

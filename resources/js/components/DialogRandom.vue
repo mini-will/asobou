@@ -70,12 +70,10 @@ export default {
       axios.get(`/api/playproduct?` + this.query).then((response) => {
         this.loading = false;
         this.dialogPlayCards = response.data;
-        // return response.data;
       });
     },
-    switchMainPlay: function () {
-      //   this.playcards.splice(0, 1, this.getPlayProductById(playId));
-      this.dialogOnOff = false;
+    switchMainPlay: function (playId) {
+      this.$emit('dialog-change', playId);
     },
     getPlayProductById: function (playId) {
       // eslint-disable-next-line no-undef
@@ -85,7 +83,7 @@ export default {
     },
     chagenDialogOnOff() {
       // this.$emit('value');
-      this.$emit('dialog-change');
+      this.$emit('dialog-change', '');
     },
   },
 };
