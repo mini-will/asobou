@@ -17,7 +17,7 @@
                   class="white--text align-end"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                   height="200px"
-                  @click="switchMainPlay(playcard.id)"
+                  @click="selectMainPlay(playcard.id)"
                 >
                   <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
                 </v-img>
@@ -72,17 +72,17 @@ export default {
         this.dialogPlayCards = response.data;
       });
     },
-    switchMainPlay: function (playId) {
-      this.$emit('dialog-change', playId);
-    },
     getPlayProductById: function (playId) {
       // eslint-disable-next-line no-undef
       axios.get(`/api/playproduct/${playId}`).then((response) => {
         return response.data;
       });
     },
+    // 遊びカードを選択してダイアログを閉じる処理
+    selectMainPlay: function (playId) {
+      this.$emit('dialog-change', playId);
+    },
     chagenDialogOnOff() {
-      // this.$emit('value');
       this.$emit('dialog-change', '');
     },
   },
