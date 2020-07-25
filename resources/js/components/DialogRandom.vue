@@ -4,7 +4,7 @@
       <div style="background-color: lightgray">
         <v-row>
           <v-col
-            v-for="(playcard,index) in dialogPlayCards"
+            v-for="(playcard, index) in dialogPlayCards"
             :key="index + playcard.id"
             cols="6"
             sm="6"
@@ -27,7 +27,7 @@
         </v-row>
         <v-row>
           <v-col cols="12" sm="12" class="d-flex justify-center">
-            <!-- <v-btn @click="this.getPlayCardItem(2,'snack','')" justify="center">ほかの</v-btn> -->
+            <v-btn @click="getPlayCardItem(2, 'exercise', 3)" justify="center">ほかの</v-btn>
           </v-col>
         </v-row>
       </div>
@@ -55,6 +55,7 @@ export default {
     getPlayCardItem: function (random, category, old) {
       this.loading = true;
 
+      this.query = '';
       if (random != '') {
         this.query += 'random=' + random;
       }
@@ -64,7 +65,7 @@ export default {
       if (old != '') {
         this.query += '&old=' + old;
       }
-      // console.log(this.query);
+      console.log(this.query);
 
       // eslint-disable-next-line no-undef
       axios.get(`/api/playproduct?` + this.query).then((response) => {
