@@ -1,9 +1,8 @@
 import VueRouter from 'vue-router';
-import TopPage from './Pages/TopPage'
-import PlayInfo from './Pages/PlayInfo.vue'
-import PlayAllItem from './Pages/PlayAllItem.vue'
-import About from './Pages/About.vue'
-
+import TopPage from '../components/pages/TopPage'
+import PlayInfo from '../components/pages/PlayInfo.vue'
+import PlayAllItem from '../components/pages/PlayAllItem.vue'
+import About from '../components/pages/About.vue'
 
 const routes = [{
         path: "/",

@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import constants from '../common/constants';
+import constants from '../../common/constants';
 
 export default {
   name: 'AppHeader',
@@ -51,7 +51,7 @@ export default {
 
 <style lang="scss" scoped>
 // TODO:スタイル読み込みをグローバルにしたい
-@import '../../sass/common/common.scss';
+@import '../../../sass/common/common.scss';
 
 .v-toolbar__title {
   overflow: visible !important;

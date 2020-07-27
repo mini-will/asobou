@@ -1,7 +1,7 @@
 require('./bootstrap');
 
 import VueRouter from 'vue-router';
-import router from './routers';
+import router from './router/routers';
 import store from './store';
 import Index from './Index';
 

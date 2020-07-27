@@ -80,7 +80,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import DialogRandom from '../components/DialogRandom.vue';
+import DialogRandom from '../parts/DialogRandom.vue';
 
 export default {
   components: {
@@ -120,7 +120,8 @@ export default {
       axios
         .get(`/api/playproduct?category=${category}&random=1`)
         .then((response) => {
-          this.playcards = response.data;
+          // this.playcards = response.data;
+          this.playcards.push(response.data[0]);
           this.loading = false;
         });
     },
