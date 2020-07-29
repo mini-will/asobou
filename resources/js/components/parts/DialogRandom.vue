@@ -37,7 +37,17 @@
 
 <script>
 export default {
-  props: ['dialogOn'],
+  props: {
+    dialogOn: {
+      type: Boolean,
+      required: true,
+    },
+    playId: {
+      type: Number,
+      required: true,
+    },
+    playCategory: { type: String, required: true },
+  },
   data() {
     return {
       loading: false,
@@ -47,7 +57,7 @@ export default {
   },
   created() {},
   mounted() {
-    this.getPlayCardItem(2, 'snack', 3);
+    this.getPlayCardItem(2, this.playCategory, 3);
   },
   beforeUpdate() {},
   computed: {},

@@ -39,42 +39,43 @@
     <h2 class="mt-10">あそびをえらんでね</h2>
     <div v-if="!loading">
       <v-row>
-        <v-col>
+        <v-col v-for="(playcard, index) in playcards" :key="index">
           <v-card class="mb-4">
             <v-responsive :aspect-ratio="16 / 9">
-              <router-link :to="{ name: 'PlayInfo', params: { id: playcards[0].id } }">
+              <router-link :to="{ name: 'PlayInfo', params: { id: playcard.id } }">
                 <v-img
-                  :src="playcards[0].image_url"
+                  :src="playcard.image_url"
                   class="white--text align-end"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                   height="200px"
                 >
-                  <v-card-title
-                    v-text="playcards[0].display_name"
-                    class="headline font-weight-bold"
-                  ></v-card-title>
+                  <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
                 </v-img>
               </router-link>
 
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn icon v-on:click="color_switch(playcards[0].id)">
+                <v-btn icon v-on:click="color_switch(playcard.id)">
                   <v-icon v-if="isActiveIn === false">mdi-heart</v-icon>
                   <v-icon v-else color="pink">mdi-heart</v-icon>
                 </v-btn>
-                <v-btn @click.stop="switchDialog()">ほかの</v-btn>
+                <v-btn @click.stop="switchDialog(playcard.id, playcard.category)">ほかの</v-btn>
               </v-card-actions>
             </v-responsive>
           </v-card>
         </v-col>
       </v-row>
-
-      <!-- ■ダイアログ -->
-      <!-- 子コンポーネントを読み込んだ時点で、created, mountedは呼び出される -->
-      <DialogRandom :dialogOn="dialogOnOff" v-on:dialog-change="switchDialog" />
     </div>
 
     <div v-else>Loading...</div>
+    <!-- ■ダイアログ -->
+    <!-- 子コンポーネントを読み込んだ時点で、created, mountedは呼び出される -->
+    <DialogRandom
+      :dialogOn="dialogOnOff"
+      :play-id="dialogPlayId"
+      :play-category="dialogCategory"
+      v-on:dialog-change="switchDialog"
+    />
   </v-container>
 </template>
 
@@ -96,12 +97,16 @@ export default {
       playcards: [],
 
       dialogOnOff: false,
+      dialogPlayId: 0,
+      dialogCategory: '',
+
       dialogPlayCards: [],
     };
   },
   created() {
+    this.getPlayCard('drawing');
+    this.getPlayCard('exercise');
     this.getPlayCard('snack');
-    // this.getPlayCard('exercise');
   },
   mounted() {},
   computed: {
@@ -125,14 +130,12 @@ export default {
           this.loading = false;
         });
     },
-
     getPlayProductById: function (playId) {
       // eslint-disable-next-line no-undef
       axios.get(`/api/playproduct/${playId}`).then((response) => {
         return response.data;
       });
     },
-
     color_switch(playId) {
       this.isActiveIn = !this.isActiveIn;
       this.playLiked.splice(0, 1, {
@@ -146,8 +149,12 @@ export default {
     updateValue(vals, key_name) {
       this.$store.commit('updateValue', { vals, key_name });
     },
-    switchDialog: function (playId) {
+    switchDialog: function (playId, playCategory) {
+      console.log(playId, playCategory);
+
       this.dialogOnOff = !this.dialogOnOff;
+      this.dialogPlayId = Number(playId);
+      this.dialogCategory = String(playCategory);
 
       // ダイアログで遊びカードを選択したときはplayIDが取得できる
       if (typeof playId == 'number') {
