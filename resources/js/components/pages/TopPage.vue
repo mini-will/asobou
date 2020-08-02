@@ -12,11 +12,12 @@
           :value="$store.state.form.activePlayOld"
           dense
         ></v-select>
+        <p>{{$store.state.form.activePlayOld}}</p>
       </v-col>
       <!-- <p>{{ $store.state.form.activePlayOld }}</p> -->
 
       <!-- TODO:トグルボタンとvuex -->
-      <v-col class="d-flex" cols="12" sm="6">
+      <!-- <v-col class="d-flex" cols="12" sm="6">
         <v-switch
           label="鉄板の遊び"
           @input="updateValue($event, 'activeTeppan')"
@@ -24,7 +25,7 @@
           :value="$store.state.form.activeTeppan"
           dense
         ></v-switch>
-      </v-col>
+      </v-col>-->
 
       <!-- <v-switch v-model="teppan" :label="`鉄板の遊び`"></v-switch> -->
     </v-row>
@@ -101,8 +102,6 @@ export default {
       dialogPlayId: 0,
       dialogCategory: '',
       dialogIndex: 0,
-
-      dialogPlayCards: [],
     };
   },
   created() {

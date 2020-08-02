@@ -62,7 +62,7 @@ export default {
   created() {},
   beforeMount() {},
   mounted() {
-    this.getPlayCardItem(2, this.playCategory, 3);
+    this.getPlayCardItem(2, this.playCategory, 999);
     console.log('mounted');
   },
   beforeUpdate() {},
@@ -77,7 +77,7 @@ export default {
 
     // Dialogがonでplaycardデータが空の場合は、データ取得が必要な状態のためplaydataを取得する
     if (this.dialogOn === true && this.dialogPlayCards === null) {
-      this.getPlayCardItem(2, this.playCategory, 3);
+      this.getPlayCardItem(2, this.playCategory, 999);
     }
   },
   beforeDestroy() {
@@ -89,14 +89,17 @@ export default {
       this.loading = true;
 
       this.query = '';
-      if (random != '') {
+      if (random !== '') {
         this.query += 'random=' + random;
       }
-      if (category != '') {
+      if (category !== '') {
         this.query += '&category=' + category;
       }
-      if (old != '') {
-        this.query += '&old=' + old;
+      if (old !== '') {
+        if (old !== 999) {
+          // 対象年齢が999のときは年齢での検索を設定しない
+          this.query += '&old=' + old;
+        }
       }
       console.log('getPlayCardItem: query:' + this.query);
 
