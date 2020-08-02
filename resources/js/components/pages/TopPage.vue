@@ -12,7 +12,6 @@
           :value="$store.state.form.activePlayOld"
           dense
         ></v-select>
-        <p>{{$store.state.form.activePlayOld}}</p>
       </v-col>
       <!-- <p>{{ $store.state.form.activePlayOld }}</p> -->
 
@@ -26,12 +25,11 @@
           dense
         ></v-switch>
       </v-col>-->
-
       <!-- <v-switch v-model="teppan" :label="`鉄板の遊び`"></v-switch> -->
     </v-row>
 
-    <v-row justify="center" no-gutters>
-      <v-col class="d-flex mt-2" cols="12" sm="6">
+    <v-row justify="center" align-content="center">
+      <v-col class="mt-2" cols="12">
         <v-btn color="secondary">遊びを選ぶ</v-btn>
       </v-col>
     </v-row>
