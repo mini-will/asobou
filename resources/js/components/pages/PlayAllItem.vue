@@ -6,9 +6,11 @@
       <v-col
         v-for="(playcard, index) in playCards"
         :key="index + playcard.id"
-        cols="6"
-        sm="3"
-        class="d-flex justify-center"
+        cols="12"
+        sm="6"
+        md="4"
+        lg="3"
+        class="d-flex justify-center my-4"
       >
         <v-card>
           <router-link :to="{ name: 'PlayInfo', params: { id: playcard.id } }">
