@@ -17,7 +17,7 @@
                   class="white--text align-end"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                   height="200px"
-                  @click="selectMainPlay(playcard.id, playcard.category)"
+                  @click="selectMainPlay(playcard.id, playcard.category, playIndex)"
                 >
                   <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
                 </v-img>
@@ -47,6 +47,10 @@ export default {
       required: true,
     },
     playCategory: { type: String, required: true },
+    playIndex: {
+      type: Number,
+      required: true,
+    },
   },
   data() {
     return {
@@ -67,7 +71,8 @@ export default {
       'updated:' + this.dialogOn,
       this.playId,
       this.playCategory,
-      this.dialogPlayCards
+      this.dialogPlayCards,
+      this.playIndex
     );
 
     // Dialogがonでplaycardデータが空の場合は、データ取得が必要な状態のためplaydataを取得する
@@ -108,16 +113,27 @@ export default {
       });
     },
     // 遊びカードを選択してダイアログを閉じる処理
-    selectMainPlay: function (playId, playCategory) {
-      this.$emit('dialog-change', playId, playCategory);
+    selectMainPlay: function (playId, playCategory, playIndex) {
+      this.$emit('dialog-change', playId, playCategory, playIndex);
       console.log(
-        'dialog-change: playID ' + playId + ', playCategory ' + playCategory
+        'dialog-change: playID ' +
+          playId +
+          ', playCategory ' +
+          playCategory +
+          ', playIndex ' +
+          playIndex
       );
+      // ダイアログを閉じるときにdialogPlayCardsデータを削除してダイアログが閉じられてる状態で、
+      // もう一度ダイアログを開いたときは再度データ取得が必要な状態とする
       this.dialogPlayCards = null;
     },
     // ダイアログを閉じる処理
     chagenDialogOnOff() {
+      // ダイアログを閉じるときにdialogPlayCardsデータを削除してダイアログが閉じられてる状態で、
+      // もう一度ダイアログを開いたときは再度データ取得が必要な状態とする
+      // vuetify dialogのcloseイベントを直接拾えなかったための代替処理
       this.dialogPlayCards = null;
+
       console.log('chagenDialogOnOff:' + this.dialogPlayCards);
       this.$emit('dialog-change', '');
     },

@@ -59,7 +59,7 @@
                   <v-icon v-if="isActiveIn === false">mdi-heart</v-icon>
                   <v-icon v-else color="pink">mdi-heart</v-icon>
                 </v-btn>
-                <v-btn @click.stop="switchDialog(playcard.id, playcard.category)">ほかの</v-btn>
+                <v-btn @click.stop="switchDialog(playcard.id, playcard.category, index)">ほかの</v-btn>
               </v-card-actions>
             </v-responsive>
           </v-card>
@@ -74,7 +74,8 @@
       :dialogOn="dialogOnOff"
       :play-id="dialogPlayId"
       :play-category="dialogCategory"
-      v-on:dialog-change="switchDialog"
+      :play-index="dialogIndex"
+      v-on:dialog-change="switchMainPlay"
     />
   </v-container>
 </template>
@@ -99,6 +100,7 @@ export default {
       dialogOnOff: false,
       dialogPlayId: 0,
       dialogCategory: '',
+      dialogIndex: 0,
 
       dialogPlayCards: [],
     };
@@ -149,21 +151,46 @@ export default {
     updateValue(vals, key_name) {
       this.$store.commit('updateValue', { vals, key_name });
     },
-    switchDialog: function (playId, playCategory) {
-      console.log(playId, playCategory);
+    // Dialog on(true)にしてダイアログを表示する
+    switchDialog: function (playId, playCategory, playIndex) {
+      console.log(
+        'switchDialog: playID ' +
+          playId +
+          ', playCategory ' +
+          playCategory +
+          ', playIndex ' +
+          playIndex
+      );
 
       this.dialogOnOff = !this.dialogOnOff;
       this.dialogPlayId = Number(playId);
       this.dialogCategory = String(playCategory);
+      this.dialogIndex = Number(playIndex);
+    },
+    // DialogRandom component からemitで呼び出す処理
+    switchMainPlay: function (playId, playCategory, playIndex) {
+      console.log(
+        'switchMainPlay: playID ' +
+          playId +
+          ', playCategory ' +
+          playCategory +
+          ', playIndex ' +
+          playIndex
+      );
+
+      this.dialogOnOff = !this.dialogOnOff;
+      this.dialogPlayId = Number(playId);
+      this.dialogCategory = String(playCategory);
+      this.dialogIndex = Number(playIndex);
 
       // ダイアログで遊びカードを選択したときはplayIDが取得できる
       if (typeof playId == 'number') {
-        console.log(playId);
+        console.log('switchDialog: play入れ替え ' + playId);
 
         //ダイアログで選択した遊びをトップページに表示させる
         // eslint-disable-next-line no-undef
         axios.get(`/api/playproduct/${playId}`).then((response) => {
-          this.playcards.splice(0, 1, response.data);
+          this.playcards.splice(this.dialogIndex, 1, response.data);
         });
       }
     },
