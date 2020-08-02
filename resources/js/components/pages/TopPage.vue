@@ -38,7 +38,7 @@
     <h2 class="mt-10">あそびをえらんでね</h2>
     <div v-if="!loading">
       <v-row>
-        <v-col v-for="(playcard, index) in playcards" :key="index">
+        <v-col v-for="(playcard, index) in playcards" :key="index" cols="12" sm="6" md="4" lg="3">
           <v-card class="mb-4">
             <v-responsive :aspect-ratio="16 / 9">
               <router-link :to="{ name: 'PlayInfo', params: { id: playcard.id } }">
