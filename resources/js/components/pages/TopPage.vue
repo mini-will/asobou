@@ -53,11 +53,12 @@
               </router-link>
 
               <v-card-actions>
+                <p>{{playcard.category}}</p>
                 <v-spacer></v-spacer>
-                <v-btn icon v-on:click="color_switch(playcard.id)">
+                <!-- <v-btn icon v-on:click="color_switch(playcard.id)">
                   <v-icon v-if="isActiveIn === false">mdi-heart</v-icon>
                   <v-icon v-else color="pink">mdi-heart</v-icon>
-                </v-btn>
+                </v-btn>-->
                 <v-btn @click.stop="switchDialog(playcard.id, playcard.category, index)">ほかの</v-btn>
               </v-card-actions>
             </v-responsive>
@@ -103,9 +104,11 @@ export default {
     };
   },
   created() {
+    this.getPlayCard('origami');
     this.getPlayCard('drawing');
     this.getPlayCard('exercise');
     this.getPlayCard('snack');
+    this.getPlayCard('game');
   },
   mounted() {},
   computed: {
