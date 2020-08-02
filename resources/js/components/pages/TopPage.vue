@@ -30,7 +30,7 @@
 
     <v-row justify="center" align-content="center">
       <v-col class="mt-2" cols="12">
-        <v-btn color="secondary">遊びを選ぶ</v-btn>
+        <v-btn color="secondary">シャッフル</v-btn>
       </v-col>
     </v-row>
 
