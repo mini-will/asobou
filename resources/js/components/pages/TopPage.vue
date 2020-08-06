@@ -1,30 +1,30 @@
 <template>
-  <v-container>
+  <v-container class="yellow lighten-4">
     <div class="select-old-text">
-      <h3 class="mt-4">子供の年齢を選んでください</h3>
+      <h3 class="my-4">なんさいですか？</h3>
     </div>
 
-    <v-row justify="center" class="mt-4" style="width: 360px;">
-      <v-col cols="3">
-        <v-btn min-width="90" color="white">0歳</v-btn>
-      </v-col>
-      <v-col cols="3" class="mx-4">
-        <v-btn min-width="90" color="white">1歳-2歳</v-btn>
-      </v-col>
-      <v-col cols="3">
-        <v-btn min-width="90" color="white">3歳-</v-btn>
-      </v-col>
+    <div class="select-old-btn">
+      <v-row class="blue lighten-4" style="height: 50px;" justify="center" align-content="center">
+        <v-btn min-width="90" color="white">0さい</v-btn>
+        <v-btn min-width="90" color="white" class="mx-4">1-2さい</v-btn>
+        <v-btn min-width="90" color="white">3さい〜</v-btn>
+      </v-row>
+    </div>
+
+    <v-row class="green lighten-4 my-4" justify="center" align-content="center">
+      <v-btn color="white">シャッフル</v-btn>
     </v-row>
 
-    <v-row justify="center" align-content="center">
-      <v-col class="mt-2" cols="12">
-        <v-btn color="secondary mx-4">シャッフル</v-btn>
+    <!-- <v-row class="yellow lighten-4" style="height: 100px;" justify="center" align-content="center">
+      <v-col cols="4" sm="3" md="2" lg="1" v-for="n in 3" :key="n">
+        <v-btn min-width="90" color="white">{{n}}</v-btn>
       </v-col>
-    </v-row>
+    </v-row>-->
 
     <!-- 遊びを表示 -->
     <div class="select-play-text">
-      <h3 class="mt-10">遊びを選んでください</h3>
+      <h3 class="mt-6">あそびをえらんでね</h3>
     </div>
     <div v-if="!loading">
       <v-row>
@@ -194,6 +194,10 @@ export default {
 
 <style lang="css">
 .select-old-text {
+  text-align: center;
+}
+
+.select-old-btn {
   text-align: center;
 }
 
