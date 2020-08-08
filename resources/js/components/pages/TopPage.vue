@@ -4,16 +4,29 @@
       <h3 class="my-4">なんさいですか？</h3>
     </div>
 
+    <!-- <v-btn color="primary">primary</v-btn>
+    <v-btn color="secondary">secondary</v-btn>
+    <v-btn color="accent">accent</v-btn>
+    <br />
+
+    <v-btn color="success">Success</v-btn>
+    <v-btn color="error">Error</v-btn>
+    <v-btn color="warning">Warning</v-btn>
+    <v-btn color="info">Info</v-btn>
+    <br />-->
+
     <div class="select-old-btn">
-      <v-row class="yellow lighten-4" style="height: 50px;" justify="center" align-content="center">
+      <v-row class="blue lighten-4" style="height: 80px;" justify="center" align-content="center">
         <v-btn
           min-width="90"
+          height="50"
           color="white"
           @click="switchSelectOld(0)"
           :class="{ 'orange lighten-1 white--text font-weight-bold': isActiveOldBtn0 }"
         >0さい</v-btn>
         <v-btn
           min-width="90"
+          height="50"
           color="white"
           class="mx-4"
           @click="switchSelectOld(1)"
@@ -21,6 +34,7 @@
         >1-2さい</v-btn>
         <v-btn
           min-width="90"
+          height="50"
           color="white"
           @click="switchSelectOld(2)"
           :class="{  'orange lighten-1 white--text font-weight-bold': isActiveOldBtn2 }"
