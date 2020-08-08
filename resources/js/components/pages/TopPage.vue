@@ -1,5 +1,5 @@
 <template>
-  <v-container class="yellow lighten-4">
+  <v-container class="yellow lighten-4" fluid style="max-height: 100%;">
     <div class="select-old-text">
       <h3 class="my-4">なんさいですか？</h3>
     </div>
