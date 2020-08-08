@@ -5,10 +5,26 @@
     </div>
 
     <div class="select-old-btn">
-      <v-row class="blue lighten-4" style="height: 50px;" justify="center" align-content="center">
-        <v-btn min-width="90" color="white">0さい</v-btn>
-        <v-btn min-width="90" color="white" class="mx-4">1-2さい</v-btn>
-        <v-btn min-width="90" color="white">3さい〜</v-btn>
+      <v-row class="yellow lighten-4" style="height: 50px;" justify="center" align-content="center">
+        <v-btn
+          min-width="90"
+          color="white"
+          @click="switchSelectOld(0)"
+          :class="{ 'orange lighten-1 white--text font-weight-bold': isActiveOldBtn0 }"
+        >0さい</v-btn>
+        <v-btn
+          min-width="90"
+          color="white"
+          class="mx-4"
+          @click="switchSelectOld(1)"
+          :class="{  'orange lighten-1 white--text font-weight-bold': isActiveOldBtn1 }"
+        >1-2さい</v-btn>
+        <v-btn
+          min-width="90"
+          color="white"
+          @click="switchSelectOld(2)"
+          :class="{  'orange lighten-1 white--text font-weight-bold': isActiveOldBtn2 }"
+        >3さい〜</v-btn>
       </v-row>
     </div>
 
@@ -94,6 +110,11 @@ export default {
       dialogPlayId: 0,
       dialogCategory: '',
       dialogIndex: 0,
+
+      // 年齢を選択するボタンの制御
+      isActiveOldBtn0: false,
+      isActiveOldBtn1: false,
+      isActiveOldBtn2: false,
     };
   },
   created() {
@@ -186,6 +207,28 @@ export default {
         axios.get(`/api/playproduct/${playId}`).then((response) => {
           this.playcards.splice(this.dialogIndex, 1, response.data);
         });
+      }
+    },
+    switchSelectOld: function (index) {
+      // 押された年齢のボタンの色を活性化
+      switch (index) {
+        case 0:
+          this.isActiveOldBtn0 = true;
+          this.isActiveOldBtn1 = false;
+          this.isActiveOldBtn2 = false;
+          break;
+        case 1:
+          this.isActiveOldBtn0 = false;
+          this.isActiveOldBtn1 = true;
+          this.isActiveOldBtn2 = false;
+          break;
+        case 2:
+          this.isActiveOldBtn0 = false;
+          this.isActiveOldBtn1 = false;
+          this.isActiveOldBtn2 = true;
+          break;
+        default:
+          break;
       }
     },
   },
