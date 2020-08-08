@@ -244,6 +244,27 @@ export default {
         default:
           break;
       }
+
+      // TODO: 選択された年齢に応じた遊び検索をする→遊びデータを増やす必要がある
+      // 子供の年齢が選択されたらその年齢に応じて表示している遊びを切り替える
+      // 現在表示している遊びオブジェクトからループでカテゴリを取得して、遊びを取得する
+      let innner_query = '';
+      const innner_random = 1;
+      // const innner_old = '';
+
+      for (let k of Object.keys(this.playcards)) {
+        innner_query = '';
+        innner_query += 'random=' + innner_random;
+        innner_query += '&category=' + this.playcards[k].category;
+        // innner_query += '&old=' + innner_old;
+
+        console.log('getPlayCardItem: query:' + innner_query);
+
+        // eslint-disable-next-line no-undef
+        axios.get(`/api/playproduct?` + innner_query).then((response) => {
+          this.playcards.splice(k, 1, response.data[0]);
+        });
+      }
     },
   },
 };
