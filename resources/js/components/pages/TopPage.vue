@@ -12,9 +12,9 @@
       </v-row>
     </div>
 
-    <v-row class="green lighten-4 my-4" justify="center" align-content="center">
+    <!-- <v-row class="green lighten-4 my-4" justify="center" align-content="center">
       <v-btn color="white">シャッフル</v-btn>
-    </v-row>
+    </v-row>-->
 
     <!-- <v-row class="yellow lighten-4" style="height: 100px;" justify="center" align-content="center">
       <v-col cols="4" sm="3" md="2" lg="1" v-for="n in 3" :key="n">
