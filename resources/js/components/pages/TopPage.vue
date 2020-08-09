@@ -137,16 +137,18 @@ export default {
     this.getPlayCard('exercise');
     this.getPlayCard('snack');
     this.getPlayCard('game');
+
+    console.log('displayPlayItemState:' + this.displayPlayItemState);
   },
   mounted() {},
   computed: {
     store() {
       return this.$store.state;
     },
-    ...mapState(['playOldState']),
+    ...mapState(['playOldState', 'displayPlayItemState']),
   },
   methods: {
-    ...mapMutations(['setOld']),
+    ...mapMutations(['setOld', 'setDisplayPlayItem']),
     getPlayCard: function (category) {
       this.loading = true;
       // eslint-disable-next-line no-undef
@@ -243,6 +245,12 @@ export default {
           break;
       }
 
+      // eslint-disable-next-line no-undef
+      axios.get(`/api/playproduct?category=snack&random=1`).then((response) => {
+        this.setDisplayPlayItem({ response: response });
+        console.log('displayPlayItemState:' + this.displayPlayItemState);
+      });
+
       // TODO: 選択された年齢に応じた遊び検索をする→遊びデータを増やす必要がある
       // 子供の年齢が選択されたらその年齢に応じて表示している遊びを切り替える
       // 現在表示している遊びオブジェクトからループでカテゴリを取得して、遊びを取得する
@@ -256,12 +264,12 @@ export default {
         innner_query += '&category=' + this.playcards[k].category;
         // innner_query += '&old=' + innner_old;
 
-        console.log('getPlayCardItem: query:' + innner_query);
+        // console.log('getPlayCardItem: query:' + innner_query);
 
         // eslint-disable-next-line no-undef
-        axios.get(`/api/playproduct?` + innner_query).then((response) => {
-          this.playcards.splice(k, 1, response.data[0]);
-        });
+        // axios.get(`/api/playproduct?` + innner_query).then((response) => {
+        //   this.playcards.splice(k, 1, response.data[0]);
+        // });
       }
     },
   },
