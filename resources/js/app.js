@@ -8,11 +8,38 @@ import Index from './Index';
 import vuetify from '../../src/plugins/vuetify';
 import Vuetify from 'vuetify';
 import "vuetify/dist/vuetify.min.css";
+import colors from 'vuetify/es5/util/colors';
 
 window.Vue = require('vue');
 
+// eslint-disable-next-line no-undef
 Vue.use(VueRouter);
-Vue.use(Vuetify);
+// eslint-disable-next-line no-undef
+Vue.use(Vuetify, {
+    theme: {
+        dark: true,
+        themes: {
+            light: {
+                primary: colors.blue.darken2,
+                accent: colors.grey.darken3,
+                secondary: colors.amber.darken3,
+                info: colors.teal.lighten1,
+                warning: colors.amber.base,
+                error: colors.deepOrange.accent4,
+                success: colors.green.accent3
+            },
+            dark: {
+                primary: colors.blue.darken2,
+                accent: colors.grey.darken3,
+                secondary: colors.amber.darken3,
+                info: colors.teal.lighten1,
+                warning: colors.amber.base,
+                error: colors.deepOrange.accent4,
+                success: colors.green.accent3
+            },
+        },
+    }
+});
 
 
 // eslint-disable-next-line no-unused-vars
