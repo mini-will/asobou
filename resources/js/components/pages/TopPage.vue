@@ -1,19 +1,18 @@
 <template>
   <v-container class="yellow lighten-4" fluid style="max-height: 100%;">
-    <div class="select-old-text">
-      <h3 class="my-4">なんさいですか？</h3>
-    </div>
-
     <!-- <v-btn color="primary">primary</v-btn>
     <v-btn color="secondary">secondary</v-btn>
     <v-btn color="accent">accent</v-btn>
     <br />
-
     <v-btn color="success">Success</v-btn>
     <v-btn color="error">Error</v-btn>
     <v-btn color="warning">Warning</v-btn>
     <v-btn color="info">Info</v-btn>
     <br />-->
+
+    <div class="select-old-text">
+      <h3 class="my-4">なんさいですか？</h3>
+    </div>
 
     <div class="select-old-btn">
       <v-row class="blue lighten-4" style="height: 80px;" justify="center" align-content="center">
@@ -104,7 +103,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 import DialogRandom from '../parts/DialogRandom.vue';
 
 export default {
@@ -144,12 +143,10 @@ export default {
     store() {
       return this.$store.state;
     },
-    ...mapState(['playOld']),
-    ...mapState(['form.activePlayOld']),
-    ...mapState(['teppan']),
-    ...mapState(['form.activeTeppan']),
+    ...mapState(['playOldState']),
   },
   methods: {
+    ...mapMutations(['setOld']),
     getPlayCard: function (category) {
       this.loading = true;
       // eslint-disable-next-line no-undef
@@ -176,9 +173,6 @@ export default {
         liked: this.isActiveIn,
         display: 'show',
       });
-    },
-    updateValue(vals, key_name) {
-      this.$store.commit('updateValue', { vals, key_name });
     },
     // Dialog on(true)にしてダイアログを表示する
     switchDialog: function (playId, playCategory, playIndex) {
@@ -223,6 +217,7 @@ export default {
         });
       }
     },
+    // 年齢ボタンの押下された内容に応じてデータを取得して画面へ表示する
     switchSelectOld: function (index) {
       // 押された年齢のボタンの色を活性化
       switch (index) {
@@ -230,16 +225,19 @@ export default {
           this.isActiveOldBtn0 = true;
           this.isActiveOldBtn1 = false;
           this.isActiveOldBtn2 = false;
+          this.setOld({ playOld: 0 });
           break;
         case 1:
           this.isActiveOldBtn0 = false;
           this.isActiveOldBtn1 = true;
           this.isActiveOldBtn2 = false;
+          this.setOld({ playOld: 1 });
           break;
         case 2:
           this.isActiveOldBtn0 = false;
           this.isActiveOldBtn1 = false;
           this.isActiveOldBtn2 = true;
+          this.setOld({ playOld: 3 });
           break;
         default:
           break;
