@@ -57,7 +57,14 @@
     </div>
     <div v-if="!loading">
       <v-row>
-        <v-col v-for="(playcard, index) in playcards" :key="index" cols="12" sm="6" md="4" lg="3">
+        <v-col
+          v-for="(playcard, index) in displayPlayItemState"
+          :key="index"
+          cols="12"
+          sm="6"
+          md="4"
+          lg="3"
+        >
           <v-card class="mb-4">
             <v-responsive :aspect-ratio="16 / 9">
               <router-link :to="{ name: 'PlayInfo', params: { id: playcard.id } }">
@@ -131,14 +138,7 @@ export default {
     };
   },
   created() {
-    this.getPlayCard('singing');
-    this.getPlayCard('origami');
-    this.getPlayCard('drawing');
-    this.getPlayCard('exercise');
-    this.getPlayCard('snack');
-    this.getPlayCard('game');
-
-    console.log('displayPlayItemState:' + this.displayPlayItemState);
+    this.getInitialPlayData();
   },
   mounted() {},
   computed: {
@@ -148,34 +148,49 @@ export default {
     ...mapState(['playOldState', 'displayPlayItemState']),
   },
   methods: {
-    ...mapMutations(['setOld', 'setDisplayPlayItem']),
+    ...mapMutations(['setOld', 'setDisplayPlayItem', 'spliceDisplayPlayItem']),
     getPlayCard: function (category) {
       this.loading = true;
       // eslint-disable-next-line no-undef
       axios
         .get(`/api/playproduct?category=${category}&random=1`)
         .then((response) => {
-          // this.playcards = response.data;
-          this.playcards.push(response.data[0]);
+          // this.playcards.push(response.data[0]);
+          this.setDisplayPlayItem({ response: response });
+          // console.log('displayPlayItemState:' + this.displayPlayItemState);
           this.loading = false;
         });
     },
-    getPlayProductById: function (playId) {
-      // eslint-disable-next-line no-undef
-      axios.get(`/api/playproduct/${playId}`).then((response) => {
-        return response.data;
-      });
+    getInitialPlayData: function () {
+      // state playItemにデータが無いときだけ初回データを取得する
+      if (this.displayPlayItemState.length === 0) {
+        console.log(
+          'displayPlayItemState is null.' + this.displayPlayItemState
+        );
+
+        this.getPlayCard('singing');
+        this.getPlayCard('origami');
+        this.getPlayCard('drawing');
+        this.getPlayCard('exercise');
+        this.getPlayCard('snack');
+        this.getPlayCard('game');
+      }
     },
-    color_switch(playId) {
-      this.isActiveIn = !this.isActiveIn;
-      this.playLiked.splice(0, 1, {
-        id: 1,
-        user: 'testUser',
-        playId: playId,
-        liked: this.isActiveIn,
-        display: 'show',
-      });
-    },
+    // getPlayProductById: function (playId) {
+    //   axios.get(`/api/playproduct/${playId}`).then((response) => {
+    //     return response.data;
+    //   });
+    // },
+    // color_switch(playId) {
+    //   this.isActiveIn = !this.isActiveIn;
+    //   this.playLiked.splice(0, 1, {
+    //     id: 1,
+    //     user: 'testUser',
+    //     playId: playId,
+    //     liked: this.isActiveIn,
+    //     display: 'show',
+    //   });
+    // },
     // Dialog on(true)にしてダイアログを表示する
     switchDialog: function (playId, playCategory, playIndex) {
       console.log(
@@ -215,7 +230,11 @@ export default {
         //ダイアログで選択した遊びをトップページに表示させる
         // eslint-disable-next-line no-undef
         axios.get(`/api/playproduct/${playId}`).then((response) => {
-          this.playcards.splice(this.dialogIndex, 1, response.data);
+          // this.playcards.splice(this.dialogIndex, 1, response.data);
+          this.spliceDisplayPlayItem({
+            response: response,
+            index: this.dialogIndex,
+          });
         });
       }
     },
@@ -244,12 +263,6 @@ export default {
         default:
           break;
       }
-
-      // eslint-disable-next-line no-undef
-      axios.get(`/api/playproduct?category=snack&random=1`).then((response) => {
-        this.setDisplayPlayItem({ response: response });
-        console.log('displayPlayItemState:' + this.displayPlayItemState);
-      });
 
       // TODO: 選択された年齢に応じた遊び検索をする→遊びデータを増やす必要がある
       // 子供の年齢が選択されたらその年齢に応じて表示している遊びを切り替える

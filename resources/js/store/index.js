@@ -24,6 +24,10 @@ export default new Vuex.Store({
             for (let k of Object.keys(payload.response.data)) {
                 state.displayPlayItemState.push(payload.response.data[k]);
             }
+        },
+        spliceDisplayPlayItem(state, payload) {
+            state.displayPlayItemState.splice(payload.index, 1, payload.response.data);
+            console.log("spliceDisplayPlayItem:index " + payload.index + "response category" + payload.response.data.category);
         }
 
     },
