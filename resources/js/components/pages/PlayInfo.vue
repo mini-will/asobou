@@ -8,10 +8,12 @@
       </v-row>
 
       <v-row>
-        <v-col>
-          <div v-if="!loading">
+        <v-col cols="12">
+          <div class="section" v-if="!loading">
             <h1 class="my-4">{{ playProduct[0].display_name }}</h1>
-            <youtube :video-id="playProduct[0].youtube_video_Id" />
+            <v-card>
+              <youtube :video-id="playProduct[0].youtube_video_Id" fitParent="true" />
+            </v-card>
 
             <p class="headline mt-4">どうぐ</p>
             <p>{{ playProduct[0].tool_tags }}</p>

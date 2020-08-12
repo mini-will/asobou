@@ -280,9 +280,9 @@ export default {
         // console.log('getPlayCardItem: query:' + innner_query);
 
         // eslint-disable-next-line no-undef
-        // axios.get(`/api/playproduct?` + innner_query).then((response) => {
-        //   this.playcards.splice(k, 1, response.data[0]);
-        // });
+        axios.get(`/api/playproduct?` + innner_query).then((response) => {
+          this.playcards.splice(k, 1, response.data[0]);
+        });
       }
     },
   },
