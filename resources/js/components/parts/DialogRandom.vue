@@ -27,7 +27,7 @@
         </v-row>
         <v-row>
           <v-col cols="12" sm="12" class="d-flex justify-center">
-            <v-btn @click="getPlayCardItem(2, playCategory, 3)" justify="center">ほかの</v-btn>
+            <v-btn @click="getPlayCardItem(2, playCategory, 3)" justify="center">チェンジ</v-btn>
           </v-col>
         </v-row>
       </div>

@@ -1,5 +1,5 @@
 <template>
-  <v-container class="yellow lighten-4" fluid style="max-height: 100%;">
+  <v-container class="yellow lighten-4 text-center" fluid style="max-height: 100%;">
     <!-- <v-btn color="primary">primary</v-btn>
     <v-btn color="secondary">secondary</v-btn>
     <v-btn color="accent">accent</v-btn>
@@ -88,7 +88,7 @@
                 <v-btn
                   color="accent"
                   @click.stop="switchDialog(playcard.id, playcard.category, index)"
-                >ほかの</v-btn>
+                >チェンジ</v-btn>
               </v-card-actions>
             </v-responsive>
           </v-card>
@@ -97,6 +97,16 @@
     </div>
 
     <div v-else>Loading...</div>
+
+    <div>
+      <v-row>
+        <v-col>
+          <h3 class="my-4">簡単遊びって？</h3>
+          <p class="mb-10">毎日遊びを選ぶのも大変です。同じ遊びばかりでは飽きてしまいますよね。</p>
+        </v-col>
+      </v-row>
+    </div>
+
     <!-- ■ダイアログ -->
     <!-- 子コンポーネントを読み込んだ時点で、created, mountedは呼び出される -->
     <DialogRandom
@@ -264,6 +274,7 @@ export default {
           break;
       }
 
+      // TODO: データセットの仕方の変更 https://javascript.programmer-reference.com/js-array-judgement/
       // TODO: 選択された年齢に応じた遊び検索をする→遊びデータを増やす必要がある
       // 子供の年齢が選択されたらその年齢に応じて表示している遊びを切り替える
       // 現在表示している遊びオブジェクトからループでカテゴリを取得して、遊びを取得する
@@ -271,17 +282,21 @@ export default {
       const innner_random = 1;
       // const innner_old = '';
 
-      for (let k of Object.keys(this.playcards)) {
+      for (let k of Object.keys(this.displayPlayItemState)) {
         innner_query = '';
         innner_query += 'random=' + innner_random;
-        innner_query += '&category=' + this.playcards[k].category;
+        innner_query += '&category=' + this.displayPlayItemState[k].category;
         // innner_query += '&old=' + innner_old;
 
-        // console.log('getPlayCardItem: query:' + innner_query);
+        console.log('getPlayCardItem: query:' + innner_query);
 
         // eslint-disable-next-line no-undef
         axios.get(`/api/playproduct?` + innner_query).then((response) => {
-          this.playcards.splice(k, 1, response.data[0]);
+          // this.displayPlayItemState.splice(k, 1, response.data[0]);
+          this.spliceDisplayPlayItem({
+            response: response,
+            index: k,
+          });
         });
       }
     },
@@ -290,15 +305,4 @@ export default {
 </script>
 
 <style lang="css">
-.select-old-text {
-  text-align: center;
-}
-
-.select-old-btn {
-  text-align: center;
-}
-
-.select-play-text {
-  text-align: center;
-}
 </style>
