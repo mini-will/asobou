@@ -12,14 +12,14 @@
           <div class="section" v-if="!loading">
             <h1 class="my-4">{{ playProduct[0].display_name }}</h1>
             <v-card>
-              <youtube :video-id="playProduct[0].youtube_video_Id" fitParent="true" />
+              <youtube :video-id="playProduct[0].youtube_video_Id" fitParent="innerFitParent" />
             </v-card>
 
-            <p class="headline mt-4">どうぐ</p>
-            <p>{{ playProduct[0].tool_tags }}</p>
+            <h2 class="mt-8">どうぐ</h2>
+            <p class="mb-8">{{ playProduct[0].tool_tags }}</p>
 
-            <p class="headline py-1">あそびかた</p>
-            <p>{{ playProduct[0].description }}</p>
+            <h2 class="py-1">あそびかた</h2>
+            <p class="mb-8">{{ playProduct[0].description }}</p>
           </div>
 
           <div v-else>
@@ -42,6 +42,7 @@ export default {
     return {
       loading: false,
       playProduct: [],
+      innerFitParent: true,
     };
   },
   created() {
