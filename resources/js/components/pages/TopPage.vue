@@ -11,7 +11,7 @@
     <br />-->
 
     <div class="select-old-text">
-      <h3 class="my-4">なんさいですか？</h3>
+      <h2 class="my-4">なんさいですか？</h2>
     </div>
 
     <div class="select-old-btn">
@@ -53,7 +53,7 @@
 
     <!-- 遊びを表示 -->
     <div class="select-play-text">
-      <h3 class="mt-6">あそびをえらんでね</h3>
+      <h2 class="mt-6">あそびをえらんでね</h2>
     </div>
     <div v-if="!loading">
       <v-row>
@@ -101,7 +101,7 @@
     <div>
       <v-row>
         <v-col>
-          <h3 class="my-4">簡単遊びって？</h3>
+          <h2 class="my-4">簡単遊びって？</h2>
           <p class="mb-10">毎日遊びを選ぶのも大変です。同じ遊びばかりでは飽きてしまいますよね。</p>
         </v-col>
       </v-row>
