@@ -26,8 +26,17 @@ export default new Vuex.Store({
             }
         },
         spliceDisplayPlayItem(state, payload) {
-            state.displayPlayItemState.splice(payload.index, 1, payload.response.data);
-            console.log("spliceDisplayPlayItem:index " + payload.index + "response category" + payload.response.data.category);
+            // 渡ってきたpayloadの中身が配列かどうかで処理を分ける
+            // 配列形式じゃないとうまくデータを取り出せないケースがあったので
+            if (Array.isArray(payload.response.data)) {
+                // console.log("array");
+                for (let k of Object.keys(payload.response.data)) {
+                    state.displayPlayItemState.splice(payload.index, 1, payload.response.data[k]);
+                }
+            } else {
+                // console.log("not array");
+                state.displayPlayItemState.splice(payload.index, 1, payload.response.data);
+            }
         }
 
     },
