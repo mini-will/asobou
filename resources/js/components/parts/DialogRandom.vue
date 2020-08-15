@@ -1,7 +1,11 @@
 <template>
   <div>
-    <v-dialog :value="this.$props.dialogOn" @input="chagenDialogOnOff" overlay-opacity="0.7">
-      <div style="background-color: lightgray">
+    <v-dialog
+      :value="this.$props.dialogOn"
+      @input="chagenDialogOnOff"
+      overlay-opacity="0.7"
+    >
+      <div style="background-color: lightgray;">
         <v-row>
           <v-col
             v-for="(playcard, index) in dialogPlayCards"
@@ -17,9 +21,14 @@
                   class="white--text align-end"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                   height="200px"
-                  @click="selectMainPlay(playcard.id, playcard.category, playIndex)"
+                  @click="
+                    selectMainPlay(playcard.id, playcard.category, playIndex)
+                  "
                 >
-                  <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
+                  <v-card-title
+                    v-text="playcard.display_name"
+                    class="headline font-weight-bold"
+                  ></v-card-title>
                 </v-img>
               </v-responsive>
             </v-card>
@@ -31,7 +40,8 @@
               @click="getPlayCardItem(2, playCategory, 3)"
               justify="center"
               color="#4FC3F7"
-            >チェンジ</v-btn>
+              >チェンジ</v-btn
+            >
           </v-col>
         </v-row>
       </div>
@@ -59,14 +69,18 @@ export default {
   data() {
     return {
       loading: false,
-      dialogPlayCards: [],
+      dialogPlayCards: null,
       query: '',
     };
   },
   created() {},
   beforeMount() {},
   mounted() {
-    this.getPlayCardItem(2, this.playCategory, 999);
+    // Dialogがonでplaycardデータが空の場合は、データ取得が必要な状態のためplaydataを取得する
+    if (this.dialogOn === true && this.dialogPlayCards === null) {
+      this.getPlayCardItem(2, this.playCategory, 999);
+    }
+
     console.log('mounted');
   },
   beforeUpdate() {},
