@@ -20,7 +20,7 @@ Vue.use(Vuetify, {
         dark: true,
         themes: {
             light: {
-                primary: colors.blue.darken2,
+                primary: colors.green.darken4,
                 accent: colors.grey.darken3,
                 secondary: colors.amber.darken3,
                 info: colors.teal.lighten1,
@@ -29,7 +29,7 @@ Vue.use(Vuetify, {
                 success: colors.green.accent3
             },
             dark: {
-                primary: colors.blue.darken2,
+                primary: colors.green.darken2,
                 accent: colors.grey.darken3,
                 secondary: colors.amber.darken3,
                 info: colors.teal.lighten1,

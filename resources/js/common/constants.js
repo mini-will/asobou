@@ -1,14 +1,14 @@
 export default {
     menuItems: [{
-            name: 'HOME',
+            name: 'ほーむ',
             link: '/'
         },
         {
-            name: 'ALL ITEM',
+            name: 'ぜんぶのあそび',
             link: '/playallitem'
         },
         {
-            name: 'ABOUT',
+            name: 'あそびぃーについて',
             link: '/about'
         }
     ]

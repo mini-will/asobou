@@ -1,6 +1,7 @@
 <template>
-  <v-container class="yellow lighten-4 text-center" fluid style="max-height: 100%;">
-    <!-- <v-btn color="primary">primary</v-btn>
+  <v-container color="#FFC107" class="text-center" fluid style="max-height: 100%;">
+    <!-- <br />
+    <v-btn color="primary">primary</v-btn>
     <v-btn color="secondary">secondary</v-btn>
     <v-btn color="accent">accent</v-btn>
     <br />
@@ -11,32 +12,32 @@
     <br />-->
 
     <div class="select-old-text">
-      <h2 class="my-4 grey--text text--darken-3">なんさいですか？</h2>
+      <h2 class="mt-10 grey--text text--darken-3">なんさいですか？</h2>
     </div>
 
     <div class="select-old-btn">
-      <v-row class="blue lighten-4" style="height: 80px;" justify="center" align-content="center">
+      <v-row style="height: 80px;" justify="center" align-content="center">
         <v-btn
           min-width="90"
           height="50"
-          color="white"
+          color="white subtitle-1"
           @click="switchSelectOld(0)"
-          :class="{ 'orange lighten-1 white--text font-weight-bold': isActiveOldBtn0 }"
+          :class="{ 'red lighten-2 white--text font-weight-bold title': isActiveOldBtn0 }"
         >0さい</v-btn>
         <v-btn
           min-width="90"
           height="50"
-          color="white"
+          color="white subtitle-1"
           class="mx-4"
           @click="switchSelectOld(1)"
-          :class="{  'orange lighten-1 white--text font-weight-bold': isActiveOldBtn1 }"
+          :class="{  'red lighten-2 white--text font-weight-bold': isActiveOldBtn1 }"
         >1-2さい</v-btn>
         <v-btn
           min-width="90"
           height="50"
-          color="white"
+          color="white subtitle-1"
           @click="switchSelectOld(2)"
-          :class="{  'orange lighten-1 white--text font-weight-bold': isActiveOldBtn2 }"
+          :class="{  'red lighten-2 white--text font-weight-bold': isActiveOldBtn2 }"
         >3さい〜</v-btn>
       </v-row>
     </div>
@@ -86,7 +87,8 @@
                   <v-icon v-else color="pink">mdi-heart</v-icon>
                 </v-btn>-->
                 <v-btn
-                  color="accent"
+                  color="#4FC3F7"
+                  class="white--text"
                   @click.stop="switchDialog(playcard.id, playcard.category, index)"
                 >チェンジ</v-btn>
               </v-card-actions>
@@ -305,4 +307,7 @@ export default {
 </script>
 
 <style lang="css">
+.container {
+  background-color: #fff7e0;
+}
 </style>

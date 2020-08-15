@@ -1,7 +1,9 @@
 <template>
   <div>
-    <v-container>
-      <h1 class="display-1 font-weight-bold ma-4">ぜんぶのあそび</h1>
+    <v-container fluid class="text-center">
+      <div class="mt-10">
+        <h1 class="display-1 font-weight-bold">ぜんぶのあそび</h1>
+      </div>
 
       <v-row>
         <v-col

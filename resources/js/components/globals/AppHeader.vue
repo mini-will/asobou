@@ -1,12 +1,12 @@
 <template>
   <header>
-    <v-app-bar color="deep-orange lighten-2" app>
-      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+    <v-app-bar color="#FFA000" app>
+      <v-app-bar-nav-icon @click="drawer = true" color="white"></v-app-bar-nav-icon>
       <v-toolbar-title
         style="cursor: pointer;"
         @click="$router.push('/', () => {})"
         class="white--text"
-      >Asobou</v-toolbar-title>
+      >Asobiy</v-toolbar-title>
 
       <v-tabs>
         <v-tab

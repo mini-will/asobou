@@ -1,5 +1,5 @@
 <template>
-  <v-footer dark absolute color="deep-orange lighten-2">
+  <v-footer dark absolute color="#FFA000">
     <div class="footer">Copyright Asobou. All right reserved</div>
   </v-footer>
 </template>
