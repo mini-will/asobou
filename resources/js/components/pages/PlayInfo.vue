@@ -12,7 +12,7 @@
           <div class="section" v-if="!loading">
             <h1 class="my-4">{{ playProduct[0].display_name }}</h1>
             <v-card>
-              <youtube :video-id="playProduct[0].youtube_video_Id" fitParent="innerFitParent" />
+              <youtube :video-id="playProduct[0].youtube_video_Id" :fitParent="innerFitParent" />
             </v-card>
 
             <h2 class="mt-8">どうぐ</h2>
