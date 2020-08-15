@@ -12,7 +12,9 @@
     <br />-->
 
     <div class="select-old-text">
-      <h2 class="mt-10 grey--text text--darken-3">なんさいですか？</h2>
+      <div class="mt-10">
+        <h2 class="mt-4 grey--text text--darken-2">なんさいですか？</h2>
+      </div>
     </div>
 
     <div class="select-old-btn">
@@ -54,7 +56,7 @@
 
     <!-- 遊びを表示 -->
     <div class="select-play-text">
-      <h2 class="mt-6 grey--text text--darken-3">あそびをえらんでね</h2>
+      <h2 class="mt-6 grey--text text--darken-2">あそびをえらんでね</h2>
     </div>
     <div v-if="!loading">
       <v-row>
@@ -103,8 +105,9 @@
     <div>
       <v-row>
         <v-col>
-          <h2 class="my-4 grey--text text--darken-3">簡単遊びって？</h2>
-          <p class="mb-10">毎日遊びを選ぶのも大変です。同じ遊びばかりでは飽きてしまいますよね。</p>
+          <h2 class="my-4 grey--text text--darken-2">Asobiyってなに？</h2>
+          <p class="mb-4">毎日遊びを選ぶのも大変です。同じ遊びばかりでは飽きてしまいますよね。</p>
+          <img class="mb-10" v-bind:src="imageurl" height="200" max-width="100%" />
         </v-col>
       </v-row>
     </div>
@@ -147,6 +150,8 @@ export default {
       isActiveOldBtn0: false,
       isActiveOldBtn1: false,
       isActiveOldBtn2: false,
+
+      imageurl: require('../../../assets/dakota-corbin-PmNjS6b3XP4-unsplash.jpg'),
     };
   },
   created() {
