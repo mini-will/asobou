@@ -186,11 +186,9 @@ export default {
         );
 
         this.getPlayCard('singing');
-        this.getPlayCard('origami');
-        this.getPlayCard('drawing');
+        this.getPlayCard('making');
         this.getPlayCard('exercise');
         this.getPlayCard('snack');
-        this.getPlayCard('game');
       }
     },
     // getPlayProductById: function (playId) {
