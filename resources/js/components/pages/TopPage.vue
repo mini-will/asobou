@@ -306,8 +306,4 @@ export default {
 };
 </script>
 
-<style lang="css">
-.container {
-  background-color: #fff7e0;
-}
-</style>
+
