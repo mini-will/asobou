@@ -3,7 +3,7 @@ require('./bootstrap');
 import VueRouter from 'vue-router';
 import router from './router/routers';
 import store from './store';
-import Index from './index';
+import Index from './index.vue';
 
 import vuetify from '../../src/plugins/vuetify';
 import Vuetify from 'vuetify';
