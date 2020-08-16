@@ -106,10 +106,13 @@
       <v-row>
         <v-col>
           <h2 class="my-4 grey--text text--darken-2">Asobiyってなに？</h2>
-          <p class="mb-4">毎日遊びを選ぶのも大変です。同じ遊びばかりでは飽きてしまいますよね。</p>
-          <img class="mb-10" v-bind:src="imageurl" height="200" max-width="100%" />
+          <p>毎日遊びを選ぶのも大変です。同じ遊びばかりでは飽きてしまいますよね。</p>
         </v-col>
       </v-row>
+    </div>
+
+    <div class="explain-text">
+      <v-img v-bind:src="imageurl" max-height="600" max-width="400" />
     </div>
 
     <!-- ■ダイアログ -->
@@ -151,7 +154,7 @@ export default {
       isActiveOldBtn1: false,
       isActiveOldBtn2: false,
 
-      imageurl: require('../../../assets/dakota-corbin-PmNjS6b3XP4-unsplash.jpg'),
+      imageurl: require('../../../assets/shutterstock_1497902633.jpg'),
     };
   },
   created() {
@@ -309,4 +312,11 @@ export default {
 };
 </script>
 
-
+<style lang="css">
+.explain-text {
+  text-align: center;
+  margin: 10px auto;
+  max-width: 400px;
+  margin-bottom: 50px;
+}
+</style>
