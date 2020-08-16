@@ -29,7 +29,7 @@
         "eslint-plugin-vue": "^7.0.0-beta.0",
         "jquery": "^3.2",
         "laravel-mix": "^5.0.1",
-        "lodash": "^4.17.13",
+        "lodash": "^4.17.19",
         "popper.js": "^1.12",
         "prettier": "^2.0.5",
         "prettier-eslint": "^11.0.0",
