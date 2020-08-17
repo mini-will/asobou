@@ -5,7 +5,7 @@ import router from './router/routers';
 import store from './store';
 import Index from './index.vue';
 
-import vuetify from '../../src/plugins/vuetify';
+import vuetify from '../../src/plugins/vuetify.js';
 import Vuetify from 'vuetify';
 import "vuetify/dist/vuetify.min.css";
 import colors from 'vuetify/es5/util/colors';

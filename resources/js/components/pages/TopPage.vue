@@ -12,8 +12,9 @@
     <br />-->
 
     <div class="select-old-text">
-      <div class="mt-10">
+      <div class="mt-5">
         <h2 class="mt-4 grey--text text--darken-2">なんさいですか？</h2>
+        <p class="caption grey--text text--darken-2">選んだ年齢に応じた遊びが表示されます</p>
       </div>
     </div>
 
@@ -44,6 +45,12 @@
       </v-row>
     </div>
 
+    <div class="child-img">
+      <v-avatar color="grey lighten-4" size="100">
+        <v-img v-bind:src="imageurl_Old" max-height="100" max-width="100" />
+      </v-avatar>
+    </div>
+
     <!-- <v-row class="green lighten-4 my-4" justify="center" align-content="center">
       <v-btn color="white">シャッフル</v-btn>
     </v-row>-->
@@ -57,6 +64,7 @@
     <!-- 遊びを表示 -->
     <div class="select-play-text">
       <h2 class="mt-6 grey--text text--darken-2">あそびをえらんでね</h2>
+      <p class="caption grey--text text--darken-2">違う遊びがいいときはチェンジボタンを押してね</p>
     </div>
     <div v-if="!loading">
       <v-row>
@@ -106,10 +114,13 @@
       <v-row>
         <v-col>
           <h2 class="my-4 grey--text text--darken-2">Asobiyってなに？</h2>
-          <p class="mb-4">毎日遊びを選ぶのも大変です。同じ遊びばかりでは飽きてしまいますよね。</p>
-          <img class="mb-10" v-bind:src="imageurl" height="200" max-width="100%" />
+          <p>毎日遊びを選ぶのも大変です。同じ遊びばかりでは飽きてしまいますよね。</p>
         </v-col>
       </v-row>
+    </div>
+
+    <div class="explain-text">
+      <v-img v-bind:src="imageurl" max-height="600" max-width="400" />
     </div>
 
     <!-- ■ダイアログ -->
@@ -151,7 +162,11 @@ export default {
       isActiveOldBtn1: false,
       isActiveOldBtn2: false,
 
-      imageurl: require('../../../assets/dakota-corbin-PmNjS6b3XP4-unsplash.jpg'),
+      //年齢選択時に表示する画像
+      imageurl_Old: require('../../../assets/child_old_main1.png'),
+
+      // トップページ下の説明文用の画像
+      imageurl: require('../../../assets/shutterstock_1497902633.jpg'),
     };
   },
   created() {
@@ -262,18 +277,21 @@ export default {
           this.isActiveOldBtn1 = false;
           this.isActiveOldBtn2 = false;
           this.setOld({ playOld: 0 });
+          this.imageurl_Old = require('../../../assets/child_old0.png');
           break;
         case 1:
           this.isActiveOldBtn0 = false;
           this.isActiveOldBtn1 = true;
           this.isActiveOldBtn2 = false;
           this.setOld({ playOld: 1 });
+          this.imageurl_Old = require('../../../assets/child_old1.png');
           break;
         case 2:
           this.isActiveOldBtn0 = false;
           this.isActiveOldBtn1 = false;
           this.isActiveOldBtn2 = true;
           this.setOld({ playOld: 3 });
+          this.imageurl_Old = require('../../../assets/child_old3.png');
           break;
         default:
           break;
@@ -309,4 +327,16 @@ export default {
 };
 </script>
 
+<style lang="css">
+.child-img {
+  margin: 10px auto;
+  max-width: 100px;
+  margin-bottom: 40px;
+}
 
+.explain-text {
+  margin: 10px auto;
+  max-width: 400px;
+  margin-bottom: 50px;
+}
+</style>
