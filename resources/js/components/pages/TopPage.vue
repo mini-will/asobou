@@ -1,5 +1,10 @@
 <template>
-  <v-container color="#FFC107" class="text-center" fluid style="max-height: 100%;">
+  <v-container
+    color="#FFC107"
+    class="text-center"
+    fluid
+    style="max-height: 100%;"
+  >
     <!-- <br />
     <v-btn color="primary">primary</v-btn>
     <v-btn color="secondary">secondary</v-btn>
@@ -14,7 +19,9 @@
     <div class="select-old-text">
       <div class="mt-5">
         <h2 class="mt-4 grey--text text--darken-2">なんさいですか？</h2>
-        <p class="caption grey--text text--darken-2">選んだ年齢に応じた遊びが表示されます</p>
+        <p class="caption grey--text text--darken-2">
+          選んだ年齢に応じた遊びが表示されます
+        </p>
       </div>
     </div>
 
@@ -25,23 +32,32 @@
           height="50"
           color="white subtitle-1"
           @click="switchSelectOld(0)"
-          :class="{ 'red lighten-2 white--text font-weight-bold title': isActiveOldBtn0 }"
-        >0さい</v-btn>
+          :class="{
+            'red lighten-2 white--text font-weight-bold title': isActiveOldBtn0,
+          }"
+          >0さい</v-btn
+        >
         <v-btn
           min-width="90"
           height="50"
           color="white subtitle-1"
           class="mx-4"
           @click="switchSelectOld(1)"
-          :class="{  'red lighten-2 white--text font-weight-bold': isActiveOldBtn1 }"
-        >1-2さい</v-btn>
+          :class="{
+            'red lighten-2 white--text font-weight-bold': isActiveOldBtn1,
+          }"
+          >1-2さい</v-btn
+        >
         <v-btn
           min-width="90"
           height="50"
           color="white subtitle-1"
           @click="switchSelectOld(2)"
-          :class="{  'red lighten-2 white--text font-weight-bold': isActiveOldBtn2 }"
-        >3さい〜</v-btn>
+          :class="{
+            'red lighten-2 white--text font-weight-bold': isActiveOldBtn2,
+          }"
+          >3さい〜</v-btn
+        >
       </v-row>
     </div>
 
@@ -64,7 +80,9 @@
     <!-- 遊びを表示 -->
     <div class="select-play-text">
       <h2 class="mt-6 grey--text text--darken-2">あそびをえらんでね</h2>
-      <p class="caption grey--text text--darken-2">違う遊びがいいときはチェンジボタンを押してね</p>
+      <p class="caption grey--text text--darken-2">
+        違う遊びがいいときはチェンジボタンを押してください
+      </p>
     </div>
     <div v-if="!loading">
       <v-row>
@@ -78,19 +96,24 @@
         >
           <v-card class="mb-4">
             <v-responsive :aspect-ratio="16 / 9">
-              <router-link :to="{ name: 'PlayInfo', params: { id: playcard.id } }">
+              <router-link
+                :to="{ name: 'PlayInfo', params: { id: playcard.id } }"
+              >
                 <v-img
                   :src="playcard.image_url"
                   class="white--text align-end"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                   height="200px"
                 >
-                  <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
+                  <v-card-title
+                    v-text="playcard.display_name"
+                    class="headline font-weight-bold"
+                  ></v-card-title>
                 </v-img>
               </router-link>
 
               <v-card-actions>
-                <p>{{playcard.category}}</p>
+                <p>{{ playcard.category }}</p>
                 <v-spacer></v-spacer>
                 <!-- <v-btn icon v-on:click="color_switch(playcard.id)">
                   <v-icon v-if="isActiveIn === false">mdi-heart</v-icon>
@@ -99,8 +122,11 @@
                 <v-btn
                   color="#4FC3F7"
                   class="white--text"
-                  @click.stop="switchDialog(playcard.id, playcard.category, index)"
-                >チェンジ</v-btn>
+                  @click.stop="
+                    switchDialog(playcard.id, playcard.category, index)
+                  "
+                  >チェンジ</v-btn
+                >
               </v-card-actions>
             </v-responsive>
           </v-card>
@@ -114,7 +140,9 @@
       <v-row>
         <v-col>
           <h2 class="my-4 grey--text text--darken-2">Asobiyってなに？</h2>
-          <p>毎日遊びを選ぶのも大変です。同じ遊びばかりでは飽きてしまいますよね。</p>
+          <p>
+            毎日遊びを選ぶのも大変です。同じ遊びばかりでは飽きてしまいますよね。
+          </p>
         </v-col>
       </v-row>
     </div>
