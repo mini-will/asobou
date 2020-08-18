@@ -134,8 +134,6 @@ return [
     |
     */
 
-    'log' => 'errorlog',
-
     'providers' => [
 
         /*
