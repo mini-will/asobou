@@ -171,10 +171,10 @@ export default {
       isActiveOldBtn2: false,
 
       //年齢選択時に表示する画像
-      imageurl_Old: require('../../../assets/child_old_main1.png'),
+      imageurl_Old: require('../../../assets/child_old_main1-min.png'),
 
       // トップページ下の説明文用の画像
-      imageurl: require('../../../assets/shutterstock_1497902633.jpg'),
+      imageurl: require('../../../assets/shutterstock_1497902633-min.jpg'),
     };
   },
   created() {
@@ -285,21 +285,21 @@ export default {
           this.isActiveOldBtn1 = false;
           this.isActiveOldBtn2 = false;
           this.setOld({ playOld: 0 });
-          this.imageurl_Old = require('../../../assets/child_old0.png');
+          this.imageurl_Old = require('../../../assets/child_old0-min.png');
           break;
         case 1:
           this.isActiveOldBtn0 = false;
           this.isActiveOldBtn1 = true;
           this.isActiveOldBtn2 = false;
           this.setOld({ playOld: 1 });
-          this.imageurl_Old = require('../../../assets/child_old1.png');
+          this.imageurl_Old = require('../../../assets/child_old1-min.png');
           break;
         case 2:
           this.isActiveOldBtn0 = false;
           this.isActiveOldBtn1 = false;
           this.isActiveOldBtn2 = true;
           this.setOld({ playOld: 3 });
-          this.imageurl_Old = require('../../../assets/child_old3.png');
+          this.imageurl_Old = require('../../../assets/child_old3-min.png');
           break;
         default:
           break;
