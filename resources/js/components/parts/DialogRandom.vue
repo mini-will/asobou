@@ -1,10 +1,6 @@
 <template>
   <div>
-    <v-dialog
-      :value="this.$props.dialogOn"
-      @input="chagenDialogOnOff"
-      overlay-opacity="0.7"
-    >
+    <v-dialog :value="this.$props.dialogOn" @input="chagenDialogOnOff" overlay-opacity="0.7">
       <div style="background-color: lightgray;">
         <v-row>
           <v-col
@@ -25,10 +21,7 @@
                     selectMainPlay(playcard.id, playcard.category, playIndex)
                   "
                 >
-                  <v-card-title
-                    v-text="playcard.display_name"
-                    class="headline font-weight-bold"
-                  ></v-card-title>
+                  <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
                 </v-img>
               </v-responsive>
             </v-card>
@@ -40,8 +33,7 @@
               @click="getPlayCardItem(2, playCategory, 3)"
               justify="center"
               color="#4FC3F7"
-              >チェンジ</v-btn
-            >
+            >チェンジ</v-btn>
           </v-col>
         </v-row>
       </div>
@@ -81,17 +73,17 @@ export default {
       this.getPlayCardItem(2, this.playCategory, 999);
     }
 
-    console.log('mounted');
+    // console.log('mounted');
   },
   beforeUpdate() {},
   updated() {
-    console.log(
-      'updated:' + this.dialogOn,
-      this.playId,
-      this.playCategory,
-      this.dialogPlayCards,
-      this.playIndex
-    );
+    // console.log(
+    //   'updated:' + this.dialogOn,
+    //   this.playId,
+    //   this.playCategory,
+    //   this.dialogPlayCards,
+    //   this.playIndex
+    // );
 
     // Dialogがonでplaycardデータが空の場合は、データ取得が必要な状態のためplaydataを取得する
     if (this.dialogOn === true && this.dialogPlayCards === null) {
@@ -119,7 +111,7 @@ export default {
           this.query += '&old=' + old;
         }
       }
-      console.log('getPlayCardItem: query:' + this.query);
+      // console.log('getPlayCardItem: query:' + this.query);
 
       // eslint-disable-next-line no-undef
       axios.get(`/api/playproduct?` + this.query).then((response) => {
@@ -136,14 +128,14 @@ export default {
     // 遊びカードを選択してダイアログを閉じる処理
     selectMainPlay: function (playId, playCategory, playIndex) {
       this.$emit('dialog-change', playId, playCategory, playIndex);
-      console.log(
-        'dialog-change: playID ' +
-          playId +
-          ', playCategory ' +
-          playCategory +
-          ', playIndex ' +
-          playIndex
-      );
+      // console.log(
+      //   'dialog-change: playID ' +
+      //     playId +
+      //     ', playCategory ' +
+      //     playCategory +
+      //     ', playIndex ' +
+      //     playIndex
+      // );
       // ダイアログを閉じるときにdialogPlayCardsデータを削除してダイアログが閉じられてる状態で、
       // もう一度ダイアログを開いたときは再度データ取得が必要な状態とする
       this.dialogPlayCards = null;
@@ -155,7 +147,7 @@ export default {
       // vuetify dialogのcloseイベントを直接拾えなかったための代替処理
       this.dialogPlayCards = null;
 
-      console.log('chagenDialogOnOff:' + this.dialogPlayCards);
+      // console.log('chagenDialogOnOff:' + this.dialogPlayCards);
       this.$emit('dialog-change', '');
     },
   },
