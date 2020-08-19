@@ -10,6 +10,9 @@ import Vuetify from 'vuetify';
 import "vuetify/dist/vuetify.min.css";
 import colors from 'vuetify/es5/util/colors';
 
+import VueAnalytics from 'vue-analytics';
+
+
 window.Vue = require('vue');
 
 // eslint-disable-next-line no-undef
@@ -41,6 +44,10 @@ Vue.use(Vuetify, {
     }
 });
 
+Vue.use(VueAnalytics, {
+    id: 'UA-175827207-1',
+    router
+});
 
 // eslint-disable-next-line no-unused-vars
 const app = new Vue({
