@@ -52,7 +52,7 @@ export default {
         // this.playCards.push(response.data);
         this.playCards = response.data;
         this.loading = false;
-        console.log(response.data);
+        // console.log(response.data);
       });
     },
   },

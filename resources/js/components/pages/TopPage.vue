@@ -204,9 +204,9 @@ export default {
     getInitialPlayData: function () {
       // state playItemにデータが無いときだけ初回データを取得する
       if (this.displayPlayItemState.length === 0) {
-        console.log(
-          'displayPlayItemState is null.' + this.displayPlayItemState
-        );
+        // console.log(
+        //   'displayPlayItemState is null.' + this.displayPlayItemState
+        // );
 
         this.getPlayCard('singing');
         this.getPlayCard('making');
@@ -231,14 +231,14 @@ export default {
     // },
     // Dialog on(true)にしてダイアログを表示する
     switchDialog: function (playId, playCategory, playIndex) {
-      console.log(
-        'switchDialog: playID ' +
-          playId +
-          ', playCategory ' +
-          playCategory +
-          ', playIndex ' +
-          playIndex
-      );
+      // console.log(
+      //   'switchDialog: playID ' +
+      //     playId +
+      //     ', playCategory ' +
+      //     playCategory +
+      //     ', playIndex ' +
+      //     playIndex
+      // );
 
       this.dialogOnOff = !this.dialogOnOff;
       this.dialogPlayId = Number(playId);
@@ -247,14 +247,14 @@ export default {
     },
     // DialogRandom component からemitで呼び出す処理
     switchMainPlay: function (playId, playCategory, playIndex) {
-      console.log(
-        'switchMainPlay: playID ' +
-          playId +
-          ', playCategory ' +
-          playCategory +
-          ', playIndex ' +
-          playIndex
-      );
+      // console.log(
+      //   'switchMainPlay: playID ' +
+      //     playId +
+      //     ', playCategory ' +
+      //     playCategory +
+      //     ', playIndex ' +
+      //     playIndex
+      // );
 
       this.dialogOnOff = !this.dialogOnOff;
       this.dialogPlayId = Number(playId);
@@ -263,7 +263,7 @@ export default {
 
       // ダイアログで遊びカードを選択したときはplayIDが取得できる
       if (typeof playId == 'number') {
-        console.log('switchDialog: play入れ替え ' + playId);
+        // console.log('switchDialog: play入れ替え ' + playId);
 
         //ダイアログで選択した遊びをトップページに表示させる
         // eslint-disable-next-line no-undef
@@ -319,7 +319,7 @@ export default {
         innner_query += '&category=' + this.displayPlayItemState[k].category;
         // innner_query += '&old=' + innner_old;
 
-        console.log('getPlayCardItem: query:' + innner_query);
+        // console.log('getPlayCardItem: query:' + innner_query);
 
         // eslint-disable-next-line no-undef
         axios.get(`/api/playproduct?` + innner_query).then((response) => {

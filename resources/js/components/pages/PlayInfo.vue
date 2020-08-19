@@ -58,7 +58,7 @@ export default {
         // this.$set(this.playcards, "test", "response.data");
         this.playProduct.push(response.data);
         this.loading = false;
-        console.log(response.data);
+        // console.log(response.data);
       });
     },
   },
