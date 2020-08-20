@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-dialog :value="this.$props.dialogOn" @input="chagenDialogOnOff" overlay-opacity="0.7">
-      <div style="background-color: lightgray;">
+    <v-dialog :value="this.$props.dialogOn" @input="chagenDialogOnOff" overlay-opacity="0.8">
+      <div style="background-color: #FFF8E1;">
         <v-row>
           <v-col
             v-for="(playcard, index) in dialogPlayCards"
@@ -37,6 +37,16 @@
             >チェンジ</v-btn>
           </v-col>
         </v-row>
+
+        <div class="child-img">
+          <v-avatar color="grey lighten-4" size="100">
+            <v-img v-bind:src="imageurl_chage_child" max-height="100" max-width="100" />
+          </v-avatar>
+        </div>
+
+        <v-responsive class="mx-auto mb-1" width="56">
+          <v-divider></v-divider>
+        </v-responsive>
       </div>
     </v-dialog>
   </div>
@@ -64,6 +74,8 @@ export default {
       loading: false,
       dialogPlayCards: null,
       query: '',
+      //年齢選択時に表示する画像
+      imageurl_chage_child: require('../../../assets/child_change_1_hi.png'),
     };
   },
   created() {},
