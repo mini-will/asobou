@@ -33,6 +33,7 @@
               @click="getPlayCardItem(2, playCategory, 3)"
               justify="center"
               color="#4FC3F7"
+              class="white--text"
             >チェンジ</v-btn>
           </v-col>
         </v-row>
@@ -91,7 +92,7 @@ export default {
     }
   },
   beforeDestroy() {
-    console.log('before destroy');
+    // console.log('before destroy');
   },
   computed: {},
   methods: {

@@ -1,6 +1,6 @@
 <template>
   <v-footer dark absolute color="#FFA000">
-    <div class="footer">Copyright Asobou. All right reserved</div>
+    <div class="footer">Copyright Asobiy. All right reserved</div>
   </v-footer>
 </template>
 
