@@ -1,6 +1,6 @@
 <template>
   <header>
-    <v-app-bar color="#FFA000" app>
+    <v-app-bar class="app-bar" app>
       <v-app-bar-nav-icon @click="drawer = true" color="white"></v-app-bar-nav-icon>
       <v-toolbar-title
         style="cursor: pointer;"
@@ -72,5 +72,21 @@ export default {
   @include display_pc {
     display: block !important;
   }
+}
+</style>
+
+<style lang="css">
+.app-bar {
+  background: #ff5f6d; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ff5f6d,
+    #ffc371
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ff5f6d,
+    #ffc371
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 </style>
