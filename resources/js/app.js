@@ -12,6 +12,11 @@ import colors from 'vuetify/es5/util/colors';
 
 import VueAnalytics from 'vue-analytics';
 
+import Vue from 'vue'
+import VueLoading from 'vue-loading-template'
+Vue.use(VueLoading, /** options **/ )
+
+
 window.Vue = require('vue');
 
 // eslint-disable-next-line no-undef
