@@ -77,8 +77,14 @@ export default {
       loading: false,
       dialogPlayCards: null,
       query: '',
-      //年齢選択時に表示する画像
+
       imageurl_chage_child: require('../../../assets/child_change_1_hi.png'),
+
+      imageurl_chage_child_1: require('../../../assets/change_image/child_1-min.png'),
+      imageurl_chage_child_2: require('../../../assets/change_image/child_2-min.png'),
+      imageurl_chage_child_3: require('../../../assets/change_image/child_3-min.png'),
+      imageurl_chage_child_4: require('../../../assets/change_image/child_4-min.png'),
+      imageurl_chage_child_5: require('../../../assets/change_image/child_5-min.png'),
     };
   },
   created() {},
@@ -113,6 +119,7 @@ export default {
   methods: {
     getPlayCardItem: function (random, category, old) {
       this.loading = true;
+      this.chageImageIcon();
 
       this.query = '';
       if (random !== '') {
@@ -165,6 +172,34 @@ export default {
 
       // console.log('chagenDialogOnOff:' + this.dialogPlayCards);
       this.$emit('dialog-change', '');
+    },
+    chageImageIcon() {
+      var index = Math.floor(Math.random() * 5) + 1;
+      console.log(index);
+
+      // 画像URLの指定時に変数がうまく展開できず地道にURLを指定
+      // nuxt.jsで:src="require(変数)"で画像パスを指定する時に。。 - Qiita
+      // https://qiita.com/ryo2132/items/ed5e3f5eee1ba0c4c625
+
+      switch (index) {
+        case 1:
+          this.imageurl_chage_child = this.imageurl_chage_child_1;
+          return;
+        case 2:
+          this.imageurl_chage_child = this.imageurl_chage_child_2;
+          return;
+        case 3:
+          this.imageurl_chage_child = this.imageurl_chage_child_3;
+          return;
+        case 4:
+          this.imageurl_chage_child = this.imageurl_chage_child_4;
+          return;
+        case 5:
+          this.imageurl_chage_child = this.imageurl_chage_child_5;
+          return;
+        default:
+          break;
+      }
     },
   },
 };
