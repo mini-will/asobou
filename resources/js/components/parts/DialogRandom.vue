@@ -192,7 +192,6 @@ export default {
     },
     chageImageIcon() {
       var index = Math.floor(Math.random() * 22) + 1;
-      console.log(index);
 
       // 画像URLの指定時に変数がうまく展開できず地道にURLを指定
       // nuxt.jsで:src="require(変数)"で画像パスを指定する時に。。 - Qiita
