@@ -83,7 +83,12 @@
             md="4"
             lg="3"
           >
-            <h3 class="mb-1 grey--text text--darken-2">{{ categoryWamei(playcard.category) }}</h3>
+            <h3 class="mb-1 grey--text text--darken-2">
+              <div class="category-title">
+                <span class="material-icons">{{ categoryIcon(playcard.category) }}</span>
+                {{ categoryWamei(playcard.category) }}
+              </div>
+            </h3>
 
             <v-card class="mb-4">
               <v-responsive :aspect-ratio="16 / 9">
@@ -385,6 +390,20 @@ export default {
           break;
       }
     },
+    categoryIcon: function (category) {
+      switch (category) {
+        case 'singing':
+          return 'music_video';
+        case 'snack':
+          return 'local_cafe';
+        case 'exercise':
+          return 'directions_run';
+        case 'making':
+          return 'brush';
+        default:
+          break;
+      }
+    },
   },
 };
 </script>
@@ -398,6 +417,9 @@ export default {
 .explain-text {
   margin: 10px auto;
   max-width: 400px;
+}
+.category-title span {
+  vertical-align: middle;
 }
 .card-change-button {
   margin: auto;
