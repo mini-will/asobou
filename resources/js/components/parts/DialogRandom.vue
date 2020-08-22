@@ -136,7 +136,12 @@ export default {
   methods: {
     getPlayCardItem: function (random, category, old) {
       this.loading = true;
-      this.chageImageIcon();
+
+      if (this.dialogOn === true && this.dialogPlayCards === null) {
+        this.imageurl_chage_child = require('../../../assets/child_change_1_hi.png');
+      } else {
+        this.chageImageIcon();
+      }
 
       this.query = '';
       if (random !== '') {
