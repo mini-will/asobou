@@ -9,11 +9,14 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="fLTZ-988zEvU5hne0KQuj4WJAyMAu4qLT7e1dwZVfrI" />
+
 
     <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
 
