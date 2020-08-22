@@ -34,7 +34,10 @@
               justify="center"
               color="#4FC3F7"
               class="white--text"
-            >チェンジ</v-btn>
+            >
+              <span class="material-icons mr-1">cached</span>
+              チェンジ
+            </v-btn>
           </v-col>
         </v-row>
 

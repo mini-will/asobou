@@ -12,7 +12,6 @@ import colors from 'vuetify/es5/util/colors';
 
 import VueAnalytics from 'vue-analytics';
 
-
 window.Vue = require('vue');
 
 // eslint-disable-next-line no-undef
@@ -44,6 +43,7 @@ Vue.use(Vuetify, {
     }
 });
 
+// eslint-disable-next-line no-undef
 Vue.use(VueAnalytics, {
     id: 'UA-175827207-1',
     router

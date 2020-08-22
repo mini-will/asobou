@@ -111,7 +111,9 @@
                       @click.stop="
                     switchDialog(playcard.id, playcard.category, index)
                   "
-                    >チェンジ</v-btn>
+                    >
+                      <span class="material-icons mr-1">cached</span> チェンジ
+                    </v-btn>
                   </div>
                 </v-card-actions>
               </v-responsive>
