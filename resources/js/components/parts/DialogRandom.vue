@@ -85,6 +85,23 @@ export default {
       imageurl_chage_child_3: require('../../../assets/change_image/child_3-min.png'),
       imageurl_chage_child_4: require('../../../assets/change_image/child_4-min.png'),
       imageurl_chage_child_5: require('../../../assets/change_image/child_5-min.png'),
+      imageurl_chage_child_6: require('../../../assets/change_image/child_6-min.png'),
+      imageurl_chage_child_7: require('../../../assets/change_image/child_7-min.png'),
+      imageurl_chage_child_8: require('../../../assets/change_image/child_8-min.png'),
+      imageurl_chage_child_9: require('../../../assets/change_image/child_9-min.png'),
+      imageurl_chage_child_10: require('../../../assets/change_image/child_10-min.png'),
+      imageurl_chage_child_11: require('../../../assets/change_image/child_11-min.png'),
+      imageurl_chage_child_12: require('../../../assets/change_image/child_12-min.png'),
+      imageurl_chage_child_13: require('../../../assets/change_image/child_13-min.png'),
+      imageurl_chage_child_14: require('../../../assets/change_image/child_14-min.png'),
+      imageurl_chage_child_15: require('../../../assets/change_image/child_15-min.png'),
+      imageurl_chage_child_16: require('../../../assets/change_image/child_16-min.png'),
+      imageurl_chage_child_17: require('../../../assets/change_image/child_17-min.png'),
+      imageurl_chage_child_18: require('../../../assets/change_image/child_18-min.png'),
+      imageurl_chage_child_19: require('../../../assets/change_image/child_19-min.png'),
+      imageurl_chage_child_20: require('../../../assets/change_image/child_20-min.png'),
+      imageurl_chage_child_21: require('../../../assets/change_image/child_21-min.png'),
+      imageurl_chage_child_22: require('../../../assets/change_image/child_22-min.png'),
     };
   },
   created() {},
@@ -174,7 +191,7 @@ export default {
       this.$emit('dialog-change', '');
     },
     chageImageIcon() {
-      var index = Math.floor(Math.random() * 5) + 1;
+      var index = Math.floor(Math.random() * 22) + 1;
       console.log(index);
 
       // 画像URLの指定時に変数がうまく展開できず地道にURLを指定
@@ -196,6 +213,57 @@ export default {
           return;
         case 5:
           this.imageurl_chage_child = this.imageurl_chage_child_5;
+          return;
+        case 6:
+          this.imageurl_chage_child = this.imageurl_chage_child_6;
+          return;
+        case 7:
+          this.imageurl_chage_child = this.imageurl_chage_child_7;
+          return;
+        case 8:
+          this.imageurl_chage_child = this.imageurl_chage_child_8;
+          return;
+        case 9:
+          this.imageurl_chage_child = this.imageurl_chage_child_9;
+          return;
+        case 10:
+          this.imageurl_chage_child = this.imageurl_chage_child_10;
+          return;
+        case 11:
+          this.imageurl_chage_child = this.imageurl_chage_child_11;
+          return;
+        case 12:
+          this.imageurl_chage_child = this.imageurl_chage_child_12;
+          return;
+        case 13:
+          this.imageurl_chage_child = this.imageurl_chage_child_13;
+          return;
+        case 14:
+          this.imageurl_chage_child = this.imageurl_chage_child_14;
+          return;
+        case 15:
+          this.imageurl_chage_child = this.imageurl_chage_child_15;
+          return;
+        case 16:
+          this.imageurl_chage_child = this.imageurl_chage_child_16;
+          return;
+        case 17:
+          this.imageurl_chage_child = this.imageurl_chage_child_17;
+          return;
+        case 18:
+          this.imageurl_chage_child = this.imageurl_chage_child_18;
+          return;
+        case 19:
+          this.imageurl_chage_child = this.imageurl_chage_child_19;
+          return;
+        case 20:
+          this.imageurl_chage_child = this.imageurl_chage_child_20;
+          return;
+        case 21:
+          this.imageurl_chage_child = this.imageurl_chage_child_21;
+          return;
+        case 22:
+          this.imageurl_chage_child = this.imageurl_chage_child_22;
           return;
         default:
           break;
