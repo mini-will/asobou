@@ -1,6 +1,7 @@
 <template>
-  <v-container color="#FFC107" class="text-center" fluid style="max-height: 100%;">
-    <!-- <br />
+  <div>
+    <v-container color="#FFC107" class="text-center" fluid style="max-height: 100%;">
+      <!-- <br />
     <v-btn color="primary">primary</v-btn>
     <v-btn color="secondary">secondary</v-btn>
     <v-btn color="accent">accent</v-btn>
@@ -9,141 +10,159 @@
     <v-btn color="error">Error</v-btn>
     <v-btn color="warning">Warning</v-btn>
     <v-btn color="info">Info</v-btn>
-    <br />-->
+      <br />-->
 
-    <div class="select-old-text">
-      <div class="mt-5">
-        <h2 class="mt-4 grey--text text--darken-2">なんさいですか？</h2>
-        <p class="caption grey--text text--darken-2">選んだ年齢に応じた遊びが表示されます</p>
+      <div class="select-old-text">
+        <div class="mt-5">
+          <h2 class="mt-4 grey--text text--darken-2">なんさいですか？</h2>
+          <p class="caption grey--text text--darken-2">選んだ年齢に応じた遊びが表示されます</p>
+        </div>
       </div>
-    </div>
 
-    <div class="select-old-btn">
-      <v-row style="height: 80px;" justify="center" align-content="center">
-        <v-btn
-          min-width="90"
-          height="50"
-          color="white subtitle-1"
-          @click="switchSelectOld(0)"
-          :class="{
+      <div class="select-old-btn">
+        <v-row style="height: 80px;" justify="center" align-content="center">
+          <v-btn
+            min-width="90"
+            height="50"
+            color="white subtitle-1"
+            @click="switchSelectOld(0)"
+            :class="{
             'red lighten-2 white--text font-weight-bold title': isActiveOldBtn0,
           }"
-        >0さい</v-btn>
-        <v-btn
-          min-width="90"
-          height="50"
-          color="white subtitle-1"
-          class="mx-4"
-          @click="switchSelectOld(1)"
-          :class="{
+          >0さい</v-btn>
+          <v-btn
+            min-width="90"
+            height="50"
+            color="white subtitle-1"
+            class="mx-4"
+            @click="switchSelectOld(1)"
+            :class="{
             'red lighten-2 white--text font-weight-bold': isActiveOldBtn1,
           }"
-        >1-2さい</v-btn>
-        <v-btn
-          min-width="90"
-          height="50"
-          color="white subtitle-1"
-          @click="switchSelectOld(2)"
-          :class="{
+          >1-2さい</v-btn>
+          <v-btn
+            min-width="90"
+            height="50"
+            color="white subtitle-1"
+            @click="switchSelectOld(2)"
+            :class="{
             'red lighten-2 white--text font-weight-bold': isActiveOldBtn2,
           }"
-        >3さい〜</v-btn>
-      </v-row>
-    </div>
+          >3さい〜</v-btn>
+        </v-row>
+      </div>
 
-    <div class="child-img">
-      <v-avatar color="grey lighten-4" size="100">
-        <v-img v-bind:src="imageurl_Old" max-height="100" max-width="100" />
-      </v-avatar>
-    </div>
+      <div class="child-img">
+        <v-avatar color="grey lighten-4" size="100">
+          <v-img v-bind:src="imageurl_Old" max-height="100" max-width="100" />
+        </v-avatar>
+      </div>
 
-    <!-- <v-row class="green lighten-4 my-4" justify="center" align-content="center">
+      <!-- <v-row class="green lighten-4 my-4" justify="center" align-content="center">
       <v-btn color="white">シャッフル</v-btn>
-    </v-row>-->
+      </v-row>-->
 
-    <!-- <v-row class="yellow lighten-4" style="height: 100px;" justify="center" align-content="center">
+      <!-- <v-row class="yellow lighten-4" style="height: 100px;" justify="center" align-content="center">
       <v-col cols="4" sm="3" md="2" lg="1" v-for="n in 3" :key="n">
         <v-btn min-width="90" color="white">{{n}}</v-btn>
       </v-col>
-    </v-row>-->
+      </v-row>-->
 
-    <!-- 遊びを表示 -->
-    <div class="select-play-text">
-      <h2 class="mt-6 grey--text text--darken-2">あそびをえらんでね</h2>
-      <p class="caption grey--text text--darken-2">違う遊びがいいときはチェンジボタンを押してください</p>
-    </div>
-    <div v-if="!loading">
-      <v-row>
-        <v-col
-          v-for="(playcard, index) in displayPlayItemState"
-          :key="index"
-          cols="12"
-          sm="6"
-          md="4"
-          lg="3"
-        >
-          <h3 class="mb-1 grey--text text--darken-2">{{ categoryWamei(playcard.category) }}</h3>
+      <!-- 遊びを表示 -->
+      <div class="select-play-text">
+        <h2 class="mt-6 grey--text text--darken-2">あそびをえらんでね</h2>
+        <p class="caption grey--text text--darken-2">違う遊びがいいときはチェンジボタンを押してください</p>
+      </div>
+      <div v-if="!loading">
+        <v-row>
+          <v-col
+            v-for="(playcard, index) in displayPlayItemState"
+            :key="index"
+            cols="12"
+            sm="6"
+            md="4"
+            lg="3"
+          >
+            <h3 class="mb-1 grey--text text--darken-2">{{ categoryWamei(playcard.category) }}</h3>
 
-          <v-card class="mb-4">
-            <v-responsive :aspect-ratio="16 / 9">
-              <router-link :to="{ name: 'PlayInfo', params: { id: playcard.id } }">
-                <v-img
-                  :src="playcard.image_url"
-                  class="white--text align-end"
-                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                  height="200px"
-                >
-                  <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
-                </v-img>
-              </router-link>
+            <v-card class="mb-4">
+              <v-responsive :aspect-ratio="16 / 9">
+                <router-link :to="{ name: 'PlayInfo', params: { id: playcard.id } }">
+                  <v-img
+                    :src="playcard.image_url"
+                    class="white--text align-end"
+                    gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                    height="200px"
+                  >
+                    <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
+                  </v-img>
+                </router-link>
 
-              <v-card-actions>
-                <!-- <p>{{ playcard.kanji_name }}</p> -->
-                <!-- <v-btn icon v-on:click="color_switch(playcard.id)">
+                <v-card-actions>
+                  <!-- <p>{{ playcard.kanji_name }}</p> -->
+                  <!-- <v-btn icon v-on:click="color_switch(playcard.id)">
                   <v-icon v-if="isActiveIn === false">mdi-heart</v-icon>
                   <v-icon v-else color="pink">mdi-heart</v-icon>
-                </v-btn>-->
-                <div class="card-change-button">
-                  <v-btn
-                    color="#4FC3F7"
-                    class="white--text"
-                    @click.stop="
+                  </v-btn>-->
+                  <div class="card-change-button">
+                    <v-btn
+                      color="#4FC3F7"
+                      class="white--text"
+                      @click.stop="
                     switchDialog(playcard.id, playcard.category, index)
                   "
-                  >チェンジ</v-btn>
-                </div>
-              </v-card-actions>
-            </v-responsive>
-          </v-card>
-        </v-col>
-      </v-row>
-    </div>
+                    >チェンジ</v-btn>
+                  </div>
+                </v-card-actions>
+              </v-responsive>
+            </v-card>
+          </v-col>
+        </v-row>
+      </div>
 
-    <div v-else>Loading...</div>
+      <div v-else>Loading...</div>
+
+      <!-- ■ダイアログ -->
+      <!-- 子コンポーネントを読み込んだ時点で、created, mountedは呼び出される -->
+      <DialogRandom
+        :dialogOn="dialogOnOff"
+        :play-id="dialogPlayId"
+        :play-category="dialogCategory"
+        :play-index="dialogIndex"
+        v-on:dialog-change="switchMainPlay"
+      />
+    </v-container>
 
     <div>
-      <v-row>
-        <v-col>
-          <h2 class="my-4 grey--text text--darken-2">Asobiyってなに？</h2>
-          <p class="grey--text text--darken-2">毎日遊びを選ぶのも大変です。同じ遊びばかりでは飽きてしまいますよね。</p>
-        </v-col>
-      </v-row>
+      <v-container class="text-center" fluid>
+        <v-row>
+          <v-col>
+            <h2 class="my-4 grey--text text--darken-2">Asobiyってなに？</h2>
+            <p class="grey--text text--darken-2">毎日遊びを選ぶのも大変です。同じ遊びばかりでは飽きてしまいますよね。</p>
+          </v-col>
+        </v-row>
+        <div class="explain-text">
+          <v-img v-bind:src="imageurl" max-height="600" max-width="400" />
+        </div>
+      </v-container>
     </div>
 
-    <div class="explain-text">
-      <v-img v-bind:src="imageurl" max-height="600" max-width="400" />
-    </div>
-
-    <!-- ■ダイアログ -->
-    <!-- 子コンポーネントを読み込んだ時点で、created, mountedは呼び出される -->
-    <DialogRandom
-      :dialogOn="dialogOnOff"
-      :play-id="dialogPlayId"
-      :play-category="dialogCategory"
-      :play-index="dialogIndex"
-      v-on:dialog-change="switchMainPlay"
-    />
-  </v-container>
+    <section id="explain-old">
+      <v-container class="text-center" fluid>
+        <div class="explain-old-warpper">
+          <h2 class="my-4 grey--text text--darken-2">あそびのさがしかた</h2>
+          <v-row>
+            <v-col v-for="({ src, text }, i) in articles" :key="i" cols="12" md="4">
+              <v-avatar class="mb-4" color="grey lighten-4" size="100">
+                <v-img v-bind:src="src" max-height="100" max-width="100" />
+              </v-avatar>
+              <div class="grey--text text--darken-2" v-text="text"></div>
+            </v-col>
+          </v-row>
+        </div>
+      </v-container>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -178,6 +197,22 @@ export default {
 
       // トップページ下の説明文用の画像
       imageurl: require('../../../assets/shutterstock_1497902633-min.jpg'),
+
+      articles: [
+        {
+          src: require('../../../assets/child_old0-min.png'),
+          text: '０歳の赤ちゃんは本当に可愛いですよね',
+        },
+        {
+          src: require('../../../assets/child_old1-min.png'),
+          text:
+            '1,2歳の子供は歩けるようになって、お話もできるようになってきます',
+        },
+        {
+          src: require('../../../assets/child_old3-min.png'),
+          text: '３歳以上になってくるといろんな遊びができるようになってきます',
+        },
+      ],
     };
   },
   created() {
@@ -361,9 +396,11 @@ export default {
 .explain-text {
   margin: 10px auto;
   max-width: 400px;
-  margin-bottom: 50px;
 }
 .card-change-button {
   margin: auto;
+}
+.explain-old-warpper {
+  margin-bottom: 50px;
 }
 </style>
