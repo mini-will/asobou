@@ -30,7 +30,7 @@
         <v-row>
           <v-col cols="12" sm="12" class="d-flex justify-center">
             <v-btn
-              @click="getPlayCardItem(2, playCategory, 999)"
+              @click="getPlayCardItem(4, playCategory, 999)"
               justify="center"
               color="#4FC3F7"
               class="white--text"
@@ -83,7 +83,7 @@ export default {
   mounted() {
     // Dialogがonでplaycardデータが空の場合は、データ取得が必要な状態のためplaydataを取得する
     if (this.dialogOn === true && this.dialogPlayCards === null) {
-      this.getPlayCardItem(2, this.playCategory, 999);
+      this.getPlayCardItem(4, this.playCategory, 999);
     }
 
     // console.log('mounted');
@@ -100,7 +100,7 @@ export default {
 
     // Dialogがonでplaycardデータが空の場合は、データ取得が必要な状態のためplaydataを取得する
     if (this.dialogOn === true && this.dialogPlayCards === null) {
-      this.getPlayCardItem(2, this.playCategory, 999);
+      this.getPlayCardItem(4, this.playCategory, 999);
     }
   },
   beforeDestroy() {

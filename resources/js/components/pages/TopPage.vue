@@ -82,7 +82,7 @@
           md="4"
           lg="3"
         >
-          <h3>{{ categoryWamei(playcard.category) }}</h3>
+          <h3 class="mb-1 grey--text text--darken-2">{{ categoryWamei(playcard.category) }}</h3>
 
           <v-card class="mb-4">
             <v-responsive :aspect-ratio="16 / 9">
