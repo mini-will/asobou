@@ -137,6 +137,7 @@ export default {
     getPlayCardItem: function (random, category, old) {
       this.loading = true;
 
+      // ダイアログを最初に開いたときのアイコンを笑顔のアイコンに固定
       if (this.dialogOn === true && this.dialogPlayCards === null) {
         this.imageurl_chage_child = require('../../../assets/child_change_1_hi.png');
       } else {
