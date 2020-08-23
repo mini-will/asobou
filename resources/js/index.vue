@@ -27,6 +27,6 @@ export default {
 
 <style lang="css">
 .v-application--wrap {
-  background-color: #fff7e0;
+  /* background-color: #fff7e0; */
 }
 </style>

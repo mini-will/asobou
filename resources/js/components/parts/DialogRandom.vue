@@ -1,7 +1,11 @@
 <template>
   <div>
-    <v-dialog :value="this.$props.dialogOn" @input="chagenDialogOnOff" overlay-opacity="0.8">
-      <div style="background-color: #FFF8E1;">
+    <v-dialog
+      :value="this.$props.dialogOn"
+      @input="chagenDialogOnOff"
+      overlay-opacity="0.8"
+    >
+      <div style="background-color: #fff8e1;">
         <v-row>
           <v-col
             v-for="(playcard, index) in dialogPlayCards"
@@ -21,7 +25,10 @@
                     selectMainPlay(playcard.id, playcard.category, playIndex)
                   "
                 >
-                  <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
+                  <v-card-title
+                    v-text="playcard.display_name"
+                    class="headline font-weight-bold"
+                  ></v-card-title>
                 </v-img>
               </v-responsive>
             </v-card>
@@ -32,7 +39,7 @@
             <v-btn
               @click="getPlayCardItem(4, playCategory, 999)"
               justify="center"
-              color="#4FC3F7"
+              color="#CA9639"
               class="white--text"
             >
               <span class="material-icons mr-1">cached</span>
@@ -43,7 +50,11 @@
 
         <div class="child-img">
           <v-avatar color="grey lighten-4" size="100">
-            <v-img v-bind:src="imageurl_chage_child" max-height="100" max-width="100" />
+            <v-img
+              v-bind:src="imageurl_chage_child"
+              max-height="100"
+              max-width="100"
+            />
           </v-avatar>
         </div>
 
