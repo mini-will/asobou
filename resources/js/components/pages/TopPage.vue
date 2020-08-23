@@ -52,6 +52,8 @@
         </v-row>
       </div>
 
+      <!-- 女の子のアイコン画像を表示 -->
+      <!-- TODO:トランジション -->
       <transition appear>
         <div class="child-img">
           <v-avatar color="grey lighten-4" size="100">

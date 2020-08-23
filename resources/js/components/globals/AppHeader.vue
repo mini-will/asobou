@@ -14,7 +14,10 @@
           :key="index"
           :to="menuItem.link"
           class="white--text"
-        >{{ menuItem.name }}</v-tab>
+        >
+          <span class="material-icons pr-1">{{menuItem.icon}}</span>
+          {{ menuItem.name }}
+        </v-tab>
       </v-tabs>
 
       <!-- <v-spacer></v-spacer>
@@ -27,7 +30,12 @@
       <v-list nav dense>
         <v-list-item-group>
           <v-list-item v-for="(menuItem, index) in menuItems" :key="index" :to="menuItem.link">
-            <v-list-item-title>{{ menuItem.name }}</v-list-item-title>
+            <v-list-item-title>
+              <div class="drawer-title">
+                <span class="material-icons pr-1">{{menuItem.icon}}</span>
+                {{ menuItem.name }}
+              </div>
+            </v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -88,5 +96,8 @@ export default {
     #ff5f6d,
     #ffc371
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.drawer-title span {
+  vertical-align: middle;
 }
 </style>

@@ -1,15 +1,18 @@
 export default {
     menuItems: [{
             name: 'ほーむ',
-            link: '/'
+            link: '/',
+            icon: 'home'
         },
         {
             name: 'ぜんぶのあそび',
-            link: '/playallitem'
+            link: '/playallitem',
+            icon: 'collections'
         },
         {
             name: 'あそびぃーについて',
-            link: '/about'
+            link: '/about',
+            icon: 'sentiment_satisfied_alt'
         }
     ]
 }
