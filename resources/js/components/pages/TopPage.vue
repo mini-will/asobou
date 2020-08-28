@@ -77,7 +77,7 @@
 
       <!-- 遊びを表示 -->
       <div class="select-play-text">
-        <h2 class="mt-6">あそびをえらんでね</h2>
+        <h2 class="mt-10">あそびをえらんでね</h2>
         <p class="caption">
           ランダムに遊びが表示されます
           <br />違う遊びがいいときはチェンジボタンを押してください
@@ -131,7 +131,7 @@
                           switchDialog(playcard.id, playcard.category, index)
                         "
                       >
-                        <span class="material-icons mr-1">cached</span> チェンジ
+                        <span class="material-icons mr-1 change-icon">cached</span> チェンジ
                       </v-btn>
                     </div>
                   </v-card-actions>
@@ -483,11 +483,17 @@ export default {
 .card-change-button {
   margin: auto;
 }
+.change-icon {
+  font-size: 18px;
+}
 .v-avatar-explain-old {
   border: solid 1px #64bbb1;
 }
 .explain-old-warpper {
+  padding-top: 20px;
+  margin-top: 30px;
   margin-bottom: 50px;
+  background-color: #f6f6f8;
 }
 #about-asobiy {
   color: #e8642b;
