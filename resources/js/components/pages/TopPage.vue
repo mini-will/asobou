@@ -1,11 +1,6 @@
 <template>
   <div>
-    <v-container
-      color="#FFC107"
-      class="text-center"
-      fluid
-      style="max-height: 100%;"
-    >
+    <v-container color="#FFC107" class="text-center" fluid style="max-height: 100%;">
       <!-- <br />
     <v-btn color="primary">primary</v-btn>
     <v-btn color="secondary">secondary</v-btn>
@@ -20,9 +15,7 @@
       <div class="select-old-text">
         <div class="mt-5">
           <h2 class="mt-4">なんさいですか？</h2>
-          <p class="caption">
-            選んだ年齢に応じた遊びが表示されます
-          </p>
+          <p class="caption">選んだ年齢に応じた遊びが表示されます</p>
         </div>
       </div>
 
@@ -35,10 +28,9 @@
             color="#e8642b"
             @click="switchSelectOld(0)"
             :class="{
-              'red lighten-2 white--text font-weight-bold title': isActiveOldBtn0,
+              'select-old-btn-red white--text font-weight-bold subtitle-1': isActiveOldBtn0,
             }"
-            >0さい</v-btn
-          >
+          >0さい</v-btn>
           <v-btn
             min-width="90"
             height="50"
@@ -47,10 +39,9 @@
             class="mx-4"
             @click="switchSelectOld(1)"
             :class="{
-              'green lighten-2 white--text font-weight-bold': isActiveOldBtn1,
+              'select-old-btn-green lighten-2 white--text font-weight-bold subtitle-1': isActiveOldBtn1,
             }"
-            >1-2さい</v-btn
-          >
+          >1-2さい</v-btn>
           <v-btn
             min-width="90"
             height="50"
@@ -58,10 +49,9 @@
             color="#e8642b"
             @click="switchSelectOld(2)"
             :class="{
-              'red lighten-2 white--text font-weight-bold': isActiveOldBtn2,
+              'select-old-btn-red lighten-2 white--text font-weight-bold subtitle-1': isActiveOldBtn2,
             }"
-            >3さい〜</v-btn
-          >
+          >3さい〜</v-btn>
         </v-row>
       </div>
 
@@ -89,8 +79,8 @@
       <div class="select-play-text">
         <h2 class="mt-6">あそびをえらんでね</h2>
         <p class="caption">
-          ランダムに遊びが表示されます<br />
-          違う遊びがいいときはチェンジボタンを押してください
+          ランダムに遊びが表示されます
+          <br />違う遊びがいいときはチェンジボタンを押してください
         </p>
       </div>
       <div v-if="!loading">
@@ -106,18 +96,14 @@
             >
               <h3 class="mb-1">
                 <div class="category-title">
-                  <span class="material-icons">
-                    {{ categoryIcon(playcard.category) }}
-                  </span>
+                  <span class="material-icons">{{ categoryIcon(playcard.category) }}</span>
                   {{ categoryWamei(playcard.category) }}
                 </div>
               </h3>
 
               <v-card class="mb-4">
                 <v-responsive :aspect-ratio="16 / 9">
-                  <router-link
-                    :to="{ name: 'PlayInfo', params: { id: playcard.id } }"
-                  >
+                  <router-link :to="{ name: 'PlayInfo', params: { id: playcard.id } }">
                     <v-img
                       :src="playcard.image_url"
                       class="white--text align-end"
@@ -136,7 +122,7 @@
                     <!-- <v-btn icon v-on:click="color_switch(playcard.id)">
                   <v-icon v-if="isActiveIn === false">mdi-heart</v-icon>
                   <v-icon v-else color="pink">mdi-heart</v-icon>
-                  </v-btn>-->
+                    </v-btn>-->
                     <div class="card-change-button">
                       <v-btn
                         color="#CA9639"
@@ -182,9 +168,7 @@
           <v-row>
             <v-col>
               <h2 class="my-4">Asobiyってなに？</h2>
-              <p>
-                毎日遊びを選ぶのも大変です。同じ遊びばかりでは飽きてしまいますよね。
-              </p>
+              <p>毎日遊びを選ぶのも大変です。同じ遊びばかりでは飽きてしまいますよね。</p>
             </v-col>
           </v-row>
           <div class="explain-text">
@@ -199,12 +183,7 @@
         <div class="explain-old-warpper">
           <h2 class="my-4">あそびのさがしかた</h2>
           <v-row>
-            <v-col
-              v-for="({ src, title, text }, i) in articles"
-              :key="i"
-              cols="12"
-              md="4"
-            >
+            <v-col v-for="({ src, title, text }, i) in articles" :key="i" cols="12" md="4">
               <v-avatar class="v-avatar-explain-old" size="100">
                 <v-img v-bind:src="src" max-height="100" max-width="100" />
               </v-avatar>
@@ -217,13 +196,8 @@
     </section>
 
     <section id="share-sns">
-      <ShareNetwork
-        network="twitter"
-        url="https://asobiy.herokuapp.com/"
-        title="Asobiy"
-      >
-        <font-awesome-icon :icon="['fab', 'twitter']" />
-        Twitter
+      <ShareNetwork network="twitter" url="https://asobiy.herokuapp.com/" title="Asobiy">
+        <font-awesome-icon :icon="['fab', 'twitter']" />Twitter
       </ShareNetwork>
     </section>
   </div>
@@ -475,6 +449,12 @@ export default {
 <style lang="css">
 .select-old-text {
   color: #e8642b;
+}
+.select-old-btn-red {
+  background-color: #e8642b !important;
+}
+.select-old-btn-green {
+  background-color: #64bbb1 !important;
 }
 .select-play-text {
   color: #e8642b;
