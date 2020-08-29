@@ -79,6 +79,8 @@ export default {
 <style lang="css">
 .v-toolbar__title {
   color: #64bbb1;
+  font-family: 'Kalam', cursive;
+  font-size: 2rem !important;
 }
 .v-tabs-text {
   color: #64bbb1;
