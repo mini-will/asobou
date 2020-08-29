@@ -97,7 +97,10 @@
               lg="3"
             >
               <h3 class="mb-1">
-                <div class="category-title">
+                <div
+                  class="category-title"
+                  :class="((index % 2) === 0) ? 'playcard-even-green' : 'playcard-odd-red'"
+                >
                   <span class="material-icons">{{ categoryIcon(playcard.category) }}</span>
                   {{ categoryWamei(playcard.category) }}
                 </div>
@@ -186,11 +189,18 @@
           <h2 class="my-4">あそびのさがしかた</h2>
           <v-row>
             <v-col v-for="({ src, title, text }, i) in articles" :key="i" cols="12" md="4">
-              <v-avatar class="v-avatar-explain-old" size="100">
+              <v-avatar
+                :class="((i % 2) === 0) ? 'explain-old-avatar-even-red' : 'explain-old-avatar-odd-green'"
+                size="100"
+              >
                 <v-img v-bind:src="src" max-height="100" max-width="100" />
               </v-avatar>
-              <div class="title mt-2 mb-1" v-text="title"></div>
-              <div class="body-2 mb-4" v-text="text"></div>
+              <div
+                :class="((i % 2) === 0) ? 'explain-old-text-even-red' : 'explain-old-text-odd-green'"
+              >
+                <div class="title mt-2 mb-1" v-text="title"></div>
+                <div class="body-2 mb-4" v-text="text"></div>
+              </div>
             </v-col>
           </v-row>
         </div>
@@ -477,8 +487,11 @@ export default {
 .v-card-warpper {
   background-color: #f6f6f8;
 }
-.category-title {
+.playcard-even-green {
   color: #64bbb1;
+}
+.playcard-odd-red {
+  color: #e8642b;
 }
 .category-title span {
   vertical-align: middle;
@@ -489,8 +502,17 @@ export default {
 .change-icon {
   font-size: 18px;
 }
-.v-avatar-explain-old {
+.explain-old-avatar-odd-green {
   border: solid 1px #64bbb1;
+}
+.explain-old-avatar-even-red {
+  border: solid 1px #e8642b;
+}
+.explain-old-text-odd-green {
+  color: #64bbb1;
+}
+.explain-old-text-even-red {
+  color: #e8642b;
 }
 .explain-old-warpper {
   padding-top: 20px;
