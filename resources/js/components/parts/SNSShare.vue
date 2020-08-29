@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<style scoped lang="css">
+<style lang="css">
 #share-sns {
   text-align: center;
 }

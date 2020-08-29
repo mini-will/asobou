@@ -76,7 +76,7 @@ export default {
 };
 </script>
 
-<style scoped lang="css">
+<style lang="css">
 .explain-text-img {
   margin: auto;
 }
