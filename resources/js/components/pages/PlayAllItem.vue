@@ -2,7 +2,7 @@
   <div>
     <v-container fluid class="text-center">
       <div class="mt-10">
-        <h1 class="display-1 font-weight-bold">ぜんぶのあそび</h1>
+        <h2 class="font-weight-bold">ぜんぶのあそび</h2>
       </div>
 
       <div v-if="!loading">
@@ -17,19 +17,14 @@
             class="d-flex justify-center my-4"
           >
             <v-card>
-              <router-link
-                :to="{ name: 'PlayInfo', params: { id: playcard.id } }"
-              >
+              <router-link :to="{ name: 'PlayInfo', params: { id: playcard.id } }">
                 <v-img
                   :src="playcard.image_url"
                   class="white--text align-end"
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                   height="200px"
                 >
-                  <v-card-title
-                    v-text="playcard.display_name"
-                    class="headline font-weight-bold"
-                  ></v-card-title>
+                  <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
                 </v-img>
               </router-link>
             </v-card>
@@ -74,3 +69,9 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="css">
+h2 {
+  color: #e8642b;
+}
+</style>
