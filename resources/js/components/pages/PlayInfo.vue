@@ -3,27 +3,22 @@
     <v-container>
       <v-row>
         <v-col>
-          <router-link :to="{ name: 'toppage' }" class="my-10 ml-2"
-            >あそび一覧へ戻る</router-link
-          >
+          <router-link :to="{ name: 'toppage' }" class="my-10 ml-2">あそび一覧へ戻る</router-link>
         </v-col>
       </v-row>
 
       <v-row>
         <v-col cols="12">
-          <div class="section" v-if="!loading">
-            <h1 class="my-4">{{ playProduct[0].display_name }}</h1>
+          <div class="play-explain" v-if="!loading">
+            <h2 class="my-4">{{ playProduct[0].display_name }}</h2>
             <v-card>
-              <youtube
-                :video-id="playProduct[0].youtube_video_Id"
-                :fitParent="innerFitParent"
-              />
+              <youtube :video-id="playProduct[0].youtube_video_Id" :fitParent="innerFitParent" />
             </v-card>
 
-            <h2 class="mt-8">どうぐ</h2>
+            <h3 class="mt-8">どうぐ</h3>
             <p class="mb-8">{{ playProduct[0].tool_tags }}</p>
 
-            <h2 class="py-1">あそびかた</h2>
+            <h3 class="py-1">あそびかた</h3>
             <p class="mb-8">{{ playProduct[0].description }}</p>
           </div>
 
@@ -69,3 +64,10 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="css">
+h2,
+h3 {
+  color: #e8642b;
+}
+</style>
