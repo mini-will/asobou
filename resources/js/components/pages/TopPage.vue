@@ -12,12 +12,14 @@
     <v-btn color="info">Info</v-btn>
       <br />-->
 
-      <div class="select-old-text">
-        <div class="mt-5">
-          <h2 class="mt-4">なんさいですか？</h2>
-          <p class="caption">選んだ年齢に応じた遊びが表示されます</p>
+      <transition>
+        <div class="select-old-text">
+          <div class="mt-5">
+            <h2 class="mt-4">なんさいですか？</h2>
+            <p class="caption">選んだ年齢に応じた遊びが表示されます</p>
+          </div>
         </div>
-      </div>
+      </transition>
 
       <div class="select-old-btn">
         <v-row style="height: 80px;" justify="center" align-content="center">
@@ -58,7 +60,7 @@
       <!-- 女の子のアイコン画像を表示 -->
       <!-- TODO:トランジション -->
       <transition appear>
-        <div class="child-img">
+        <div class="child-img" v-if="show">
           <v-avatar class="child-img-avatar" size="100">
             <v-img v-bind:src="imageurl_Old" max-height="100" max-width="100" />
           </v-avatar>
@@ -187,8 +189,8 @@
               <v-avatar class="v-avatar-explain-old" size="100">
                 <v-img v-bind:src="src" max-height="100" max-width="100" />
               </v-avatar>
-              <div v-text="title"></div>
-              <div v-text="text"></div>
+              <div class="title mt-2 mb-1" v-text="title"></div>
+              <div class="body-2 mb-4" v-text="text"></div>
             </v-col>
           </v-row>
         </div>
@@ -216,6 +218,7 @@ export default {
     return {
       loading: false,
       isActiveIn: false,
+      show: true,
       playLiked: [],
 
       playcards: [],
@@ -504,5 +507,14 @@ export default {
 #share-sns {
   text-align: center;
   margin-bottom: 50px;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s;
+}
+.v-enter,
+.v-leave-to {
+  opacity: 0;
 }
 </style>

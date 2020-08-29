@@ -1,24 +1,13 @@
 <template>
   <header>
     <v-app-bar class="app-bar" app>
-      <v-app-bar-nav-icon
-        @click="drawer = true"
-        color="#64BBB1"
-      ></v-app-bar-nav-icon>
-      <v-toolbar-title
-        style="cursor: pointer;"
-        @click="$router.push('/', () => {})"
-        >Asobiy</v-toolbar-title
-      >
+      <v-app-bar-nav-icon @click="drawer = true" color="#64BBB1"></v-app-bar-nav-icon>
+      <v-toolbar-title style="cursor: pointer;" @click="$router.push('/', () => {})">Asobiy</v-toolbar-title>
 
       <v-tabs>
-        <v-tab
-          v-for="(menuItem, index) in menuItems"
-          :key="index"
-          :to="menuItem.link"
-        >
+        <v-tab v-for="(menuItem, index) in menuItems" :key="index" :to="menuItem.link">
           <div class="v-tabs-text">
-            <span class="material-icons pr-1">{{ menuItem.icon }}</span>
+            <span class="header-icon material-icons pr-1">{{ menuItem.icon }}</span>
             {{ menuItem.name }}
           </div>
         </v-tab>
@@ -33,11 +22,7 @@
     <v-navigation-drawer v-model="drawer" absolute temporary>
       <v-list nav dense>
         <v-list-item-group>
-          <v-list-item
-            v-for="(menuItem, index) in menuItems"
-            :key="index"
-            :to="menuItem.link"
-          >
+          <v-list-item v-for="(menuItem, index) in menuItems" :key="index" :to="menuItem.link">
             <v-list-item-title>
               <div class="drawer-title">
                 <span class="material-icons pr-1">{{ menuItem.icon }}</span>
@@ -100,6 +85,9 @@ export default {
 }
 .drawer-title {
   color: #64bbb1;
+}
+.header-icon {
+  vertical-align: middle;
 }
 .drawer-title span {
   vertical-align: middle;
