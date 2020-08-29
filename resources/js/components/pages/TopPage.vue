@@ -80,9 +80,9 @@
             <v-col
               v-for="(playcard, index) in displayPlayItemState"
               :key="index"
-              cols="12"
+              cols="6"
               sm="6"
-              md="4"
+              md="3"
               lg="3"
             >
               <h3 class="mb-1">
@@ -95,7 +95,7 @@
                 </div>
               </h3>
 
-              <v-card class="mb-4">
+              <v-card class="playcard-warpper mb-4">
                 <v-responsive :aspect-ratio="16 / 9">
                   <router-link :to="{ name: 'PlayInfo', params: { id: playcard.id } }">
                     <v-img
@@ -406,6 +406,9 @@ export default {
 }
 .category-title span {
   vertical-align: middle;
+}
+.playcard-warpper {
+  max-width: 400px;
 }
 .card-change-button {
   margin: auto;

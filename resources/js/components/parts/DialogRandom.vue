@@ -10,7 +10,7 @@
             sm="6"
             class="d-flex justify-center"
           >
-            <v-card>
+            <v-card class="playcard-warpper">
               <v-responsive :aspect-ratio="16 / 9">
                 <v-img
                   :src="playcard.image_url"
@@ -279,6 +279,9 @@ export default {
 </script>
 
 <style scoped lang="css">
+.playcard-warpper {
+  max-width: 400px;
+}
 .child-img {
   text-align: center;
 }
