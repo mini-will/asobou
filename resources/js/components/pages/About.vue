@@ -4,6 +4,7 @@
       <v-col>
         <AboutApp />
         <SnsShare />
+        <div class="mb-4"></div>
       </v-col>
     </v-row>
   </v-container>

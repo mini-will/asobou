@@ -7,3 +7,9 @@
     </section>
   </div>
 </template>
+
+<style scoped lang="css">
+#share-sns {
+  text-align: center;
+}
+</style>

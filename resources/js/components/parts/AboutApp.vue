@@ -13,7 +13,7 @@
             </v-col>
           </v-row>
           <div class="explain-text">
-            <v-img v-bind:src="imageurl" max-height="600" max-width="400" />
+            <v-img class="explain-text-img" :src="imageurl" max-height="600" max-width="400" />
           </div>
         </v-container>
       </div>
@@ -75,7 +75,11 @@ export default {
 };
 </script>
 
-<style lang="css">
+<style scoped lang="css">
+.explain-text-img {
+  margin: auto;
+}
+
 .explain-old-avatar-odd-green {
   border: solid 1px #64bbb1;
 }

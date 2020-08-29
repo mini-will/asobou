@@ -58,7 +58,6 @@
       </div>
 
       <!-- 女の子のアイコン画像を表示 -->
-      <!-- TODO:トランジション -->
       <transition appear>
         <div class="child-img" v-if="show">
           <v-avatar class="child-img-avatar" size="100">
@@ -66,16 +65,6 @@
           </v-avatar>
         </div>
       </transition>
-
-      <!-- <v-row class="green lighten-4 my-4" justify="center" align-content="center">
-      <v-btn color="white">シャッフル</v-btn>
-      </v-row>-->
-
-      <!-- <v-row class="yellow lighten-4" style="height: 100px;" justify="center" align-content="center">
-      <v-col cols="4" sm="3" md="2" lg="1" v-for="n in 3" :key="n">
-        <v-btn min-width="90" color="white">{{n}}</v-btn>
-      </v-col>
-      </v-row>-->
 
       <!-- 遊びを表示 -->
       <div class="select-play-text">
@@ -123,11 +112,6 @@
                   </router-link>
 
                   <v-card-actions>
-                    <!-- <p>{{ playcard.kanji_name }}</p> -->
-                    <!-- <v-btn icon v-on:click="color_switch(playcard.id)">
-                  <v-icon v-if="isActiveIn === false">mdi-heart</v-icon>
-                  <v-icon v-else color="pink">mdi-heart</v-icon>
-                    </v-btn>-->
                     <div class="card-change-button">
                       <v-btn
                         color="#CA9639"
@@ -169,7 +153,9 @@
 
     <AboutApp />
 
-    <SnsShare />
+    <div class="sns-share">
+      <SnsShare />
+    </div>
   </div>
 </template>
 
@@ -250,21 +236,6 @@ export default {
         this.getPlayCard('snack');
       }
     },
-    // getPlayProductById: function (playId) {
-    //   axios.get(`/api/playproduct/${playId}`).then((response) => {
-    //     return response.data;
-    //   });
-    // },
-    // color_switch(playId) {
-    //   this.isActiveIn = !this.isActiveIn;
-    //   this.playLiked.splice(0, 1, {
-    //     id: 1,
-    //     user: 'testUser',
-    //     playId: playId,
-    //     liked: this.isActiveIn,
-    //     display: 'show',
-    //   });
-    // },
     // Dialog on(true)にしてダイアログを表示する
     switchDialog: function (playId, playCategory, playIndex) {
       // console.log(
@@ -442,8 +413,7 @@ export default {
 .change-icon {
   font-size: 18px;
 }
-#share-sns {
-  text-align: center;
+.sns-share {
   margin-bottom: 50px;
 }
 
