@@ -80,7 +80,7 @@ export default {
 .v-toolbar__title {
   color: #64bbb1;
   font-family: 'Kalam', cursive;
-  font-size: 2rem !important;
+  font-size: 1.5rem !important;
 }
 .v-tabs-text {
   color: #64bbb1;

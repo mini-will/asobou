@@ -169,11 +169,7 @@
 
     <AboutApp />
 
-    <section id="share-sns">
-      <ShareNetwork network="twitter" url="https://asobiy.herokuapp.com/" title="Asobiy">
-        <font-awesome-icon :icon="['fab', 'twitter']" />Twitter
-      </ShareNetwork>
-    </section>
+    <SnsShare />
   </div>
 </template>
 
@@ -181,11 +177,13 @@
 import { mapState, mapMutations } from 'vuex';
 import DialogRandom from '../parts/DialogRandom.vue';
 import AboutApp from '../parts/AboutApp.vue';
+import SnsShare from '../parts/SnsShare.vue';
 
 export default {
   components: {
     DialogRandom,
     AboutApp,
+    SnsShare,
   },
 
   data() {
