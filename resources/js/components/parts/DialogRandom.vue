@@ -8,6 +8,8 @@
             :key="index + playcard.id"
             cols="6"
             sm="6"
+            md="6"
+            lg="6"
             class="d-flex justify-center"
           >
             <v-card class="playcard-warpper">
@@ -280,7 +282,7 @@ export default {
 
 <style scoped lang="css">
 .playcard-warpper {
-  max-width: 400px;
+  /* max-width: 400px; */
 }
 .child-img {
   text-align: center;
