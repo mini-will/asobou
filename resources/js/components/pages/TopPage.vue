@@ -154,7 +154,7 @@
     <AboutApp />
 
     <div class="sns-share">
-      <SnsShare />
+      <ShareApp />
     </div>
   </div>
 </template>
@@ -163,13 +163,13 @@
 import { mapState, mapMutations } from 'vuex';
 import DialogRandom from '../parts/DialogRandom.vue';
 import AboutApp from '../parts/AboutApp.vue';
-import SnsShare from '../parts/SnsShare.vue';
+import ShareApp from '../parts/ShareApp.vue';
 
 export default {
   components: {
     DialogRandom,
     AboutApp,
-    SnsShare,
+    ShareApp,
   },
 
   data() {

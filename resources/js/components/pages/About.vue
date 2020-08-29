@@ -3,7 +3,7 @@
     <v-row>
       <v-col>
         <AboutApp />
-        <SnsShare />
+        <ShareApp />
         <div class="mb-4"></div>
       </v-col>
     </v-row>
@@ -12,12 +12,12 @@
 
 <script>
 import AboutApp from '../parts/AboutApp.vue';
-import SnsShare from '../parts/SnsShare.vue';
+import ShareApp from '../parts/ShareApp.vue';
 
 export default {
   components: {
     AboutApp,
-    SnsShare,
+    ShareApp,
   },
 };
 </script>
