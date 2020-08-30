@@ -32,8 +32,8 @@ class PlayProductController extends Controller
                         $query->where('category', $data['category']);
                         break;
                     case 'old':
-                        $query->where('recommend_min_age', '>=', $data['old']);
-                        $query->where('recommend_max_age', '<=', $data['old']);
+                        $query->where('recommend_min_age', '<=', $data['old']);
+                        $query->where('recommend_max_age', '>', $data['old']);
                         break;
                     case 'random':
                         $randomNumber = $data['random'];

@@ -70,8 +70,9 @@
       <div class="select-play-text">
         <h2 class="mt-10">あそびをえらんでね</h2>
         <p class="caption">
-          ランダムに遊びが表示されます
-          <br />違う遊びがいいときはチェンジボタンを押してください
+          ４つのカテゴリごとに
+          <br />ランダムに遊びが表示されます。
+          <br />違う遊びがいいときはチェンジを押してください
         </p>
       </div>
       <div v-if="!loading">
@@ -318,13 +319,12 @@ export default {
       // 現在表示している遊びオブジェクトからループでカテゴリを取得して、遊びを取得する
       let innner_query = '';
       const innner_random = 1;
-      // const innner_old = '';
 
       for (let k of Object.keys(this.displayPlayItemState)) {
         innner_query = '';
         innner_query += 'random=' + innner_random;
         innner_query += '&category=' + this.displayPlayItemState[k].category;
-        // innner_query += '&old=' + innner_old;
+        // innner_query += '&old=' + this.playOldState;
 
         // console.log('getPlayCardItem: query:' + innner_query);
 
