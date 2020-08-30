@@ -80,7 +80,7 @@
           <v-row>
             <v-col
               v-for="(playcard, index) in displayPlayItemState"
-              :key="index"
+              :key="playcard.id"
               cols="6"
               sm="6"
               md="3"
