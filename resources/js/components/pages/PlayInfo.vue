@@ -23,7 +23,12 @@
           </div>
 
           <div v-else>
-            <h3>loading....</h3>
+            <vue-loading
+              class="mt-10"
+              type="spiningDubbles"
+              color="#FFC107"
+              :size="{ width: '50px', height: '50px' }"
+            ></vue-loading>
           </div>
         </v-col>
       </v-row>
