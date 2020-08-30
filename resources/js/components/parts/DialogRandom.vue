@@ -45,7 +45,12 @@
 
         <div class="child-img">
           <v-avatar color="grey lighten-4" size="100">
-            <v-img v-bind:src="imageurl_chage_child" max-height="100" max-width="100" />
+            <v-img
+              class="child-img-avatar"
+              v-bind:src="imageurl_chage_child"
+              max-height="100"
+              max-width="100"
+            />
           </v-avatar>
         </div>
 
