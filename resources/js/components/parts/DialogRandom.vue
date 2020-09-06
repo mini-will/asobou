@@ -168,7 +168,7 @@ export default {
           this.query += '&old=' + old;
         }
       }
-      // console.log('getPlayCardItem: query:' + this.query);
+      console.log('getPlayCardItem: query:' + this.query);
 
       // eslint-disable-next-line no-undef
       axios.get(`/api/playproduct?` + this.query).then((response) => {

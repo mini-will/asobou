@@ -324,7 +324,11 @@ export default {
         innner_query = '';
         innner_query += 'random=' + innner_random;
         innner_query += '&category=' + this.displayPlayItemState[k].category;
-        innner_query += '&old=' + this.playOldState;
+
+        if (this.playOldState !== 999) {
+          // 対象年齢が999のときは年齢での検索を設定しない
+          innner_query += '&old=' + this.playOldState;
+        }
 
         // console.log('getPlayCardItem: query:' + innner_query);
 
