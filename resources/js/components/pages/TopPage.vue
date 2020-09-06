@@ -324,7 +324,7 @@ export default {
         innner_query = '';
         innner_query += 'random=' + innner_random;
         innner_query += '&category=' + this.displayPlayItemState[k].category;
-        // innner_query += '&old=' + this.playOldState;
+        innner_query += '&old=' + this.playOldState;
 
         // console.log('getPlayCardItem: query:' + innner_query);
 
