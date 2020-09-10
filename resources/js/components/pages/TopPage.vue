@@ -1,70 +1,13 @@
 <template>
   <div>
-    <v-container color="#FFC107" class="text-center" fluid style="max-height: 100%;">
-      <!-- <br />
-    <v-btn color="primary">primary</v-btn>
-    <v-btn color="secondary">secondary</v-btn>
-    <v-btn color="accent">accent</v-btn>
-    <br />
-    <v-btn color="success">Success</v-btn>
-    <v-btn color="error">Error</v-btn>
-    <v-btn color="warning">Warning</v-btn>
-    <v-btn color="info">Info</v-btn>
-      <br />-->
-
-      <transition>
-        <div class="select-old-text">
-          <div class="mt-5">
-            <h2 class="mt-4">なんさいですか？</h2>
-            <p class="caption">選んだ年齢に応じた遊びが表示されます</p>
-          </div>
-        </div>
-      </transition>
-
-      <div class="select-old-btn">
-        <v-row style="height: 80px;" justify="center" align-content="center">
-          <v-btn
-            min-width="90"
-            height="50"
-            outlined
-            color="#e8642b"
-            @click="switchSelectOld(0)"
-            :class="{
-              'select-old-btn-red white--text font-weight-bold subtitle-1': isActiveOldBtn0,
-            }"
-          >0さい</v-btn>
-          <v-btn
-            min-width="90"
-            height="50"
-            outlined
-            color="#64BBB1"
-            class="mx-4"
-            @click="switchSelectOld(1)"
-            :class="{
-              'select-old-btn-green lighten-2 white--text font-weight-bold subtitle-1': isActiveOldBtn1,
-            }"
-          >1-2さい</v-btn>
-          <v-btn
-            min-width="90"
-            height="50"
-            outlined
-            color="#e8642b"
-            @click="switchSelectOld(2)"
-            :class="{
-              'select-old-btn-red lighten-2 white--text font-weight-bold subtitle-1': isActiveOldBtn2,
-            }"
-          >3さい〜</v-btn>
-        </v-row>
-      </div>
-
-      <!-- 女の子のアイコン画像を表示 -->
-      <transition appear>
-        <div class="child-img" v-if="show">
-          <v-avatar class="child-img-avatar" size="100">
-            <v-img v-bind:src="imageurl_Old" max-height="100" max-width="100" />
-          </v-avatar>
-        </div>
-      </transition>
+    <v-container
+      color="#FFC107"
+      class="text-center"
+      fluid
+      style="max-height: 100%;"
+    >
+      <!-- 遊び年齢の選択 -->
+      <TopSelectOld />
 
       <!-- 遊びを表示 -->
       <div class="select-play-text">
@@ -78,6 +21,7 @@
       <div v-if="!loading">
         <div class="v-card-warpper">
           <v-row>
+            <!-- <transition-group name="list" tag="playlist"> -->
             <v-col
               v-for="(playcard, index) in displayPlayItemState"
               :key="playcard.id"
@@ -89,16 +33,22 @@
               <h3 class="mb-1">
                 <div
                   class="category-title"
-                  :class="((index % 2) === 0) ? 'playcard-even-green' : 'playcard-odd-red'"
+                  :class="
+                    index % 2 === 0 ? 'playcard-even-green' : 'playcard-odd-red'
+                  "
                 >
-                  <span class="material-icons">{{ categoryIcon(playcard.category) }}</span>
+                  <span class="material-icons">{{
+                    categoryIcon(playcard.category)
+                  }}</span>
                   {{ categoryWamei(playcard.category) }}
                 </div>
               </h3>
 
               <v-card class="playcard-warpper mb-4">
                 <v-responsive :aspect-ratio="16 / 9">
-                  <router-link :to="{ name: 'PlayInfo', params: { id: playcard.id } }">
+                  <router-link
+                    :to="{ name: 'PlayInfo', params: { id: playcard.id } }"
+                  >
                     <v-img
                       :src="playcard.image_url"
                       class="white--text align-end"
@@ -121,13 +71,17 @@
                           switchDialog(playcard.id, playcard.category, index)
                         "
                       >
-                        <span class="material-icons mr-1 change-icon">cached</span> チェンジ
+                        <span class="material-icons mr-1 change-icon"
+                          >cached</span
+                        >
+                        チェンジ
                       </v-btn>
                     </div>
                   </v-card-actions>
                 </v-responsive>
               </v-card>
             </v-col>
+            <!-- </transition-group> -->
           </v-row>
         </div>
       </div>
@@ -157,6 +111,17 @@
     <div class="sns-share">
       <ShareApp />
     </div>
+
+    <!-- <br />
+    <v-btn color="primary">primary</v-btn>
+    <v-btn color="secondary">secondary</v-btn>
+    <v-btn color="accent">accent</v-btn>
+    <br />
+    <v-btn color="success">Success</v-btn>
+    <v-btn color="error">Error</v-btn>
+    <v-btn color="warning">Warning</v-btn>
+    <v-btn color="info">Info</v-btn>
+      <br />-->
   </div>
 </template>
 
@@ -165,19 +130,20 @@ import { mapState, mapMutations } from 'vuex';
 import DialogRandom from '../parts/DialogRandom.vue';
 import AboutApp from '../parts/AboutApp.vue';
 import ShareApp from '../parts/ShareApp.vue';
+import TopSelectOld from '../parts/TopSelectOld.vue';
 
 export default {
   components: {
     DialogRandom,
     AboutApp,
     ShareApp,
+    TopSelectOld,
   },
 
   data() {
     return {
       loading: false,
       isActiveIn: false,
-      show: true,
       playLiked: [],
 
       playcards: [],
@@ -186,14 +152,6 @@ export default {
       dialogPlayId: 0,
       dialogCategory: '',
       dialogIndex: 0,
-
-      // 年齢を選択するボタンの制御
-      isActiveOldBtn0: false,
-      isActiveOldBtn1: false,
-      isActiveOldBtn2: false,
-
-      //年齢選択時に表示する画像
-      imageurl_Old: require('../../../assets/child_old_main1-min.png'),
     };
   },
   created() {
@@ -214,9 +172,7 @@ export default {
       axios
         .get(`/api/playproduct?category=${category}&random=1`)
         .then((response) => {
-          // this.playcards.push(response.data[0]);
           this.setDisplayPlayItem({ response: response });
-          // console.log('displayPlayItemState:' + this.displayPlayItemState);
           this.loading = false;
 
           // setTimeout(() => {
@@ -227,10 +183,6 @@ export default {
     getInitialPlayData: function () {
       // state playItemにデータが無いときだけ初回データを取得する
       if (this.displayPlayItemState.length === 0) {
-        // console.log(
-        //   'displayPlayItemState is null.' + this.displayPlayItemState
-        // );
-
         this.getPlayCard('singing');
         this.getPlayCard('making');
         this.getPlayCard('exercise');
@@ -239,15 +191,6 @@ export default {
     },
     // Dialog on(true)にしてダイアログを表示する
     switchDialog: function (playId, playCategory, playIndex) {
-      // console.log(
-      //   'switchDialog: playID ' +
-      //     playId +
-      //     ', playCategory ' +
-      //     playCategory +
-      //     ', playIndex ' +
-      //     playIndex
-      // );
-
       this.dialogOnOff = !this.dialogOnOff;
       this.dialogPlayId = Number(playId);
       this.dialogCategory = String(playCategory);
@@ -255,15 +198,6 @@ export default {
     },
     // DialogRandom component からemitで呼び出す処理
     switchMainPlay: function (playId, playCategory, playIndex) {
-      // console.log(
-      //   'switchMainPlay: playID ' +
-      //     playId +
-      //     ', playCategory ' +
-      //     playCategory +
-      //     ', playIndex ' +
-      //     playIndex
-      // );
-
       this.dialogOnOff = !this.dialogOnOff;
       this.dialogPlayId = Number(playId);
       this.dialogCategory = String(playCategory);
@@ -280,64 +214,6 @@ export default {
           this.spliceDisplayPlayItem({
             response: response,
             index: this.dialogIndex,
-          });
-        });
-      }
-    },
-    // 年齢ボタンの押下された内容に応じてデータを取得して画面へ表示する
-    switchSelectOld: function (index) {
-      // 押された年齢のボタンの色を活性化
-      switch (index) {
-        case 0:
-          this.isActiveOldBtn0 = true;
-          this.isActiveOldBtn1 = false;
-          this.isActiveOldBtn2 = false;
-          this.setOld({ playOld: 0 });
-          this.imageurl_Old = require('../../../assets/child_old0-min.png');
-          break;
-        case 1:
-          this.isActiveOldBtn0 = false;
-          this.isActiveOldBtn1 = true;
-          this.isActiveOldBtn2 = false;
-          this.setOld({ playOld: 1 });
-          this.imageurl_Old = require('../../../assets/child_old1-min.png');
-          break;
-        case 2:
-          this.isActiveOldBtn0 = false;
-          this.isActiveOldBtn1 = false;
-          this.isActiveOldBtn2 = true;
-          this.setOld({ playOld: 3 });
-          this.imageurl_Old = require('../../../assets/child_old3-min.png');
-          break;
-        default:
-          break;
-      }
-
-      // TODO: データセットの仕方の変更 https://javascript.programmer-reference.com/js-array-judgement/
-      // TODO: 選択された年齢に応じた遊び検索をする→遊びデータを増やす必要がある
-      // 子供の年齢が選択されたらその年齢に応じて表示している遊びを切り替える
-      // 現在表示している遊びオブジェクトからループでカテゴリを取得して、遊びを取得する
-      let innner_query = '';
-      const innner_random = 1;
-
-      for (let k of Object.keys(this.displayPlayItemState)) {
-        innner_query = '';
-        innner_query += 'random=' + innner_random;
-        innner_query += '&category=' + this.displayPlayItemState[k].category;
-
-        if (this.playOldState !== 999) {
-          // 対象年齢が999のときは年齢での検索を設定しない
-          innner_query += '&old=' + this.playOldState;
-        }
-
-        // console.log('getPlayCardItem: query:' + innner_query);
-
-        // eslint-disable-next-line no-undef
-        axios.get(`/api/playproduct?` + innner_query).then((response) => {
-          // this.displayPlayItemState.splice(k, 1, response.data[0]);
-          this.spliceDisplayPlayItem({
-            response: response,
-            index: k,
           });
         });
       }
@@ -375,30 +251,10 @@ export default {
 </script>
 
 <style scoped lang="css">
-.select-old-text {
-  color: #e8642b;
-}
-.select-old-btn-red {
-  background-color: #e8642b !important;
-}
-.select-old-btn-green {
-  background-color: #64bbb1 !important;
-}
 .select-play-text {
   color: #e8642b;
 }
-.child-img {
-  margin: 10px auto;
-  max-width: 100px;
-  margin-bottom: 40px;
-}
-.child-img-avatar {
-  border: solid 1px #e8642b;
-}
-.explain-text {
-  margin: 10px auto;
-  max-width: 400px;
-}
+
 .v-card-warpper {
   background-color: #f6f6f8;
 }
@@ -430,6 +286,18 @@ export default {
 }
 .v-enter,
 .v-leave-to {
+  opacity: 0;
+}
+.list-item {
+  /* display: inline-block; */
+  /* margin-right: 10px; */
+  width: 100% !important;
+}
+.list-enter-active,
+.list-leave-active {
+  transition: 0.5s;
+}
+.list-enter, .list-leave-to /* .list-leave-active for below version 2.1.8 */ {
   opacity: 0;
 }
 </style>
