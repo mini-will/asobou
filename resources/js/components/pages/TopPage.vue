@@ -9,15 +9,10 @@
       <!-- 遊び年齢の選択 -->
       <TopSelectOld />
 
-      <!-- 遊びを表示 -->
-      <div class="select-play-text">
-        <h2 class="mt-10">あそびをえらんでね</h2>
-        <p class="caption">
-          ４つのカテゴリごとに
-          <br />ランダムに遊びが表示されます。
-          <br />違う遊びがいいときはチェンジを押してください
-        </p>
-      </div>
+      <!-- 遊び選択してねのテキスト表示 -->
+      <TopSelectPlayText />
+
+      <!-- 遊びアイテムを表示 -->
       <div v-if="!loading">
         <div class="v-card-warpper">
           <v-row>
@@ -131,6 +126,7 @@ import DialogRandom from '../parts/DialogRandom.vue';
 import AboutApp from '../parts/AboutApp.vue';
 import ShareApp from '../parts/ShareApp.vue';
 import TopSelectOld from '../parts/TopSelectOld.vue';
+import TopSelectPlayText from '../parts/TopSelectPlayText.vue';
 
 export default {
   components: {
@@ -138,6 +134,7 @@ export default {
     AboutApp,
     ShareApp,
     TopSelectOld,
+    TopSelectPlayText,
   },
 
   data() {
@@ -251,10 +248,6 @@ export default {
 </script>
 
 <style scoped lang="css">
-.select-play-text {
-  color: #e8642b;
-}
-
 .v-card-warpper {
   background-color: #f6f6f8;
 }
