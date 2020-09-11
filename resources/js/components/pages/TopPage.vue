@@ -1,6 +1,11 @@
 <template>
   <div>
-    <v-container color="#FFC107" class="text-center" fluid style="max-height: 100%;">
+    <v-container
+      color="#FFC107"
+      class="text-center"
+      fluid
+      style="max-height: 100%;"
+    >
       <!-- 遊び年齢の選択 -->
       <TopSelectOld />
 
@@ -24,13 +29,13 @@
                   <div
                     class="category-title"
                     :class="
-                    index % 2 === 0 ? 'playcard-even-green' : 'playcard-odd-red'
-                  "
+                      index % 2 === 0
+                        ? 'playcard-even-green'
+                        : 'playcard-odd-red'
+                    "
                   >
                     <span class="material-icons">
-                      {{
-                      categoryIcon(playcard.category)
-                      }}
+                      {{ categoryIcon(playcard.category) }}
                     </span>
                     {{ categoryWamei(playcard.category) }}
                   </div>
@@ -38,7 +43,9 @@
 
                 <v-card class="playcard-warpper mb-4">
                   <v-responsive :aspect-ratio="16 / 9">
-                    <router-link :to="{ name: 'PlayInfo', params: { id: playcard.id } }">
+                    <router-link
+                      :to="{ name: 'PlayInfo', params: { id: playcard.id } }"
+                    >
                       <v-img
                         :src="playcard.image_url"
                         class="white--text align-end"
@@ -58,10 +65,12 @@
                           color="#CA9639"
                           class="white--text"
                           @click.stop="
-                          switchDialog(playcard.id, playcard.category, index)
-                        "
+                            switchDialog(playcard.id, playcard.category, index)
+                          "
                         >
-                          <span class="material-icons mr-1 change-icon">cached</span>
+                          <span class="material-icons mr-1 change-icon"
+                            >cached</span
+                          >
                           チェンジ
                         </v-btn>
                       </div>
@@ -280,7 +289,9 @@ export default {
 }
 .list-enter-active,
 .list-leave-active {
-  transition: 0.5s;
+  transition: opacity all 0.5s ease;
+  /* transition: all 0.5s ease; */
+  /* transition: transform all 1.5s; */
 }
 .list-enter, .list-leave-to /* .list-leave-active for below version 2.1.8 */ {
   opacity: 0;
@@ -288,5 +299,6 @@ export default {
 .play__list {
   display: flex;
   flex-wrap: wrap;
+  max-width: 100%;
 }
 </style>
