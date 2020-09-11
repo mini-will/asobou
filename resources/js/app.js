@@ -10,6 +10,43 @@ import Vuetify from 'vuetify';
 import "vuetify/dist/vuetify.min.css";
 import colors from 'vuetify/es5/util/colors';
 
+import VueAnalytics from 'vue-analytics';
+
+import Vue from 'vue'
+import VueLoading from 'vue-loading-template'
+Vue.use(VueLoading, /** options **/ )
+
+
+import VueSocialSharing from 'vue-social-sharing'
+Vue.use(VueSocialSharing);
+
+// Font Awesome
+import {
+    library
+} from '@fortawesome/fontawesome-svg-core'
+
+import {
+    FontAwesomeIcon
+} from '@fortawesome/vue-fontawesome'
+
+import {
+    fas
+} from '@fortawesome/free-solid-svg-icons'
+
+import {
+    fab
+} from '@fortawesome/free-brands-svg-icons'
+
+import {
+    far
+} from '@fortawesome/free-regular-svg-icons'
+
+library.add(fas, far, fab)
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+
+
 window.Vue = require('vue');
 
 // eslint-disable-next-line no-undef
@@ -41,6 +78,11 @@ Vue.use(Vuetify, {
     }
 });
 
+// eslint-disable-next-line no-undef
+Vue.use(VueAnalytics, {
+    id: 'UA-175827207-1',
+    router
+});
 
 // eslint-disable-next-line no-unused-vars
 const app = new Vue({

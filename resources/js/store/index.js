@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         // トップページで遊び年齢を保持するデータ
-        playOldState: [0],
+        playOldState: 999,
 
         // トップページで表示された遊びデータ
         displayPlayItemState: [],

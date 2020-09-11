@@ -1,20 +1,16 @@
 <template>
   <header>
-    <v-app-bar color="#FFA000" app>
-      <v-app-bar-nav-icon @click="drawer = true" color="white"></v-app-bar-nav-icon>
-      <v-toolbar-title
-        style="cursor: pointer;"
-        @click="$router.push('/', () => {})"
-        class="white--text"
-      >Asobiy</v-toolbar-title>
+    <v-app-bar class="app-bar" app>
+      <v-app-bar-nav-icon @click="drawer = true" color="#64BBB1"></v-app-bar-nav-icon>
+      <v-toolbar-title style="cursor: pointer;" @click="$router.push('/', () => {})">Asobiy</v-toolbar-title>
 
       <v-tabs>
-        <v-tab
-          v-for="(menuItem, index) in menuItems"
-          :key="index"
-          :to="menuItem.link"
-          class="white--text"
-        >{{ menuItem.name }}</v-tab>
+        <v-tab v-for="(menuItem, index) in menuItems" :key="index" :to="menuItem.link">
+          <div class="v-tabs-text">
+            <span class="header-icon material-icons pr-1">{{ menuItem.icon }}</span>
+            {{ menuItem.name }}
+          </div>
+        </v-tab>
       </v-tabs>
 
       <!-- <v-spacer></v-spacer>
@@ -27,7 +23,12 @@
       <v-list nav dense>
         <v-list-item-group>
           <v-list-item v-for="(menuItem, index) in menuItems" :key="index" :to="menuItem.link">
-            <v-list-item-title>{{ menuItem.name }}</v-list-item-title>
+            <v-list-item-title>
+              <div class="drawer-title">
+                <span class="material-icons pr-1">{{ menuItem.icon }}</span>
+                {{ menuItem.name }}
+              </div>
+            </v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -72,5 +73,38 @@ export default {
   @include display_pc {
     display: block !important;
   }
+}
+</style>
+
+<style lang="css">
+.v-toolbar {
+  background: #ece9e6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffffff,
+    #ece9e6ef
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    #ece9e6ef
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.v-toolbar__title {
+  color: #64bbb1;
+  font-family: 'Kalam', cursive;
+  font-size: 1.5rem !important;
+}
+.v-tabs-text {
+  color: #64bbb1;
+}
+.drawer-title {
+  color: #64bbb1;
+}
+.header-icon {
+  vertical-align: middle;
+}
+.drawer-title span {
+  vertical-align: middle;
 }
 </style>
