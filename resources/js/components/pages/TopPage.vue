@@ -16,7 +16,7 @@
       <div v-if="!loading">
         <div class="v-card-warpper">
           <v-row>
-            <!-- <transition-group name="list" tag="playlist"> -->
+            <!-- <transition-group name="list" tag="play-list"> -->
             <v-col
               v-for="(playcard, index) in displayPlayItemState"
               :key="playcard.id"
@@ -283,8 +283,7 @@ export default {
 }
 .list-item {
   /* display: inline-block; */
-  /* margin-right: 10px; */
-  width: 100% !important;
+  margin-right: 10px;
 }
 .list-enter-active,
 .list-leave-active {
