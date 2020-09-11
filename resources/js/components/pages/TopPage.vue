@@ -1,11 +1,6 @@
 <template>
   <div>
-    <v-container
-      color="#FFC107"
-      class="text-center"
-      fluid
-      style="max-height: 100%;"
-    >
+    <v-container color="#FFC107" class="text-center" fluid style="max-height: 100%;">
       <!-- 遊び年齢の選択 -->
       <TopSelectOld />
 
@@ -16,67 +11,65 @@
       <div v-if="!loading">
         <div class="v-card-warpper">
           <v-row>
-            <!-- <transition-group name="list" tag="play-list"> -->
-            <v-col
-              v-for="(playcard, index) in displayPlayItemState"
-              :key="playcard.id"
-              cols="6"
-              sm="6"
-              md="3"
-              lg="3"
-            >
-              <h3 class="mb-1">
-                <div
-                  class="category-title"
-                  :class="
+            <transition-group tag="div" name="list" class="play__list">
+              <v-col
+                v-for="(playcard, index) in displayPlayItemState"
+                :key="playcard.id"
+                cols="6"
+                sm="6"
+                md="3"
+                lg="3"
+              >
+                <h3 class="mb-1">
+                  <div
+                    class="category-title"
+                    :class="
                     index % 2 === 0 ? 'playcard-even-green' : 'playcard-odd-red'
                   "
-                >
-                  <span class="material-icons">{{
-                    categoryIcon(playcard.category)
-                  }}</span>
-                  {{ categoryWamei(playcard.category) }}
-                </div>
-              </h3>
-
-              <v-card class="playcard-warpper mb-4">
-                <v-responsive :aspect-ratio="16 / 9">
-                  <router-link
-                    :to="{ name: 'PlayInfo', params: { id: playcard.id } }"
                   >
-                    <v-img
-                      :src="playcard.image_url"
-                      class="white--text align-end"
-                      gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                      height="200px"
-                    >
-                      <v-card-title
-                        v-text="playcard.display_name"
-                        class="headline font-weight-bold"
-                      ></v-card-title>
-                    </v-img>
-                  </router-link>
+                    <span class="material-icons">
+                      {{
+                      categoryIcon(playcard.category)
+                      }}
+                    </span>
+                    {{ categoryWamei(playcard.category) }}
+                  </div>
+                </h3>
 
-                  <v-card-actions>
-                    <div class="card-change-button">
-                      <v-btn
-                        color="#CA9639"
-                        class="white--text"
-                        @click.stop="
+                <v-card class="playcard-warpper mb-4">
+                  <v-responsive :aspect-ratio="16 / 9">
+                    <router-link :to="{ name: 'PlayInfo', params: { id: playcard.id } }">
+                      <v-img
+                        :src="playcard.image_url"
+                        class="white--text align-end"
+                        gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                        height="200px"
+                      >
+                        <v-card-title
+                          v-text="playcard.display_name"
+                          class="headline font-weight-bold"
+                        ></v-card-title>
+                      </v-img>
+                    </router-link>
+
+                    <v-card-actions>
+                      <div class="card-change-button">
+                        <v-btn
+                          color="#CA9639"
+                          class="white--text"
+                          @click.stop="
                           switchDialog(playcard.id, playcard.category, index)
                         "
-                      >
-                        <span class="material-icons mr-1 change-icon"
-                          >cached</span
                         >
-                        チェンジ
-                      </v-btn>
-                    </div>
-                  </v-card-actions>
-                </v-responsive>
-              </v-card>
-            </v-col>
-            <!-- </transition-group> -->
+                          <span class="material-icons mr-1 change-icon">cached</span>
+                          チェンジ
+                        </v-btn>
+                      </div>
+                    </v-card-actions>
+                  </v-responsive>
+                </v-card>
+              </v-col>
+            </transition-group>
           </v-row>
         </div>
       </div>
@@ -116,7 +109,7 @@
     <v-btn color="error">Error</v-btn>
     <v-btn color="warning">Warning</v-btn>
     <v-btn color="info">Info</v-btn>
-      <br />-->
+    <br />-->
   </div>
 </template>
 
@@ -291,5 +284,9 @@ export default {
 }
 .list-enter, .list-leave-to /* .list-leave-active for below version 2.1.8 */ {
   opacity: 0;
+}
+.play__list {
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>
