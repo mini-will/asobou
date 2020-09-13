@@ -10,7 +10,7 @@ Asobiy
 
 ## Demo
 
-![Asobiy](https://asobiy.herokuapp.com/)
+- [Asobiy](https://asobiy.herokuapp.com/)
 
 ## Features
 
@@ -28,8 +28,6 @@ Asobiy
 
 - vue のソースフォルダを /resources/js に配置する
 
-1. トップページにアクセスし遊びたい年齢を選ぶ
-
 ## Installation （ローカル環境）
 
 ```
@@ -39,15 +37,15 @@ $ git clone https://github.com/mini-will/asobou.git
 # 実行ディレクトリへ移動
 $ cd {local_repo}
 
+# .env
+# 特殊設定無し
+
 # 環境最新化
 $ npm update
 $ composer update
 
 # db作成
 $ php artisan migrate
-
-# .env
-# 特殊設定無し
 
 # 遊びデータの挿入
 $ php artisan db:seed --class=PlayProductSeeder
